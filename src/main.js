@@ -1,15 +1,18 @@
 import "./setSVG.js";
 import setScrollNav from "lb-scroll-nav";
-import "lb-lazy-images";
+import loadImg from "lb-lazy-images";
 import randOpacity from "lb-burger";
 import "./main.css";
 
 const sections = document.querySelectorAll( "section" );
 const sectionContainer = document.querySelector( ".section-container" );
-setScrollNav( sections, sectionContainer )
+setScrollNav( sections, sectionContainer );
 
-const lines = document.querySelectorAll( ".line-container" );
-[].forEach.call( lines, line => {
+const lines = document.querySelectorAll( ".line" );
+console.log( loadImg( lines ) )
+
+const linesContainers = document.querySelectorAll( ".line-container" );
+[].forEach.call( linesContainers, line => {
 	for ( let i = 0; i < 23; i++ ) {
 		const square = document.createElement( "div" );
 		square.className = "square";

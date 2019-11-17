@@ -60,8 +60,11 @@ html {
      .moltitudine {
           width: 70%;
           opacity: 0;
-          animation: fadein 5000ms 3000ms forwards;
           font-size: 0;
+
+          // &.display {
+          animation: fadein 10000ms forwards;
+          // }
 
           .line {
                max-width: 100%;

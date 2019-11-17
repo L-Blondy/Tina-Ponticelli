@@ -260,7 +260,7 @@ require("./setSVG.js");
 
 var _lbScrollNav = _interopRequireDefault(require("lb-scroll-nav"));
 
-require("lb-lazy-images");
+var _lbLazyImages = _interopRequireDefault(require("lb-lazy-images"));
 
 var _lbBurger = _interopRequireDefault(require("lb-burger"));
 
@@ -271,8 +271,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var sections = document.querySelectorAll("section");
 var sectionContainer = document.querySelector(".section-container");
 (0, _lbScrollNav.default)(sections, sectionContainer);
-var lines = document.querySelectorAll(".line-container");
-[].forEach.call(lines, function (line) {
+var lines = document.querySelectorAll(".line");
+console.log((0, _lbLazyImages.default)(lines));
+var linesContainers = document.querySelectorAll(".line-container");
+[].forEach.call(linesContainers, function (line) {
   for (var i = 0; i < 23; i++) {
     var square = document.createElement("div");
     square.className = "square";
@@ -315,7 +317,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58178" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58878" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

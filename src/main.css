@@ -404,9 +404,9 @@ html {
 .home .moltitudine {
   width: 70%;
   opacity: 0;
-  -webkit-animation: fadein 5000ms 3000ms forwards;
-          animation: fadein 5000ms 3000ms forwards;
   font-size: 0;
+  -webkit-animation: fadein 10000ms forwards;
+          animation: fadein 10000ms forwards;
 }
 
 .home .moltitudine .line {
