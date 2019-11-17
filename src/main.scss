@@ -16,7 +16,7 @@ html {
 .navbar {
      font-family: 'Raleway', sans-serif;
      height: $navbar-height;
-     box-shadow: 0 0 15px 0 #00000030;
+     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
      display: flex;
      align-items: center;
      justify-content: space-between;
@@ -50,15 +50,42 @@ html {
      display: flex;
      align-items: center;
      justify-content: center;
+     border-collapse: separate;
+     box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.2);
 
      @media (min-width: 1100px) {
-          min-height: calc(100vh - #{$navbar-height});
+          height: calc(100vh - #{$navbar-height});
      }
 
      .moltitudine {
           width: 70%;
           opacity: 0;
-          animation: fadein6 5000ms 3000ms forwards;
+          animation: fadein 5000ms 3000ms forwards;
+          font-size: 0;
+
+          .line {
+               max-width: 100%;
+          }
+
+          .line-container {
+               position: relative;
+          }
+
+          .squares {
+               position: absolute;
+               height: 100%;
+               width: 100%;
+               top: 0;
+               left: 0;
+               display: flex;
+
+               .square {
+                    flex-grow: 1;
+                    height: 100%;
+                    background: white;
+                    opacity: 0.7;
+               }
+          }
 
           @media (max-width: 1400px) {
                width: 85%;
@@ -67,25 +94,11 @@ html {
           @media (max-width: 1100px) {
                width: 100%;
           }
-
-          font-size: 0;
-          display: grid;
-          justify-items: stretch;
-          align-items: stretch;
-          grid-template-columns: repeat(23, 1fr);
-          grid-template-rows: repeat(8, 1fr);
-          max-height: 100%;
-          box-shadow: 0 0 100px -50px #00000030;
-
-          .moltitudine-item {
-               max-width: 100%;
-               opacity: 0.3;
-          }
      }
 
-     @for $i from 0 through 183 {
-          .moltitudine-item:nth-child(#{$i + 1}) {
-               grid-column: $i % 23 + 1;
+     @for $i from 0 through 8 {
+          .line:nth-child(#{$i + 1}) {
+               grid-column: $i % 8 + 1;
                grid-row: ($i / 23) + 1;
           }
      }
