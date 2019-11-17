@@ -123,56 +123,182 @@ document.querySelector(".home-title").innerHTML = "\n<div>\n<svg   height=\"100%
 "use strict";Object.defineProperty(exports,"__esModule",{value:true});exports.default=setScrollNav;function setScrollNav(sections){var sectionsContainer=arguments.length>1&&arguments[1]!==undefined?arguments[1]:document.querySelector("body");var threshold=arguments.length>2&&arguments[2]!==undefined?arguments[2]:.5;document.addEventListener("click",function(e){var href=e.target.getAttribute("href");if(href&&e.target.getAttribute("href")[0]==="#"){window.location.replace(href)}});var options={threshold:threshold};function callback(entries){entries.forEach(function(entry){if(entry.intersectionRatio>=options.threshold){var id=entry.target.id;var prevActive=document.querySelector(".navlink-active");var newActive=document.querySelector('[href="#'.concat(id,'"]'));prevActive&&prevActive.classList.remove("navlink-active");newActive.classList.add("navlink-active");history.replaceState({},id,"/#".concat(id))}})}try{var observer=new IntersectionObserver(callback,options);sections.forEach(function(section){observer.observe(section)})}catch(error){console.log("The IntersectionObserver API might not be supported by the browser")}sectionsContainer.style.overflowY="scroll";sectionsContainer.style.overflowX="hidden";sectionsContainer.style.scrollBehavior="smooth";var body=document.querySelector("body");body.style.height="100vh";body.style.width="100%";body.style.overflow="hidden";document.querySelector("nav").style.width="100%"}
 },{}],"src/assets/subtitle.svg":[function(require,module,exports) {
 module.exports = "/subtitle.aea07815.svg";
-},{}],"src/assets/moltitudine/line1.jpg":[function(require,module,exports) {
-module.exports = "/line1.34f92dec.jpg";
-},{}],"src/assets/moltitudine/line2.jpg":[function(require,module,exports) {
-module.exports = "/line2.16dfc188.jpg";
-},{}],"src/assets/moltitudine/line3.jpg":[function(require,module,exports) {
-module.exports = "/line3.8f31d2e4.jpg";
-},{}],"src/assets/moltitudine/line4.jpg":[function(require,module,exports) {
-module.exports = "/line4.0f42428d.jpg";
-},{}],"src/assets/moltitudine/line5.jpg":[function(require,module,exports) {
-module.exports = "/line5.7a5ea8d3.jpg";
-},{}],"src/assets/moltitudine/line6.jpg":[function(require,module,exports) {
-module.exports = "/line6.85e5dc66.jpg";
-},{}],"src/assets/moltitudine/line7.jpg":[function(require,module,exports) {
-module.exports = "/line7.f542eccb.jpg";
-},{}],"src/assets/moltitudine/line8.jpg":[function(require,module,exports) {
-module.exports = "/line8.1307626d.jpg";
+},{}],"src/assets/moltitudine x1100/line1.jpg":[function(require,module,exports) {
+module.exports = "/line1.0ce88b59.jpg";
+},{}],"src/assets/moltitudine x1100/line2.jpg":[function(require,module,exports) {
+module.exports = "/line2.6859d3c3.jpg";
+},{}],"src/assets/moltitudine x1100/line3.jpg":[function(require,module,exports) {
+module.exports = "/line3.f22107e6.jpg";
+},{}],"src/assets/moltitudine x1100/line4.jpg":[function(require,module,exports) {
+module.exports = "/line4.b4d9555d.jpg";
+},{}],"src/assets/moltitudine x1100/line5.jpg":[function(require,module,exports) {
+module.exports = "/line5.617a1472.jpg";
+},{}],"src/assets/moltitudine x1100/line6.jpg":[function(require,module,exports) {
+module.exports = "/line6.5bf01f9b.jpg";
+},{}],"src/assets/moltitudine x1100/line7.jpg":[function(require,module,exports) {
+module.exports = "/line7.03879a36.jpg";
+},{}],"src/assets/moltitudine x1100/line8.jpg":[function(require,module,exports) {
+module.exports = "/line8.44461ab0.jpg";
+},{}],"src/assets/moltitudine x1920/line1.jpg":[function(require,module,exports) {
+module.exports = "/line1.8430ddf6.jpg";
+},{}],"src/assets/moltitudine x1920/line2.jpg":[function(require,module,exports) {
+module.exports = "/line2.859f1b05.jpg";
+},{}],"src/assets/moltitudine x1920/line3.jpg":[function(require,module,exports) {
+module.exports = "/line3.b2fe593d.jpg";
+},{}],"src/assets/moltitudine x1920/line4.jpg":[function(require,module,exports) {
+module.exports = "/line4.6f74348f.jpg";
+},{}],"src/assets/moltitudine x1920/line5.jpg":[function(require,module,exports) {
+module.exports = "/line5.3f592f76.jpg";
+},{}],"src/assets/moltitudine x1920/line6.jpg":[function(require,module,exports) {
+module.exports = "/line6.9da589d9.jpg";
+},{}],"src/assets/moltitudine x1920/line7.jpg":[function(require,module,exports) {
+module.exports = "/line7.46731f56.jpg";
+},{}],"src/assets/moltitudine x1920/line8.jpg":[function(require,module,exports) {
+module.exports = "/line8.b3a045de.jpg";
+},{}],"src/assets/moltitudine x480/line1.jpg":[function(require,module,exports) {
+module.exports = "/line1.2e17f0fc.jpg";
+},{}],"src/assets/moltitudine x480/line2.jpg":[function(require,module,exports) {
+module.exports = "/line2.7704a8d9.jpg";
+},{}],"src/assets/moltitudine x480/line3.jpg":[function(require,module,exports) {
+module.exports = "/line3.dbaf0d71.jpg";
+},{}],"src/assets/moltitudine x480/line4.jpg":[function(require,module,exports) {
+module.exports = "/line4.02f934b0.jpg";
+},{}],"src/assets/moltitudine x480/line6.jpg":[function(require,module,exports) {
+module.exports = "/line6.0c9223f6.jpg";
+},{}],"src/assets/moltitudine x480/line5.jpg":[function(require,module,exports) {
+module.exports = "/line5.16cd3ba9.jpg";
+},{}],"src/assets/moltitudine x480/line7.jpg":[function(require,module,exports) {
+module.exports = "/line7.953a0662.jpg";
+},{}],"src/assets/moltitudine x480/line8.jpg":[function(require,module,exports) {
+module.exports = "/line8.5c6de800.jpg";
+},{}],"src/assets/moltitudine x768/line2.jpg":[function(require,module,exports) {
+module.exports = "/line2.bd4ad6cf.jpg";
+},{}],"src/assets/moltitudine x768/line1.jpg":[function(require,module,exports) {
+module.exports = "/line1.fd5709d8.jpg";
+},{}],"src/assets/moltitudine x768/line3.jpg":[function(require,module,exports) {
+module.exports = "/line3.99ba1802.jpg";
+},{}],"src/assets/moltitudine x768/line4.jpg":[function(require,module,exports) {
+module.exports = "/line4.4a5355da.jpg";
+},{}],"src/assets/moltitudine x768/line5.jpg":[function(require,module,exports) {
+module.exports = "/line5.e19550fc.jpg";
+},{}],"src/assets/moltitudine x768/line6.jpg":[function(require,module,exports) {
+module.exports = "/line6.e3d22199.jpg";
+},{}],"src/assets/moltitudine x768/line7.jpg":[function(require,module,exports) {
+module.exports = "/line7.2d1bbc5c.jpg";
+},{}],"src/assets/moltitudine x768/line8.jpg":[function(require,module,exports) {
+module.exports = "/line8.48b0b73e.jpg";
 },{}],"src/assets/**/*.*":[function(require,module,exports) {
 module.exports = {
   "subtitle": {
     "svg": require("./..\\subtitle.svg")
   },
-  "moltitudine": {
+  "moltitudine x1100": {
     "line1": {
-      "jpg": require("./..\\moltitudine\\line1.jpg")
+      "jpg": require("./..\\moltitudine x1100\\line1.jpg")
     },
     "line2": {
-      "jpg": require("./..\\moltitudine\\line2.jpg")
+      "jpg": require("./..\\moltitudine x1100\\line2.jpg")
     },
     "line3": {
-      "jpg": require("./..\\moltitudine\\line3.jpg")
+      "jpg": require("./..\\moltitudine x1100\\line3.jpg")
     },
     "line4": {
-      "jpg": require("./..\\moltitudine\\line4.jpg")
+      "jpg": require("./..\\moltitudine x1100\\line4.jpg")
     },
     "line5": {
-      "jpg": require("./..\\moltitudine\\line5.jpg")
+      "jpg": require("./..\\moltitudine x1100\\line5.jpg")
     },
     "line6": {
-      "jpg": require("./..\\moltitudine\\line6.jpg")
+      "jpg": require("./..\\moltitudine x1100\\line6.jpg")
     },
     "line7": {
-      "jpg": require("./..\\moltitudine\\line7.jpg")
+      "jpg": require("./..\\moltitudine x1100\\line7.jpg")
     },
     "line8": {
-      "jpg": require("./..\\moltitudine\\line8.jpg")
+      "jpg": require("./..\\moltitudine x1100\\line8.jpg")
+    }
+  },
+  "moltitudine x1920": {
+    "line1": {
+      "jpg": require("./..\\moltitudine x1920\\line1.jpg")
+    },
+    "line2": {
+      "jpg": require("./..\\moltitudine x1920\\line2.jpg")
+    },
+    "line3": {
+      "jpg": require("./..\\moltitudine x1920\\line3.jpg")
+    },
+    "line4": {
+      "jpg": require("./..\\moltitudine x1920\\line4.jpg")
+    },
+    "line5": {
+      "jpg": require("./..\\moltitudine x1920\\line5.jpg")
+    },
+    "line6": {
+      "jpg": require("./..\\moltitudine x1920\\line6.jpg")
+    },
+    "line7": {
+      "jpg": require("./..\\moltitudine x1920\\line7.jpg")
+    },
+    "line8": {
+      "jpg": require("./..\\moltitudine x1920\\line8.jpg")
+    }
+  },
+  "moltitudine x480": {
+    "line1": {
+      "jpg": require("./..\\moltitudine x480\\line1.jpg")
+    },
+    "line2": {
+      "jpg": require("./..\\moltitudine x480\\line2.jpg")
+    },
+    "line3": {
+      "jpg": require("./..\\moltitudine x480\\line3.jpg")
+    },
+    "line4": {
+      "jpg": require("./..\\moltitudine x480\\line4.jpg")
+    },
+    "line6": {
+      "jpg": require("./..\\moltitudine x480\\line6.jpg")
+    },
+    "line5": {
+      "jpg": require("./..\\moltitudine x480\\line5.jpg")
+    },
+    "line7": {
+      "jpg": require("./..\\moltitudine x480\\line7.jpg")
+    },
+    "line8": {
+      "jpg": require("./..\\moltitudine x480\\line8.jpg")
+    }
+  },
+  "moltitudine x768": {
+    "line2": {
+      "jpg": require("./..\\moltitudine x768\\line2.jpg")
+    },
+    "line1": {
+      "jpg": require("./..\\moltitudine x768\\line1.jpg")
+    },
+    "line3": {
+      "jpg": require("./..\\moltitudine x768\\line3.jpg")
+    },
+    "line4": {
+      "jpg": require("./..\\moltitudine x768\\line4.jpg")
+    },
+    "line5": {
+      "jpg": require("./..\\moltitudine x768\\line5.jpg")
+    },
+    "line6": {
+      "jpg": require("./..\\moltitudine x768\\line6.jpg")
+    },
+    "line7": {
+      "jpg": require("./..\\moltitudine x768\\line7.jpg")
+    },
+    "line8": {
+      "jpg": require("./..\\moltitudine x768\\line8.jpg")
     }
   }
 };
-},{"./..\\subtitle.svg":"src/assets/subtitle.svg","./..\\moltitudine\\line1.jpg":"src/assets/moltitudine/line1.jpg","./..\\moltitudine\\line2.jpg":"src/assets/moltitudine/line2.jpg","./..\\moltitudine\\line3.jpg":"src/assets/moltitudine/line3.jpg","./..\\moltitudine\\line4.jpg":"src/assets/moltitudine/line4.jpg","./..\\moltitudine\\line5.jpg":"src/assets/moltitudine/line5.jpg","./..\\moltitudine\\line6.jpg":"src/assets/moltitudine/line6.jpg","./..\\moltitudine\\line7.jpg":"src/assets/moltitudine/line7.jpg","./..\\moltitudine\\line8.jpg":"src/assets/moltitudine/line8.jpg"}],"node_modules/lb-lazy-images/bundle.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:true});exports.default=loadImg;function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);if(enumerableOnly)symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});keys.push.apply(keys,symbols)}return keys}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=arguments[i]!=null?arguments[i]:{};if(i%2){ownKeys(source,true).forEach(function(key){_defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true})}else{obj[key]=value}return obj}function _typeof(obj){if(typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"){_typeof=function _typeof(obj){return typeof obj}}else{_typeof=function _typeof(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj}}return _typeof(obj)}function _slicedToArray(arr,i){return _arrayWithHoles(arr)||_iterableToArrayLimit(arr,i)||_nonIterableRest()}function _nonIterableRest(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}function _iterableToArrayLimit(arr,i){if(!(Symbol.iterator in Object(arr)||Object.prototype.toString.call(arr)==="[object Arguments]")){return}var _arr=[];var _n=true;var _d=false;var _e=undefined;try{for(var _i=arr[Symbol.iterator](),_s;!(_n=(_s=_i.next()).done);_n=true){_arr.push(_s.value);if(i&&_arr.length===i)break}}catch(err){_d=true;_e=err}finally{try{if(!_n&&_i["return"]!=null)_i["return"]()}finally{if(_d)throw _e}}return _arr}function _arrayWithHoles(arr){if(Array.isArray(arr))return arr}var images=require("./../../src/assets/**/*.*");var getAssets=function getAssets(images,relPath){if(!Object.entries){Object.entries=function(obj){var ownProps=Object.keys(obj),i=ownProps.length,resArray=new Array(i);while(i--){resArray[i]=[ownProps[i],obj[ownProps[i]]]}return resArray}}var pathList={};var _loop=function _loop(){var _Object$entries$_i=_slicedToArray(_Object$entries[_i],2),key=_Object$entries$_i[0],value=_Object$entries$_i[1];values=Object.keys(images[key]).map(function(e){return images[key][e]});var isImage=typeof values[0]==="string";var isFolder=_typeof(values[0])==="object";if(isImage){pathList[relPath+key]=value}else if(isFolder){pathList=_objectSpread({},pathList,{},getAssets(value,relPath+key+"/"))}};for(var _i=0,_Object$entries=Object.entries(images);_i<_Object$entries.length;_i++){var values;_loop()}return pathList};var pathList=getAssets(images,"");function loadImg(elements){var promises=[];if(!elements.length){elements=new Array(elements)}if(elements.length){var _loop2=function _loop2(i){if("Promise"in window){var promise=new Promise(function(resolve,reject){var cacheImg=document.createElement("img");var attributes=elements[i].attributes;for(var _i2=0;_i2<attributes.length;_i2++){if(attributes[_i2].name!=="src"&&attributes[_i2].name!=="data-asset")cacheImg.setAttribute(attributes[_i2].name,attributes[_i2].value)}if(!pathList[elements[i].dataset.asset]){resolve(elements[i]);console.error('<img data-asset="'.concat(elements[i].dataset.asset,'"/> not loaded, please check the path'))}else cacheImg.src=pathList[elements[i].dataset.asset][Object.keys(pathList[elements[i].dataset.asset])[0]];cacheImg.onload=function(){return resolve(cacheImg)}});promise.then(function(cacheImg){elements[i].parentNode.replaceChild(cacheImg,elements[i]);return""});promises.push(promise)}else{try{elements[i].src=pathList[elements[i].dataset.asset][Object.keys(pathList[elements[i].dataset.asset])[0]]}catch(error){console.error('<img data-asset="'.concat(elements[i].dataset.asset,'"/> not loaded, please check the path'))}}};for(var i=0;i<elements.length;i++){_loop2(i)}}}var imagesScroll=document.querySelectorAll("[loadOnScroll]");if(imagesScroll.length){try{var loadCb=function loadCb(entries){entries.forEach(function(entry){if(entry.intersectionRatio>0){loadImg(entry.target);loadObs.unobserve(entry.target)}})};var loadObs=new IntersectionObserver(loadCb,{rootMargin:"0px 0px 500px 0px"});Array.prototype.forEach.call(imagesScroll,function(image){loadObs.observe(image)})}catch(error){console.log(imagesScroll);console.log("EagerLoaded as a fallback");loadImg(imagesScroll)}}
+},{"./..\\subtitle.svg":"src/assets/subtitle.svg","./..\\moltitudine x1100\\line1.jpg":"src/assets/moltitudine x1100/line1.jpg","./..\\moltitudine x1100\\line2.jpg":"src/assets/moltitudine x1100/line2.jpg","./..\\moltitudine x1100\\line3.jpg":"src/assets/moltitudine x1100/line3.jpg","./..\\moltitudine x1100\\line4.jpg":"src/assets/moltitudine x1100/line4.jpg","./..\\moltitudine x1100\\line5.jpg":"src/assets/moltitudine x1100/line5.jpg","./..\\moltitudine x1100\\line6.jpg":"src/assets/moltitudine x1100/line6.jpg","./..\\moltitudine x1100\\line7.jpg":"src/assets/moltitudine x1100/line7.jpg","./..\\moltitudine x1100\\line8.jpg":"src/assets/moltitudine x1100/line8.jpg","./..\\moltitudine x1920\\line1.jpg":"src/assets/moltitudine x1920/line1.jpg","./..\\moltitudine x1920\\line2.jpg":"src/assets/moltitudine x1920/line2.jpg","./..\\moltitudine x1920\\line3.jpg":"src/assets/moltitudine x1920/line3.jpg","./..\\moltitudine x1920\\line4.jpg":"src/assets/moltitudine x1920/line4.jpg","./..\\moltitudine x1920\\line5.jpg":"src/assets/moltitudine x1920/line5.jpg","./..\\moltitudine x1920\\line6.jpg":"src/assets/moltitudine x1920/line6.jpg","./..\\moltitudine x1920\\line7.jpg":"src/assets/moltitudine x1920/line7.jpg","./..\\moltitudine x1920\\line8.jpg":"src/assets/moltitudine x1920/line8.jpg","./..\\moltitudine x480\\line1.jpg":"src/assets/moltitudine x480/line1.jpg","./..\\moltitudine x480\\line2.jpg":"src/assets/moltitudine x480/line2.jpg","./..\\moltitudine x480\\line3.jpg":"src/assets/moltitudine x480/line3.jpg","./..\\moltitudine x480\\line4.jpg":"src/assets/moltitudine x480/line4.jpg","./..\\moltitudine x480\\line6.jpg":"src/assets/moltitudine x480/line6.jpg","./..\\moltitudine x480\\line5.jpg":"src/assets/moltitudine x480/line5.jpg","./..\\moltitudine x480\\line7.jpg":"src/assets/moltitudine x480/line7.jpg","./..\\moltitudine x480\\line8.jpg":"src/assets/moltitudine x480/line8.jpg","./..\\moltitudine x768\\line2.jpg":"src/assets/moltitudine x768/line2.jpg","./..\\moltitudine x768\\line1.jpg":"src/assets/moltitudine x768/line1.jpg","./..\\moltitudine x768\\line3.jpg":"src/assets/moltitudine x768/line3.jpg","./..\\moltitudine x768\\line4.jpg":"src/assets/moltitudine x768/line4.jpg","./..\\moltitudine x768\\line5.jpg":"src/assets/moltitudine x768/line5.jpg","./..\\moltitudine x768\\line6.jpg":"src/assets/moltitudine x768/line6.jpg","./..\\moltitudine x768\\line7.jpg":"src/assets/moltitudine x768/line7.jpg","./..\\moltitudine x768\\line8.jpg":"src/assets/moltitudine x768/line8.jpg"}],"node_modules/lb-lazy-images/bundle.js":[function(require,module,exports) {
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});exports.default=loadImg;function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);if(enumerableOnly)symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});keys.push.apply(keys,symbols)}return keys}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=arguments[i]!=null?arguments[i]:{};if(i%2){ownKeys(source,true).forEach(function(key){_defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true})}else{obj[key]=value}return obj}function _typeof(obj){if(typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"){_typeof=function _typeof(obj){return typeof obj}}else{_typeof=function _typeof(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj}}return _typeof(obj)}function _slicedToArray(arr,i){return _arrayWithHoles(arr)||_iterableToArrayLimit(arr,i)||_nonIterableRest()}function _nonIterableRest(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}function _iterableToArrayLimit(arr,i){if(!(Symbol.iterator in Object(arr)||Object.prototype.toString.call(arr)==="[object Arguments]")){return}var _arr=[];var _n=true;var _d=false;var _e=undefined;try{for(var _i=arr[Symbol.iterator](),_s;!(_n=(_s=_i.next()).done);_n=true){_arr.push(_s.value);if(i&&_arr.length===i)break}}catch(err){_d=true;_e=err}finally{try{if(!_n&&_i["return"]!=null)_i["return"]()}finally{if(_d)throw _e}}return _arr}function _arrayWithHoles(arr){if(Array.isArray(arr))return arr}var images=require("./../../src/assets/**/*.*");var getAssets=function getAssets(images,relPath){if(!Object.entries){Object.entries=function(obj){var ownProps=Object.keys(obj),i=ownProps.length,resArray=new Array(i);while(i--){resArray[i]=[ownProps[i],obj[ownProps[i]]]}return resArray}}var pathList={};var _loop=function _loop(){var _Object$entries$_i=_slicedToArray(_Object$entries[_i],2),key=_Object$entries$_i[0],value=_Object$entries$_i[1];values=Object.keys(images[key]).map(function(e){return images[key][e]});var isImage=typeof values[0]==="string";var isFolder=_typeof(values[0])==="object";if(isImage){pathList[relPath+key]=value}else if(isFolder){pathList=_objectSpread({},pathList,{},getAssets(value,relPath+key+"/"))}};for(var _i=0,_Object$entries=Object.entries(images);_i<_Object$entries.length;_i++){var values;_loop()}return pathList};var pathList=getAssets(images,"");function loadImg(elements){var promises=[];if(!elements.length){elements=new Array(elements)}if(elements.length){var _loop2=function _loop2(i){if("Promise"in window){var promise=new Promise(function(resolve,reject){var cacheImg=document.createElement("img");var attributes=elements[i].attributes;for(var _i2=0;_i2<attributes.length;_i2++){if(attributes[_i2].name!=="src"&&attributes[_i2].name!=="data-asset")cacheImg.setAttribute(attributes[_i2].name,attributes[_i2].value)}if(!pathList[elements[i].dataset.asset]){resolve(elements[i]);console.error('<img data-asset="'.concat(elements[i].dataset.asset,'"/> not loaded, please check the path'))}else cacheImg.src=pathList[elements[i].dataset.asset][Object.keys(pathList[elements[i].dataset.asset])[0]];cacheImg.onload=function(){return resolve(cacheImg)}});promise.then(function(cacheImg){elements[i].parentNode.replaceChild(cacheImg,elements[i]);return""});promises.push(promise)}else{try{elements[i].src=pathList[elements[i].dataset.asset][Object.keys(pathList[elements[i].dataset.asset])[0]]}catch(error){console.error('<img data-asset="'.concat(elements[i].dataset.asset,'"/> not loaded, please check the path'))}}};for(var i=0;i<elements.length;i++){_loop2(i)}}return Promise.all(promises)}var imagesScroll=document.querySelectorAll("[loadOnScroll]");if(imagesScroll.length){try{var loadCb=function loadCb(entries){entries.forEach(function(entry){if(entry.intersectionRatio>0){loadImg(entry.target);loadObs.unobserve(entry.target)}})};var loadObs=new IntersectionObserver(loadCb,{rootMargin:"0px 0px 500px 0px"});Array.prototype.forEach.call(imagesScroll,function(image){loadObs.observe(image)})}catch(error){console.log(imagesScroll);console.log("EagerLoaded as a fallback");loadImg(imagesScroll)}}
 },{"./../../src/assets/**/*.*":"src/assets/**/*.*"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
@@ -268,11 +394,22 @@ require("./main.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//Scroll Nav
 var sections = document.querySelectorAll("section");
 var sectionContainer = document.querySelector(".section-container");
-(0, _lbScrollNav.default)(sections, sectionContainer);
+(0, _lbScrollNav.default)(sections, sectionContainer); //lazy load Moltitudine
+
 var lines = document.querySelectorAll(".line");
-console.log((0, _lbLazyImages.default)(lines));
+var moltitudine = document.querySelector(".moltitudine");
+var moltWidth = moltitudine.getBoundingClientRect().width;
+var imgWidth = moltWidth < 480 ? 480 : moltWidth < 768 ? 768 : moltWidth < 1100 ? 1100 : 1920;
+[].forEach.call(lines, function (line, index) {
+  line.dataset.asset = "moltitudine x".concat(imgWidth, "/line").concat(index + 1);
+});
+(0, _lbLazyImages.default)(lines).then(function (lines) {
+  return lines[0].parentElement.parentElement.className += " display";
+}); //Set white squares on top
+
 var linesContainers = document.querySelectorAll(".line-container");
 [].forEach.call(linesContainers, function (line) {
   for (var i = 0; i < 23; i++) {
@@ -280,8 +417,8 @@ var linesContainers = document.querySelectorAll(".line-container");
     square.className = "square";
     line.querySelector(".squares").appendChild(square);
   }
-});
-var moltitudine = document.querySelector(".moltitudine");
+}); //Molutitudine Animation
+
 var squares = document.querySelectorAll(".square");
 var options = {
   frequency: 2,
@@ -317,7 +454,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58878" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61345" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
