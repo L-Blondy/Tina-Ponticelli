@@ -17,7 +17,8 @@ index.html
 ```
 <img 
 	src="placeholder.jpg" 
-	data-asset=<<path from "src/asset", ex="subfolder/myImage">> 
+	data-src=<<path from "src/asset", ex="subfolder/myImage">> 
+	data-srcset=<<"path width, path width, ...">>
 	loadOnScroll
 />
 ```
@@ -40,10 +41,12 @@ index.html
 ```
 <img 
 	src="placeholder.jpg" 
-	data-asset=<<path from "src/asset", ex="subfolder/myImage">> 
+	data-src=<<path from "src/asset", ex="subfolder/myImage">> 
+	data-srcset=<<"path width, path width, ...">>
 />
 ```
 
 ## Notes
-- Put no extension on the `data-asset` property
+- Put no extension on the `data-src` && data-srcset properties
+- Path begins from `src/assets` excluded
 

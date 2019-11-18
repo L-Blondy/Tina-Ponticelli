@@ -11,22 +11,21 @@ setScrollNav( sections, sectionContainer );
 
 //lazy load Moltitudine
 const moltitudine = document.querySelector( ".moltitudine" );
-const steps = [ 0, 480, 768, 1100, 1920 ];
-let stepsIndex = 0;
-window.addEventListener( "resize", reloadImg )
-function reloadImg () {
-	const lines = document.querySelectorAll( ".line" )
-	const moltWidth = moltitudine.getBoundingClientRect().width;
-	if ( moltWidth > steps[ stepsIndex ] && stepsIndex < steps.length ) {
-		stepsIndex++;
-		const imgWidth = moltWidth < 480 ? 480 : moltWidth < 768 ? 768 : moltWidth < 1100 ? 1100 : 1920;
-		[].forEach.call( lines, ( line, index ) => {
-			line.dataset.asset = `moltitudine${ imgWidth }/line${ index + 1 }`;
-		} )
-		return loadImg( lines );
-	}
+const sizes = [ 480, 768, 1100, 1920 ];
+const lines = document.querySelectorAll( ".line" );
+
+[].forEach.call( lines, ( line, index ) => {
+	line.dataset.srcset = "";
+	sizes.forEach( size => {
+		line.dataset.srcset += `moltitudine${ size }/line${ index + 1 } ${ size }w, `;
+	} )
+} )
+if("Promise" in window)
+	loadImg( lines ).then( lines => { lines[ 0 ].parentElement.parentElement.className += " display" } )
+else {
+	loadImg( lines )
+	setTimeout(()=> lines[ 0 ].parentElement.parentElement.className += " display", 1000)
 }
-reloadImg().then( lines => { lines[ 0 ].parentElement.parentElement.className += " display" } )
 
 //Set white squares on top
 const linesContainers = document.querySelectorAll( ".line-container" );
@@ -39,7 +38,6 @@ const linesContainers = document.querySelectorAll( ".line-container" );
 } )
 
 //Molutitudine Animation
-
 const squares = document.querySelectorAll( ".square" );
 const options = {
 	frequency: 2,
