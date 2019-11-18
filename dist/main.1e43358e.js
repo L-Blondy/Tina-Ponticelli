@@ -121,183 +121,178 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 document.querySelector(".home-title").innerHTML = "\n<div>\n<svg   height=\"100%\" viewBox=\"0 0 877 82\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M62.1104 10.2832H36.9736V80H26.7148V10.2832H1.63184V1.79688H62.1104V10.2832Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M90.4353 80H80.4451V17.4268H90.4353V80Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M165.972 80H156.089L123.594 32.9492V80H113.658V17.4268H123.594L156.089 64.5312V17.4268H165.972V80Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M226.202 65.0146H198.272L192.364 80H182.212L207.94 17.4268H216.856L242.207 80H232.11L226.202 65.0146ZM201.495 56.9043H223.033L212.344 29.5654L201.495 56.9043Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M305.464 49.3848V80H295.151V1.79688H323.994C332.552 1.79688 339.248 3.98112 344.082 8.34961C348.952 12.7181 351.387 18.501 351.387 25.6982C351.387 33.2894 349.006 39.1439 344.243 43.2617C339.517 47.3438 332.731 49.3848 323.887 49.3848H305.464ZM305.464 40.9521H323.994C329.508 40.9521 333.734 39.6631 336.67 37.085C339.606 34.471 341.074 30.7113 341.074 25.8057C341.074 21.1507 339.606 17.4268 336.67 14.6338C333.734 11.8408 329.705 10.3906 324.585 10.2832H305.464V40.9521Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M423.003 50.5664C423.003 59.9121 420.532 67.3063 415.591 72.749C410.649 78.1559 404.025 80.8594 395.718 80.8594C387.518 80.8594 380.893 78.1201 375.845 72.6416C370.832 67.1631 368.325 59.7152 368.325 50.2979V46.9678C368.325 37.7295 370.814 30.3532 375.791 24.8389C380.804 19.3245 387.41 16.5674 395.61 16.5674C403.953 16.5674 410.578 19.2887 415.483 24.7314C420.425 30.1742 422.931 37.4609 423.003 46.5918V50.5664ZM413.174 46.8604C413.174 39.7705 411.634 34.3457 408.555 30.5859C405.475 26.8262 401.16 24.9463 395.61 24.9463C390.239 24.9463 385.978 26.862 382.827 30.6934C379.712 34.5247 378.154 39.9674 378.154 47.0215V50.5664C378.154 57.5488 379.73 62.9736 382.881 66.8408C386.032 70.6722 390.311 72.5879 395.718 72.5879C401.304 72.5879 405.6 70.708 408.608 66.9482C411.652 63.1527 413.174 57.6921 413.174 50.5664V46.8604Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M495.693 80H485.81L453.315 32.9492V80H443.379V17.4268H453.315L485.81 64.5312V17.4268H495.693V80Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M565.751 25.6445H544.321V80H534.384V25.6445H513.061V17.4268H565.751V25.6445Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M593.754 80H583.764V17.4268H593.754V80Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M667.143 59.751C666.426 66.4469 663.812 71.639 659.301 75.3271C654.789 79.0153 648.791 80.8594 641.308 80.8594C633.287 80.8594 626.841 78.2275 621.972 72.9639C617.138 67.6644 614.721 60.3776 614.721 51.1035V46.0547C614.721 40.1823 615.813 35.026 617.997 30.5859C620.217 26.11 623.386 22.6546 627.504 20.2197C631.658 17.7848 636.456 16.5674 641.898 16.5674C649.203 16.5674 655.058 18.4652 659.462 22.2607C663.902 26.0205 666.462 31.2484 667.143 37.9443H657.206C656.562 33.2894 654.968 29.9235 652.426 27.8467C649.919 25.7699 646.41 24.7314 641.898 24.7314C636.42 24.7314 632.177 26.5576 629.169 30.21C626.197 33.8265 624.693 39.0186 624.657 45.7861V51.4795C624.657 58.2471 626.072 63.4928 628.9 67.2168C631.765 70.9049 635.901 72.749 641.308 72.749C646.142 72.749 649.812 71.7643 652.318 69.7949C654.861 67.7897 656.49 64.4417 657.206 59.751H667.143Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M724.847 51.748H696.273V71.8896H729.52V80H686.337V17.4268H729.198V25.6445H696.273V43.584H724.847V51.748Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M757.577 71.8896H788.944V80H747.64V17.4268H757.577V71.8896Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M816.195 71.8896H847.562V80H806.258V17.4268H816.195V71.8896Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M875.565 80H865.574V17.4268H875.565V80Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n</svg>\n</div>\n\n<div>\n<svg height=\"100%\" viewBox=\"0 0 459 50\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M21.6616 39.9067L34.8647 1.78906H41.5298L24.3911 48H18.9956L1.88867 1.78906H8.52197L21.6616 39.9067Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M57.6325 48H51.7292V11.0249H57.6325V48Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M92.4608 38.542C92.4608 36.8493 91.8155 35.5374 90.5248 34.6064C89.2553 33.6755 87.0653 32.8185 83.955 32.0356C80.8446 31.2528 78.3796 30.4064 76.56 29.4966C72.434 27.423 70.371 24.4925 70.371 20.7051C70.371 17.6794 71.6511 15.2249 74.2113 13.3418C76.7927 11.4587 80.1041 10.5171 84.1454 10.5171C88.2925 10.5171 91.678 11.575 94.3017 13.6909C96.9465 15.8068 98.2689 18.5151 98.2689 21.8159H92.3974C92.3974 19.7424 91.6462 18.1449 90.1439 17.0234C88.6628 15.8809 86.6422 15.3096 84.0819 15.3096C81.691 15.3096 79.7867 15.7856 78.369 16.7378C76.9514 17.6688 76.2426 18.9806 76.2426 20.6733C76.2426 22.0487 76.8879 23.2018 78.1786 24.1328C79.4905 25.0638 81.7968 25.9525 85.0976 26.7988C88.3983 27.6452 90.9797 28.6079 92.8417 29.687C94.7037 30.745 96.0896 31.9933 96.9994 33.4321C97.9092 34.8709 98.3642 36.5531 98.3642 38.4785C98.3642 41.5889 97.0735 44.0433 94.4921 45.8418C91.9319 47.6191 88.5465 48.5078 84.3358 48.5078C79.956 48.5078 76.3166 47.4393 73.4179 45.3022C70.5403 43.144 69.1015 40.3511 69.1015 36.9233H75.0048C75.0048 39.0815 75.8194 40.7637 77.4486 41.9697C79.0779 43.1758 81.3736 43.7788 84.3358 43.7788C87.0019 43.7788 89.0225 43.3027 90.3979 42.3506C91.7732 41.3773 92.4608 40.1077 92.4608 38.542Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M137.858 11.0249V35.7808C137.858 39.6317 136.536 42.7209 133.891 45.0483C131.246 47.3547 127.712 48.5078 123.29 48.5078C118.847 48.5078 115.324 47.397 112.721 45.1753C110.119 42.9325 108.786 39.8856 108.722 36.0347V11.0249H114.53V35.7808C114.53 38.341 115.282 40.3088 116.784 41.6841C118.307 43.0382 120.476 43.7153 123.29 43.7153C126.062 43.7153 128.199 43.0488 129.701 41.7158C131.225 40.3617 131.986 38.3833 131.986 35.7808V11.0249H137.858Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M172.623 39.145H156.119L152.628 48H146.629L161.832 11.0249H167.1L182.081 48H176.114L172.623 39.145ZM158.023 34.3525H170.75L164.434 18.1978L158.023 34.3525Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M197.581 43.2075H216.116V48H191.709V11.0249H197.581V43.2075Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M273.521 35.9395H254.161L249.813 48H243.529L261.175 1.78906H266.507L284.185 48H277.933L273.521 35.9395ZM256.002 30.9248H271.712L263.841 9.31104L256.002 30.9248Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M308.699 33.7495H299.844V48H293.972V11.0249H307.493C312 11.0249 315.47 12.0088 317.903 13.9766C320.357 15.9443 321.585 18.7267 321.585 22.3237C321.585 27.1479 319.098 30.5016 314.126 32.3848L323.267 47.6826V48H316.983L308.699 33.7495ZM299.844 28.957H307.651C310.127 28.957 312.084 28.3857 313.523 27.2432C314.983 26.0794 315.713 24.5137 315.713 22.5459C315.713 20.43 315.004 18.7902 313.587 17.6265C312.169 16.4627 310.127 15.8809 307.461 15.8809H299.844V28.957Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M360.951 15.8809H348.288V48H342.416V15.8809H329.816V11.0249H360.951V15.8809Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M377.499 48H371.595V11.0249H377.499V48Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M412.327 38.542C412.327 36.8493 411.681 35.5374 410.391 34.6064C409.121 33.6755 406.931 32.8185 403.821 32.0356C400.711 31.2528 398.246 30.4064 396.426 29.4966C392.3 27.423 390.237 24.4925 390.237 20.7051C390.237 17.6794 391.517 15.2249 394.077 13.3418C396.659 11.4587 399.97 10.5171 404.011 10.5171C408.159 10.5171 411.544 11.575 414.168 13.6909C416.813 15.8068 418.135 18.5151 418.135 21.8159H412.263C412.263 19.7424 411.512 18.1449 410.01 17.0234C408.529 15.8809 406.508 15.3096 403.948 15.3096C401.557 15.3096 399.653 15.7856 398.235 16.7378C396.817 17.6688 396.109 18.9806 396.109 20.6733C396.109 22.0487 396.754 23.2018 398.045 24.1328C399.356 25.0638 401.663 25.9525 404.964 26.7988C408.264 27.6452 410.846 28.6079 412.708 29.687C414.57 30.745 415.956 31.9933 416.865 33.4321C417.775 34.8709 418.23 36.5531 418.23 38.4785C418.23 41.5889 416.939 44.0433 414.358 45.8418C411.798 47.6191 408.412 48.5078 404.202 48.5078C399.822 48.5078 396.183 47.4393 393.284 45.3022C390.406 43.144 388.967 40.3511 388.967 36.9233H394.871C394.871 39.0815 395.685 40.7637 397.315 41.9697C398.944 43.1758 401.24 43.7788 404.202 43.7788C406.868 43.7788 408.889 43.3027 410.264 42.3506C411.639 41.3773 412.327 40.1077 412.327 38.542Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n<path d=\"M457.311 15.8809H444.648V48H438.776V15.8809H426.176V11.0249H457.311V15.8809Z\" stroke=\"currentColor\" stroke-width=\"1\" mask=\"url(#path-1-outside-1)\"/>\n</svg>\n</div>\n\n\n";
 },{}],"node_modules/lb-scroll-nav/bundle.js":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:true});exports.default=setScrollNav;function setScrollNav(sections){var sectionsContainer=arguments.length>1&&arguments[1]!==undefined?arguments[1]:document.querySelector("body");var threshold=arguments.length>2&&arguments[2]!==undefined?arguments[2]:.5;document.addEventListener("click",function(e){var href=e.target.getAttribute("href");if(href&&e.target.getAttribute("href")[0]==="#"){window.location.replace(href)}});var options={threshold:threshold};function callback(entries){entries.forEach(function(entry){if(entry.intersectionRatio>=options.threshold){var id=entry.target.id;var prevActive=document.querySelector(".navlink-active");var newActive=document.querySelector('[href="#'.concat(id,'"]'));prevActive&&prevActive.classList.remove("navlink-active");newActive.classList.add("navlink-active");history.replaceState({},id,"/#".concat(id))}})}try{var observer=new IntersectionObserver(callback,options);sections.forEach(function(section){observer.observe(section)})}catch(error){console.log("The IntersectionObserver API might not be supported by the browser")}sectionsContainer.style.overflowY="scroll";sectionsContainer.style.overflowX="hidden";sectionsContainer.style.scrollBehavior="smooth";var body=document.querySelector("body");body.style.height="100vh";body.style.width="100%";body.style.overflow="hidden";document.querySelector("nav").style.width="100%"}
-},{}],"src/assets/subtitle.svg":[function(require,module,exports) {
-module.exports = "/subtitle.aea07815.svg";
-},{}],"src/assets/moltitudine x1100/line1.jpg":[function(require,module,exports) {
-module.exports = "/line1.0ce88b59.jpg";
-},{}],"src/assets/moltitudine x1100/line2.jpg":[function(require,module,exports) {
-module.exports = "/line2.6859d3c3.jpg";
-},{}],"src/assets/moltitudine x1100/line3.jpg":[function(require,module,exports) {
-module.exports = "/line3.f22107e6.jpg";
-},{}],"src/assets/moltitudine x1100/line4.jpg":[function(require,module,exports) {
-module.exports = "/line4.b4d9555d.jpg";
-},{}],"src/assets/moltitudine x1100/line5.jpg":[function(require,module,exports) {
-module.exports = "/line5.617a1472.jpg";
-},{}],"src/assets/moltitudine x1100/line6.jpg":[function(require,module,exports) {
-module.exports = "/line6.5bf01f9b.jpg";
-},{}],"src/assets/moltitudine x1100/line7.jpg":[function(require,module,exports) {
-module.exports = "/line7.03879a36.jpg";
-},{}],"src/assets/moltitudine x1100/line8.jpg":[function(require,module,exports) {
-module.exports = "/line8.44461ab0.jpg";
-},{}],"src/assets/moltitudine x1920/line1.jpg":[function(require,module,exports) {
-module.exports = "/line1.8430ddf6.jpg";
-},{}],"src/assets/moltitudine x1920/line2.jpg":[function(require,module,exports) {
-module.exports = "/line2.859f1b05.jpg";
-},{}],"src/assets/moltitudine x1920/line3.jpg":[function(require,module,exports) {
-module.exports = "/line3.b2fe593d.jpg";
-},{}],"src/assets/moltitudine x1920/line4.jpg":[function(require,module,exports) {
-module.exports = "/line4.6f74348f.jpg";
-},{}],"src/assets/moltitudine x1920/line5.jpg":[function(require,module,exports) {
-module.exports = "/line5.3f592f76.jpg";
-},{}],"src/assets/moltitudine x1920/line6.jpg":[function(require,module,exports) {
-module.exports = "/line6.9da589d9.jpg";
-},{}],"src/assets/moltitudine x1920/line7.jpg":[function(require,module,exports) {
-module.exports = "/line7.46731f56.jpg";
-},{}],"src/assets/moltitudine x1920/line8.jpg":[function(require,module,exports) {
-module.exports = "/line8.b3a045de.jpg";
-},{}],"src/assets/moltitudine x480/line1.jpg":[function(require,module,exports) {
-module.exports = "/line1.2e17f0fc.jpg";
-},{}],"src/assets/moltitudine x480/line2.jpg":[function(require,module,exports) {
-module.exports = "/line2.7704a8d9.jpg";
-},{}],"src/assets/moltitudine x480/line3.jpg":[function(require,module,exports) {
-module.exports = "/line3.dbaf0d71.jpg";
-},{}],"src/assets/moltitudine x480/line4.jpg":[function(require,module,exports) {
-module.exports = "/line4.02f934b0.jpg";
-},{}],"src/assets/moltitudine x480/line6.jpg":[function(require,module,exports) {
-module.exports = "/line6.0c9223f6.jpg";
-},{}],"src/assets/moltitudine x480/line5.jpg":[function(require,module,exports) {
-module.exports = "/line5.16cd3ba9.jpg";
-},{}],"src/assets/moltitudine x480/line7.jpg":[function(require,module,exports) {
-module.exports = "/line7.953a0662.jpg";
-},{}],"src/assets/moltitudine x480/line8.jpg":[function(require,module,exports) {
-module.exports = "/line8.5c6de800.jpg";
-},{}],"src/assets/moltitudine x768/line2.jpg":[function(require,module,exports) {
-module.exports = "/line2.bd4ad6cf.jpg";
-},{}],"src/assets/moltitudine x768/line1.jpg":[function(require,module,exports) {
-module.exports = "/line1.fd5709d8.jpg";
-},{}],"src/assets/moltitudine x768/line3.jpg":[function(require,module,exports) {
-module.exports = "/line3.99ba1802.jpg";
-},{}],"src/assets/moltitudine x768/line4.jpg":[function(require,module,exports) {
-module.exports = "/line4.4a5355da.jpg";
-},{}],"src/assets/moltitudine x768/line5.jpg":[function(require,module,exports) {
-module.exports = "/line5.e19550fc.jpg";
-},{}],"src/assets/moltitudine x768/line6.jpg":[function(require,module,exports) {
-module.exports = "/line6.e3d22199.jpg";
-},{}],"src/assets/moltitudine x768/line7.jpg":[function(require,module,exports) {
-module.exports = "/line7.2d1bbc5c.jpg";
-},{}],"src/assets/moltitudine x768/line8.jpg":[function(require,module,exports) {
-module.exports = "/line8.48b0b73e.jpg";
+},{}],"src/assets/moltitudine1100/line1.jpg":[function(require,module,exports) {
+module.exports = "/line1.db7e1289.jpg";
+},{}],"src/assets/moltitudine1100/line2.jpg":[function(require,module,exports) {
+module.exports = "/line2.bc4b3d49.jpg";
+},{}],"src/assets/moltitudine1100/line3.jpg":[function(require,module,exports) {
+module.exports = "/line3.3e998f1c.jpg";
+},{}],"src/assets/moltitudine1100/line4.jpg":[function(require,module,exports) {
+module.exports = "/line4.38616ce6.jpg";
+},{}],"src/assets/moltitudine1100/line5.jpg":[function(require,module,exports) {
+module.exports = "/line5.68d5d6d7.jpg";
+},{}],"src/assets/moltitudine1100/line6.jpg":[function(require,module,exports) {
+module.exports = "/line6.b4550ac4.jpg";
+},{}],"src/assets/moltitudine1100/line7.jpg":[function(require,module,exports) {
+module.exports = "/line7.c64a744e.jpg";
+},{}],"src/assets/moltitudine1100/line8.jpg":[function(require,module,exports) {
+module.exports = "/line8.5020011e.jpg";
+},{}],"src/assets/moltitudine1920/line1.jpg":[function(require,module,exports) {
+module.exports = "/line1.d1607061.jpg";
+},{}],"src/assets/moltitudine1920/line2.jpg":[function(require,module,exports) {
+module.exports = "/line2.d4aceece.jpg";
+},{}],"src/assets/moltitudine1920/line3.jpg":[function(require,module,exports) {
+module.exports = "/line3.d9209551.jpg";
+},{}],"src/assets/moltitudine1920/line4.jpg":[function(require,module,exports) {
+module.exports = "/line4.ae0655e2.jpg";
+},{}],"src/assets/moltitudine1920/line5.jpg":[function(require,module,exports) {
+module.exports = "/line5.60da7cbc.jpg";
+},{}],"src/assets/moltitudine1920/line6.jpg":[function(require,module,exports) {
+module.exports = "/line6.d21f6b77.jpg";
+},{}],"src/assets/moltitudine1920/line7.jpg":[function(require,module,exports) {
+module.exports = "/line7.5427fbe0.jpg";
+},{}],"src/assets/moltitudine1920/line8.jpg":[function(require,module,exports) {
+module.exports = "/line8.bf7462a8.jpg";
+},{}],"src/assets/moltitudine480/line1.jpg":[function(require,module,exports) {
+module.exports = "/line1.f38f2976.jpg";
+},{}],"src/assets/moltitudine480/line2.jpg":[function(require,module,exports) {
+module.exports = "/line2.5e1d2efa.jpg";
+},{}],"src/assets/moltitudine480/line3.jpg":[function(require,module,exports) {
+module.exports = "/line3.79ae613a.jpg";
+},{}],"src/assets/moltitudine480/line4.jpg":[function(require,module,exports) {
+module.exports = "/line4.9bd1874b.jpg";
+},{}],"src/assets/moltitudine480/line5.jpg":[function(require,module,exports) {
+module.exports = "/line5.d054b95c.jpg";
+},{}],"src/assets/moltitudine480/line6.jpg":[function(require,module,exports) {
+module.exports = "/line6.fa6d5e84.jpg";
+},{}],"src/assets/moltitudine480/line7.jpg":[function(require,module,exports) {
+module.exports = "/line7.4a46e401.jpg";
+},{}],"src/assets/moltitudine480/line8.jpg":[function(require,module,exports) {
+module.exports = "/line8.91d17047.jpg";
+},{}],"src/assets/moltitudine768/line1.jpg":[function(require,module,exports) {
+module.exports = "/line1.9e353352.jpg";
+},{}],"src/assets/moltitudine768/line2.jpg":[function(require,module,exports) {
+module.exports = "/line2.8cb07ff2.jpg";
+},{}],"src/assets/moltitudine768/line3.jpg":[function(require,module,exports) {
+module.exports = "/line3.14588c9b.jpg";
+},{}],"src/assets/moltitudine768/line4.jpg":[function(require,module,exports) {
+module.exports = "/line4.9f2ce436.jpg";
+},{}],"src/assets/moltitudine768/line5.jpg":[function(require,module,exports) {
+module.exports = "/line5.80b13678.jpg";
+},{}],"src/assets/moltitudine768/line6.jpg":[function(require,module,exports) {
+module.exports = "/line6.baef8272.jpg";
+},{}],"src/assets/moltitudine768/line7.jpg":[function(require,module,exports) {
+module.exports = "/line7.744599b1.jpg";
+},{}],"src/assets/moltitudine768/line8.jpg":[function(require,module,exports) {
+module.exports = "/line8.25018fba.jpg";
 },{}],"src/assets/**/*.*":[function(require,module,exports) {
 module.exports = {
-  "subtitle": {
-    "svg": require("./..\\subtitle.svg")
-  },
-  "moltitudine x1100": {
+  "moltitudine1100": {
     "line1": {
-      "jpg": require("./..\\moltitudine x1100\\line1.jpg")
+      "jpg": require("./..\\moltitudine1100\\line1.jpg")
     },
     "line2": {
-      "jpg": require("./..\\moltitudine x1100\\line2.jpg")
+      "jpg": require("./..\\moltitudine1100\\line2.jpg")
     },
     "line3": {
-      "jpg": require("./..\\moltitudine x1100\\line3.jpg")
+      "jpg": require("./..\\moltitudine1100\\line3.jpg")
     },
     "line4": {
-      "jpg": require("./..\\moltitudine x1100\\line4.jpg")
+      "jpg": require("./..\\moltitudine1100\\line4.jpg")
     },
     "line5": {
-      "jpg": require("./..\\moltitudine x1100\\line5.jpg")
+      "jpg": require("./..\\moltitudine1100\\line5.jpg")
     },
     "line6": {
-      "jpg": require("./..\\moltitudine x1100\\line6.jpg")
+      "jpg": require("./..\\moltitudine1100\\line6.jpg")
     },
     "line7": {
-      "jpg": require("./..\\moltitudine x1100\\line7.jpg")
+      "jpg": require("./..\\moltitudine1100\\line7.jpg")
     },
     "line8": {
-      "jpg": require("./..\\moltitudine x1100\\line8.jpg")
+      "jpg": require("./..\\moltitudine1100\\line8.jpg")
     }
   },
-  "moltitudine x1920": {
+  "moltitudine1920": {
     "line1": {
-      "jpg": require("./..\\moltitudine x1920\\line1.jpg")
+      "jpg": require("./..\\moltitudine1920\\line1.jpg")
     },
     "line2": {
-      "jpg": require("./..\\moltitudine x1920\\line2.jpg")
+      "jpg": require("./..\\moltitudine1920\\line2.jpg")
     },
     "line3": {
-      "jpg": require("./..\\moltitudine x1920\\line3.jpg")
+      "jpg": require("./..\\moltitudine1920\\line3.jpg")
     },
     "line4": {
-      "jpg": require("./..\\moltitudine x1920\\line4.jpg")
+      "jpg": require("./..\\moltitudine1920\\line4.jpg")
     },
     "line5": {
-      "jpg": require("./..\\moltitudine x1920\\line5.jpg")
+      "jpg": require("./..\\moltitudine1920\\line5.jpg")
     },
     "line6": {
-      "jpg": require("./..\\moltitudine x1920\\line6.jpg")
+      "jpg": require("./..\\moltitudine1920\\line6.jpg")
     },
     "line7": {
-      "jpg": require("./..\\moltitudine x1920\\line7.jpg")
+      "jpg": require("./..\\moltitudine1920\\line7.jpg")
     },
     "line8": {
-      "jpg": require("./..\\moltitudine x1920\\line8.jpg")
+      "jpg": require("./..\\moltitudine1920\\line8.jpg")
     }
   },
-  "moltitudine x480": {
+  "moltitudine480": {
     "line1": {
-      "jpg": require("./..\\moltitudine x480\\line1.jpg")
+      "jpg": require("./..\\moltitudine480\\line1.jpg")
     },
     "line2": {
-      "jpg": require("./..\\moltitudine x480\\line2.jpg")
+      "jpg": require("./..\\moltitudine480\\line2.jpg")
     },
     "line3": {
-      "jpg": require("./..\\moltitudine x480\\line3.jpg")
+      "jpg": require("./..\\moltitudine480\\line3.jpg")
     },
     "line4": {
-      "jpg": require("./..\\moltitudine x480\\line4.jpg")
-    },
-    "line6": {
-      "jpg": require("./..\\moltitudine x480\\line6.jpg")
+      "jpg": require("./..\\moltitudine480\\line4.jpg")
     },
     "line5": {
-      "jpg": require("./..\\moltitudine x480\\line5.jpg")
+      "jpg": require("./..\\moltitudine480\\line5.jpg")
+    },
+    "line6": {
+      "jpg": require("./..\\moltitudine480\\line6.jpg")
     },
     "line7": {
-      "jpg": require("./..\\moltitudine x480\\line7.jpg")
+      "jpg": require("./..\\moltitudine480\\line7.jpg")
     },
     "line8": {
-      "jpg": require("./..\\moltitudine x480\\line8.jpg")
+      "jpg": require("./..\\moltitudine480\\line8.jpg")
     }
   },
-  "moltitudine x768": {
-    "line2": {
-      "jpg": require("./..\\moltitudine x768\\line2.jpg")
-    },
+  "moltitudine768": {
     "line1": {
-      "jpg": require("./..\\moltitudine x768\\line1.jpg")
+      "jpg": require("./..\\moltitudine768\\line1.jpg")
+    },
+    "line2": {
+      "jpg": require("./..\\moltitudine768\\line2.jpg")
     },
     "line3": {
-      "jpg": require("./..\\moltitudine x768\\line3.jpg")
+      "jpg": require("./..\\moltitudine768\\line3.jpg")
     },
     "line4": {
-      "jpg": require("./..\\moltitudine x768\\line4.jpg")
+      "jpg": require("./..\\moltitudine768\\line4.jpg")
     },
     "line5": {
-      "jpg": require("./..\\moltitudine x768\\line5.jpg")
+      "jpg": require("./..\\moltitudine768\\line5.jpg")
     },
     "line6": {
-      "jpg": require("./..\\moltitudine x768\\line6.jpg")
+      "jpg": require("./..\\moltitudine768\\line6.jpg")
     },
     "line7": {
-      "jpg": require("./..\\moltitudine x768\\line7.jpg")
+      "jpg": require("./..\\moltitudine768\\line7.jpg")
     },
     "line8": {
-      "jpg": require("./..\\moltitudine x768\\line8.jpg")
+      "jpg": require("./..\\moltitudine768\\line8.jpg")
     }
   }
 };
-},{"./..\\subtitle.svg":"src/assets/subtitle.svg","./..\\moltitudine x1100\\line1.jpg":"src/assets/moltitudine x1100/line1.jpg","./..\\moltitudine x1100\\line2.jpg":"src/assets/moltitudine x1100/line2.jpg","./..\\moltitudine x1100\\line3.jpg":"src/assets/moltitudine x1100/line3.jpg","./..\\moltitudine x1100\\line4.jpg":"src/assets/moltitudine x1100/line4.jpg","./..\\moltitudine x1100\\line5.jpg":"src/assets/moltitudine x1100/line5.jpg","./..\\moltitudine x1100\\line6.jpg":"src/assets/moltitudine x1100/line6.jpg","./..\\moltitudine x1100\\line7.jpg":"src/assets/moltitudine x1100/line7.jpg","./..\\moltitudine x1100\\line8.jpg":"src/assets/moltitudine x1100/line8.jpg","./..\\moltitudine x1920\\line1.jpg":"src/assets/moltitudine x1920/line1.jpg","./..\\moltitudine x1920\\line2.jpg":"src/assets/moltitudine x1920/line2.jpg","./..\\moltitudine x1920\\line3.jpg":"src/assets/moltitudine x1920/line3.jpg","./..\\moltitudine x1920\\line4.jpg":"src/assets/moltitudine x1920/line4.jpg","./..\\moltitudine x1920\\line5.jpg":"src/assets/moltitudine x1920/line5.jpg","./..\\moltitudine x1920\\line6.jpg":"src/assets/moltitudine x1920/line6.jpg","./..\\moltitudine x1920\\line7.jpg":"src/assets/moltitudine x1920/line7.jpg","./..\\moltitudine x1920\\line8.jpg":"src/assets/moltitudine x1920/line8.jpg","./..\\moltitudine x480\\line1.jpg":"src/assets/moltitudine x480/line1.jpg","./..\\moltitudine x480\\line2.jpg":"src/assets/moltitudine x480/line2.jpg","./..\\moltitudine x480\\line3.jpg":"src/assets/moltitudine x480/line3.jpg","./..\\moltitudine x480\\line4.jpg":"src/assets/moltitudine x480/line4.jpg","./..\\moltitudine x480\\line6.jpg":"src/assets/moltitudine x480/line6.jpg","./..\\moltitudine x480\\line5.jpg":"src/assets/moltitudine x480/line5.jpg","./..\\moltitudine x480\\line7.jpg":"src/assets/moltitudine x480/line7.jpg","./..\\moltitudine x480\\line8.jpg":"src/assets/moltitudine x480/line8.jpg","./..\\moltitudine x768\\line2.jpg":"src/assets/moltitudine x768/line2.jpg","./..\\moltitudine x768\\line1.jpg":"src/assets/moltitudine x768/line1.jpg","./..\\moltitudine x768\\line3.jpg":"src/assets/moltitudine x768/line3.jpg","./..\\moltitudine x768\\line4.jpg":"src/assets/moltitudine x768/line4.jpg","./..\\moltitudine x768\\line5.jpg":"src/assets/moltitudine x768/line5.jpg","./..\\moltitudine x768\\line6.jpg":"src/assets/moltitudine x768/line6.jpg","./..\\moltitudine x768\\line7.jpg":"src/assets/moltitudine x768/line7.jpg","./..\\moltitudine x768\\line8.jpg":"src/assets/moltitudine x768/line8.jpg"}],"node_modules/lb-lazy-images/bundle.js":[function(require,module,exports) {
+},{"./..\\moltitudine1100\\line1.jpg":"src/assets/moltitudine1100/line1.jpg","./..\\moltitudine1100\\line2.jpg":"src/assets/moltitudine1100/line2.jpg","./..\\moltitudine1100\\line3.jpg":"src/assets/moltitudine1100/line3.jpg","./..\\moltitudine1100\\line4.jpg":"src/assets/moltitudine1100/line4.jpg","./..\\moltitudine1100\\line5.jpg":"src/assets/moltitudine1100/line5.jpg","./..\\moltitudine1100\\line6.jpg":"src/assets/moltitudine1100/line6.jpg","./..\\moltitudine1100\\line7.jpg":"src/assets/moltitudine1100/line7.jpg","./..\\moltitudine1100\\line8.jpg":"src/assets/moltitudine1100/line8.jpg","./..\\moltitudine1920\\line1.jpg":"src/assets/moltitudine1920/line1.jpg","./..\\moltitudine1920\\line2.jpg":"src/assets/moltitudine1920/line2.jpg","./..\\moltitudine1920\\line3.jpg":"src/assets/moltitudine1920/line3.jpg","./..\\moltitudine1920\\line4.jpg":"src/assets/moltitudine1920/line4.jpg","./..\\moltitudine1920\\line5.jpg":"src/assets/moltitudine1920/line5.jpg","./..\\moltitudine1920\\line6.jpg":"src/assets/moltitudine1920/line6.jpg","./..\\moltitudine1920\\line7.jpg":"src/assets/moltitudine1920/line7.jpg","./..\\moltitudine1920\\line8.jpg":"src/assets/moltitudine1920/line8.jpg","./..\\moltitudine480\\line1.jpg":"src/assets/moltitudine480/line1.jpg","./..\\moltitudine480\\line2.jpg":"src/assets/moltitudine480/line2.jpg","./..\\moltitudine480\\line3.jpg":"src/assets/moltitudine480/line3.jpg","./..\\moltitudine480\\line4.jpg":"src/assets/moltitudine480/line4.jpg","./..\\moltitudine480\\line5.jpg":"src/assets/moltitudine480/line5.jpg","./..\\moltitudine480\\line6.jpg":"src/assets/moltitudine480/line6.jpg","./..\\moltitudine480\\line7.jpg":"src/assets/moltitudine480/line7.jpg","./..\\moltitudine480\\line8.jpg":"src/assets/moltitudine480/line8.jpg","./..\\moltitudine768\\line1.jpg":"src/assets/moltitudine768/line1.jpg","./..\\moltitudine768\\line2.jpg":"src/assets/moltitudine768/line2.jpg","./..\\moltitudine768\\line3.jpg":"src/assets/moltitudine768/line3.jpg","./..\\moltitudine768\\line4.jpg":"src/assets/moltitudine768/line4.jpg","./..\\moltitudine768\\line5.jpg":"src/assets/moltitudine768/line5.jpg","./..\\moltitudine768\\line6.jpg":"src/assets/moltitudine768/line6.jpg","./..\\moltitudine768\\line7.jpg":"src/assets/moltitudine768/line7.jpg","./..\\moltitudine768\\line8.jpg":"src/assets/moltitudine768/line8.jpg"}],"node_modules/lb-lazy-images/bundle.js":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:true});exports.default=loadImg;function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){var symbols=Object.getOwnPropertySymbols(object);if(enumerableOnly)symbols=symbols.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});keys.push.apply(keys,symbols)}return keys}function _objectSpread(target){for(var i=1;i<arguments.length;i++){var source=arguments[i]!=null?arguments[i]:{};if(i%2){ownKeys(source,true).forEach(function(key){_defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true})}else{obj[key]=value}return obj}function _typeof(obj){if(typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"){_typeof=function _typeof(obj){return typeof obj}}else{_typeof=function _typeof(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj}}return _typeof(obj)}function _slicedToArray(arr,i){return _arrayWithHoles(arr)||_iterableToArrayLimit(arr,i)||_nonIterableRest()}function _nonIterableRest(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}function _iterableToArrayLimit(arr,i){if(!(Symbol.iterator in Object(arr)||Object.prototype.toString.call(arr)==="[object Arguments]")){return}var _arr=[];var _n=true;var _d=false;var _e=undefined;try{for(var _i=arr[Symbol.iterator](),_s;!(_n=(_s=_i.next()).done);_n=true){_arr.push(_s.value);if(i&&_arr.length===i)break}}catch(err){_d=true;_e=err}finally{try{if(!_n&&_i["return"]!=null)_i["return"]()}finally{if(_d)throw _e}}return _arr}function _arrayWithHoles(arr){if(Array.isArray(arr))return arr}var images=require("./../../src/assets/**/*.*");var getAssets=function getAssets(images,relPath){if(!Object.entries){Object.entries=function(obj){var ownProps=Object.keys(obj),i=ownProps.length,resArray=new Array(i);while(i--){resArray[i]=[ownProps[i],obj[ownProps[i]]]}return resArray}}var pathList={};var _loop=function _loop(){var _Object$entries$_i=_slicedToArray(_Object$entries[_i],2),key=_Object$entries$_i[0],value=_Object$entries$_i[1];values=Object.keys(images[key]).map(function(e){return images[key][e]});var isImage=typeof values[0]==="string";var isFolder=_typeof(values[0])==="object";if(isImage){pathList[relPath+key]=value}else if(isFolder){pathList=_objectSpread({},pathList,{},getAssets(value,relPath+key+"/"))}};for(var _i=0,_Object$entries=Object.entries(images);_i<_Object$entries.length;_i++){var values;_loop()}return pathList};var pathList=getAssets(images,"");function loadImg(elements){var promises=[];if(!elements.length){elements=new Array(elements)}if(elements.length){var _loop2=function _loop2(i){if("Promise"in window){var promise=new Promise(function(resolve,reject){var cacheImg=document.createElement("img");var attributes=elements[i].attributes;for(var _i2=0;_i2<attributes.length;_i2++){if(attributes[_i2].name!=="src"&&attributes[_i2].name!=="data-asset")cacheImg.setAttribute(attributes[_i2].name,attributes[_i2].value)}if(!pathList[elements[i].dataset.asset]){resolve(elements[i]);console.error('<img data-asset="'.concat(elements[i].dataset.asset,'"/> not loaded, please check the path'))}else cacheImg.src=pathList[elements[i].dataset.asset][Object.keys(pathList[elements[i].dataset.asset])[0]];cacheImg.onload=function(){return resolve(cacheImg)}});promise.then(function(cacheImg){elements[i].parentNode.replaceChild(cacheImg,elements[i]);return""});promises.push(promise)}else{try{elements[i].src=pathList[elements[i].dataset.asset][Object.keys(pathList[elements[i].dataset.asset])[0]]}catch(error){console.error('<img data-asset="'.concat(elements[i].dataset.asset,'"/> not loaded, please check the path'))}}};for(var i=0;i<elements.length;i++){_loop2(i)}}return Promise.all(promises)}var imagesScroll=document.querySelectorAll("[loadOnScroll]");if(imagesScroll.length){try{var loadCb=function loadCb(entries){entries.forEach(function(entry){if(entry.intersectionRatio>0){loadImg(entry.target);loadObs.unobserve(entry.target)}})};var loadObs=new IntersectionObserver(loadCb,{rootMargin:"0px 0px 500px 0px"});Array.prototype.forEach.call(imagesScroll,function(image){loadObs.observe(image)})}catch(error){console.log(imagesScroll);console.log("EagerLoaded as a fallback");loadImg(imagesScroll)}}
 },{"./../../src/assets/**/*.*":"src/assets/**/*.*"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
@@ -399,15 +394,27 @@ var sections = document.querySelectorAll("section");
 var sectionContainer = document.querySelector(".section-container");
 (0, _lbScrollNav.default)(sections, sectionContainer); //lazy load Moltitudine
 
-var lines = document.querySelectorAll(".line");
 var moltitudine = document.querySelector(".moltitudine");
-var moltWidth = moltitudine.getBoundingClientRect().width;
-var imgWidth = moltWidth < 480 ? 480 : moltWidth < 768 ? 768 : moltWidth < 1100 ? 1100 : 1920;
-[].forEach.call(lines, function (line, index) {
-  line.dataset.asset = "moltitudine x".concat(imgWidth, "/line").concat(index + 1);
-});
-(0, _lbLazyImages.default)(lines).then(function (lines) {
-  return lines[0].parentElement.parentElement.className += " display";
+var steps = [0, 480, 768, 1100, 1920];
+var stepsIndex = 0;
+window.addEventListener("resize", reloadImg);
+
+function reloadImg() {
+  var lines = document.querySelectorAll(".line");
+  var moltWidth = moltitudine.getBoundingClientRect().width;
+
+  if (moltWidth > steps[stepsIndex] && stepsIndex < steps.length) {
+    stepsIndex++;
+    var imgWidth = moltWidth < 480 ? 480 : moltWidth < 768 ? 768 : moltWidth < 1100 ? 1100 : 1920;
+    [].forEach.call(lines, function (line, index) {
+      line.dataset.asset = "moltitudine".concat(imgWidth, "/line").concat(index + 1);
+    });
+    return (0, _lbLazyImages.default)(lines);
+  }
+}
+
+reloadImg().then(function (lines) {
+  lines[0].parentElement.parentElement.className += " display";
 }); //Set white squares on top
 
 var linesContainers = document.querySelectorAll(".line-container");
@@ -454,7 +461,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61345" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63965" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

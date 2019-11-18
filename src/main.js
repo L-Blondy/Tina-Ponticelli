@@ -10,14 +10,23 @@ const sectionContainer = document.querySelector( ".section-container" );
 setScrollNav( sections, sectionContainer );
 
 //lazy load Moltitudine
-const lines = document.querySelectorAll( ".line" );
 const moltitudine = document.querySelector( ".moltitudine" );
-const moltWidth = moltitudine.getBoundingClientRect().width;
-const imgWidth = moltWidth < 480 ? 480 : moltWidth < 768 ? 768 : moltWidth < 1100 ? 1100 : 1920;
-[].forEach.call( lines, ( line, index ) => {
-	line.dataset.asset = `moltitudine x${ imgWidth }/line${ index + 1 }`;
-} )
-loadImg( lines ).then( lines => lines[ 0 ].parentElement.parentElement.className += " display" )
+const steps = [ 0, 480, 768, 1100, 1920 ];
+let stepsIndex = 0;
+window.addEventListener( "resize", reloadImg )
+function reloadImg () {
+	const lines = document.querySelectorAll( ".line" )
+	const moltWidth = moltitudine.getBoundingClientRect().width;
+	if ( moltWidth > steps[ stepsIndex ] && stepsIndex < steps.length ) {
+		stepsIndex++;
+		const imgWidth = moltWidth < 480 ? 480 : moltWidth < 768 ? 768 : moltWidth < 1100 ? 1100 : 1920;
+		[].forEach.call( lines, ( line, index ) => {
+			line.dataset.asset = `moltitudine${ imgWidth }/line${ index + 1 }`;
+		} )
+		return loadImg( lines );
+	}
+}
+reloadImg().then( lines => { lines[ 0 ].parentElement.parentElement.className += " display" } )
 
 //Set white squares on top
 const linesContainers = document.querySelectorAll( ".line-container" );
