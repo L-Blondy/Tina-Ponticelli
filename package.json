@@ -12,10 +12,13 @@
   "devDependencies": {
     "autoprefixer": "^9.7.1",
     "lb-burger": "^1.0.9",
+    "lb-icons": "^1.0.32",
     "lb-lazy-images": "^1.2.4",
-    "lb-scroll-nav": "^1.0.12",
+    "lb-scroll-nav": "^1.0.16",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.23.6"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
 }
