@@ -51,9 +51,22 @@ const linesContainers = document.querySelectorAll( ".line-container" );
 
 //Moltitudine Animation
 const squares = document.querySelectorAll( ".square" );
-const options = {
+const opacityOptions = {
 	frequency: 3,
 	duration: 8000,
 	fadeTo: 0,
 }
-randOpacity( moltitudine, squares, options )
+
+const moltiAnimation = new randOpacity( moltitudine, squares, opacityOptions );
+const moltiObs = new IntersectionObserver( handleAnimation, {} )
+function handleAnimation ( entries ) {
+	entries.forEach( entry => {
+		if ( entry.intersectionRatio > 0 ) {
+			moltiAnimation.start()
+		}
+		else {
+			moltiAnimation.pause()
+		}
+	} )
+}
+moltiObs.observe( moltitudine )

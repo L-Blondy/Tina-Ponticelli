@@ -368,7 +368,7 @@ module.exports = reloadCSS;
         module.hot.accept(reloadCSS);
       
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/lb-burger/dist/bundle.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:true});exports["default"]=void 0;require("./randOpacity.css");if(!Array.prototype.includes){Object.defineProperty(Array.prototype,"includes",{enumerable:false,value:function value(obj){var newArr=this.filter(function(el){return el==obj});return newArr.length>0}})}var getRandIndex=function getRandIndex(max){return Math.floor(Math.random()*max)};var toggleOpacity=function toggleOpacity(elem,fadeTo){if(fadeTo===1){elem.classList.remove("toggle-popout");setTimeout(function(){return elem.classList.add("toggle-popout")},17)}else if(fadeTo===0){elem.classList.remove("toggle-fadein");setTimeout(function(){return elem.classList.add("toggle-fadein")},17)}else{elem.style.opacity=Math.floor(Math.random()*9+2)/10}};var randOpacity=function randOpacity(container,nodeList,_ref){var _ref$frequency=_ref.frequency,frequency=_ref$frequency===void 0?5:_ref$frequency,_ref$duration=_ref.duration,duration=_ref$duration===void 0?2e3:_ref$duration,_ref$fadeTo=_ref.fadeTo,fadeTo=_ref$fadeTo===void 0?null:_ref$fadeTo;var count=0;container.className+=" lb-effect-rand-opacity-container";container.style.animationDuration=duration+"ms";var forbiddenIndex=[];var randOpacity_wrapped=function randOpacity_wrapped(){if(frequency<1||frequency>10)throw new Error("function randOpacity(nodeList, options) : frequency option must be between 1 and 10 included");else if(++count%(55-frequency*5)===0){var nextIndex=getRandIndex(nodeList.length);while(forbiddenIndex.includes(nextIndex)){nextIndex=getRandIndex(nodeList.length)}forbiddenIndex.push(nextIndex);if(forbiddenIndex.length>=nodeList.length/5)forbiddenIndex.shift();toggleOpacity(nodeList[nextIndex],fadeTo)}window.requestAnimationFrame(randOpacity_wrapped)};randOpacity_wrapped()};var _default=randOpacity;exports["default"]=_default;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0,require("./randOpacity.css"),Array.prototype.includes||Object.defineProperty(Array.prototype,"includes",{enumerable:!1,value:function(t){return 0<this.filter(function(e){return e==t}).length}});var getRandIndex=function(e){return Math.floor(Math.random()*e)},toggleOpacity=function(e,t){1===t?(e.classList.remove("toggle-popout"),setTimeout(function(){return e.classList.add("toggle-popout")},17)):0===t?(e.classList.remove("toggle-fadein"),setTimeout(function(){return e.classList.add("toggle-fadein")},17)):e.style.opacity=Math.floor(9*Math.random()+2)/10};function randOpacity(e,n,t){var o=this,i=t.frequency,r=void 0===i?5:i,a=t.duration,d=void 0===a?2e3:a,s=t.fadeTo,u=void 0===s?null:s;this.count=0,e.className+=" lb-effect-rand-opacity-container",e.style.animationDuration=d+"ms",this.forbiddenIndex=[],this.frameID=0,this.pause=function(){window.cancelAnimationFrame(o.frameID)},this.start=function(){c()};var c=function e(){if(r<1||10<r)throw new Error("function randOpacity(nodeList, options) : frequency option must be between 1 and 10 included");if(++o.count%(55-5*r)==0){for(var t=getRandIndex(n.length);o.forbiddenIndex.includes(t);)t=getRandIndex(n.length);o.forbiddenIndex.push(t),o.forbiddenIndex.length>=n.length/5&&o.forbiddenIndex.shift(),toggleOpacity(n[t],u)}o.frameID=window.requestAnimationFrame(e)}}var _default=randOpacity;exports.default=_default;
 },{"./randOpacity.css":"node_modules/lb-burger/dist/randOpacity.css"}],"node_modules/lb-icons/dist/styles.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
@@ -442,12 +442,25 @@ var linesContainers = document.querySelectorAll(".line-container");
 }); //Moltitudine Animation
 
 var squares = document.querySelectorAll(".square");
-var options = {
+var opacityOptions = {
   frequency: 3,
   duration: 8000,
   fadeTo: 0
 };
-(0, _lbBurger.default)(moltitudine, squares, options);
+var moltiAnimation = new _lbBurger.default(moltitudine, squares, opacityOptions);
+var moltiObs = new IntersectionObserver(handleAnimation, {});
+
+function handleAnimation(entries) {
+  entries.forEach(function (entry) {
+    if (entry.intersectionRatio > 0) {
+      moltiAnimation.start();
+    } else {
+      moltiAnimation.pause();
+    }
+  });
+}
+
+moltiObs.observe(moltitudine);
 },{"./setSVG.js":"src/setSVG.js","lb-scroll-nav":"node_modules/lb-scroll-nav/bundle.js","lb-lazy-images":"node_modules/lb-lazy-images/bundle.js","lb-burger":"node_modules/lb-burger/dist/bundle.js","lb-icons":"node_modules/lb-icons/dist/bundle.js","./main.css":"src/main.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -476,7 +489,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65034" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52993" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
