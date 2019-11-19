@@ -20,11 +20,11 @@ const lines = document.querySelectorAll( ".line" );
 		line.dataset.srcset += `moltitudine${ size }/line${ index + 1 } ${ size }w, `;
 	} )
 } )
-if("Promise" in window)
+if ( "Promise" in window )
 	loadImg( lines ).then( lines => { lines[ 0 ].parentElement.parentElement.className += " display" } )
 else {
 	loadImg( lines )
-	setTimeout(()=> lines[ 0 ].parentElement.parentElement.className += " display", 1000)
+	setTimeout( () => lines[ 0 ].parentElement.parentElement.className += " display", 1000 )
 }
 
 //Set white squares on top

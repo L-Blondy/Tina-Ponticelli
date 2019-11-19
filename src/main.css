@@ -414,7 +414,7 @@ html {
 }
 
 .home .moltitudine .line {
-  max-width: 100%;
+  width: 100%;
 }
 
 .home .moltitudine .line-container {
@@ -424,7 +424,7 @@ html {
 .home .moltitudine .squares {
   position: absolute;
   height: 100%;
-  width: 100%;
+  width: calc(100% + 1px);
   top: 0;
   left: 0;
   display: -webkit-box;
