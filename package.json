@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.7.1",
+    "gh-pages": "^2.1.1",
     "lb-burger": "^1.1.0",
     "lb-icons": "^1.0.32",
     "lb-lazy-images": "^1.2.4",
