@@ -42,7 +42,8 @@
                     stroke-dasharray: 400;
                     stroke-dashoffset: 400;
                     animation: strokein 3000ms #{$i * 200ms} forwards,
-                    fillin 5000ms #{$i * 200ms + 2000ms} forwards;
+                    fillin 5000ms #{$i * 200ms + 2000ms} forwards,
+                    shine 10000ms #{$i * 60ms + 5000ms} infinite;
                }
           }
      }
@@ -74,7 +75,8 @@
                     stroke-dasharray: 300;
                     stroke-dashoffset: 300;
                     animation: strokein 3000ms #{$i * 200ms + 1500ms} forwards,
-                    fillin 5000ms #{$i * 120ms + 3200ms} forwards;
+                    fillin 5000ms #{$i * 120ms + 3200ms} forwards,
+                    shine 10000ms #{$i * 60ms + 5600ms} infinite;
                }
           }
      }
@@ -92,11 +94,25 @@
      }
 
      @keyframes fillin {
-          from {
-               fill: transparent;
+          to {
+               fill: $clr-text-primary;
+          }
+     }
+
+     @keyframes shine {
+          0% {
+               fill: $clr-text-primary;
           }
 
-          to {
+          5% {
+               fill: #888;
+          }
+
+          10% {
+               fill: $clr-text-primary;
+          }
+
+          100% {
                fill: $clr-text-primary;
           }
      }

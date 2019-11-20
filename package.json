@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && parcel build index.html --public-url https://github.com/L-Blondy/Tina-Ponticelli",
+    "build": "rm -rf dist && parcel build index.html --public-url https://l-blondy.github.io/Tina-Ponticelli/",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "author": "",
