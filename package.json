@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && parcel build index.html --public-url https://github.com/L-Blondy/Tina-Ponticelli",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.7.1",
-    "gh-pages": "^2.1.1",
     "lb-burger": "^1.1.0",
     "lb-icons": "^1.0.32",
     "lb-lazy-images": "^1.2.4",
