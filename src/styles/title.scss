@@ -56,17 +56,18 @@
                padding: 0 28vw 5vh 47vw;
           }
 
-          @media (max-width: 600px) {
-               padding: 0 0 5vh 0;
-               width: 30%;
-               margin-top: 1rem;
-          }
-
           @media (max-width: 1100px) {
                padding: 0 0 5vh 0;
                width: 30%;
                margin-top: 3rem;
           }
+
+          @media (max-width: 600px) {
+               padding: 0 0 2vh 0 !important;
+               width: 30%;
+               margin-top: 1rem !important;
+          }
+
 
           @for $i from 1 through 12 {
                path:nth-child(#{$i}) {

@@ -1,13 +1,25 @@
+// import $ from "jquery";
 import "./setSVG.js";
 import setScrollNav from "lb-scroll-nav";
 import loadImg from "lb-lazy-images";
 import randOpacity from "lb-burger";
+import "lb-icons";
 import "./main.css";
 
 //Scroll Nav
 const sections = document.querySelectorAll( "section" );
 const sectionContainer = document.querySelector( ".section-container" );
 setScrollNav( sections, sectionContainer );
+
+//navbar behavior
+$( ".navbar a" ).click( ( e ) => {
+	$( '#navlinks' ).collapse( 'hide' );
+	e.target.parentElement.parentElement.classList.add( "collapse" );
+	$( ".burger-burger" ).removeClass( "burger-cross" )
+} )
+$( ".navbar-toggler" ).click( ( e ) => {
+	$( ".burger-burger" ).toggleClass( "burger-cross" )
+} )
 
 //lazy load Moltitudine
 const moltitudine = document.querySelector( ".moltitudine" );
@@ -37,11 +49,24 @@ const linesContainers = document.querySelectorAll( ".line-container" );
 	}
 } )
 
-//Molutitudine Animation
+//Moltitudine Animation
 const squares = document.querySelectorAll( ".square" );
-const options = {
-	frequency: 2,
+const opacityOptions = {
+	frequency: 3,
 	duration: 8000,
 	fadeTo: 0,
 }
-randOpacity( moltitudine, squares, options )
+
+const moltiAnimation = new randOpacity( moltitudine, squares, opacityOptions );
+const moltiObs = new IntersectionObserver( handleAnimation, {} )
+function handleAnimation ( entries ) {
+	entries.forEach( entry => {
+		if ( entry.intersectionRatio > 0 ) {
+			moltiAnimation.start()
+		}
+		else {
+			moltiAnimation.pause()
+		}
+	} )
+}
+moltiObs.observe( moltitudine )

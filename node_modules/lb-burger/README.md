@@ -1,6 +1,6 @@
 # lb-effects-rand-opacity
 
-`randOpacity` will periodically trigger an opacity animation on random nodes
+`RandOpacity` will periodically trigger an opacity animation on random nodes
 
 Compatible with IE11+
 
@@ -9,7 +9,7 @@ Compatible with IE11+
 
 ## Usage
 ```
-import randOpacity from "lb-effect-rand-opacity/dist/bundle.js"
+import RandOpacity from "lb-effect-rand-opacity/dist/bundle.js"
 ...
 const container = document.querySelector( ".container" );
 
@@ -21,5 +21,7 @@ const options = {
 	fadeTo: 0, (targets opacity 0 or 1, sets random opacity with no fade if not defined)
 }
 
-randOpacity( container, nodeList, options )
+let animation = new RandOpacity( container, nodeList, options );
+animation.start();
+animation.pause()
 ```

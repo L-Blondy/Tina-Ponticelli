@@ -179,19 +179,19 @@
   }
 }
 
-@media (max-width: 600px) {
-  .home-title div:nth-child(2) {
-    padding: 0 0 5vh 0;
-    width: 30%;
-    margin-top: 1rem;
-  }
-}
-
 @media (max-width: 1100px) {
   .home-title div:nth-child(2) {
     padding: 0 0 5vh 0;
     width: 30%;
     margin-top: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-title div:nth-child(2) {
+    padding: 0 0 2vh 0 !important;
+    width: 30%;
+    margin-top: 1rem !important;
   }
 }
 
