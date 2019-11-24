@@ -4,7 +4,7 @@ import setScrollNav from "lb-scroll-nav";
 import loadImg from "lb-lazy-images";
 import randOpacity from "lb-burger";
 import "lb-icons";
-import "./main.css";
+import "./main.scss";
 
 //Scroll Nav
 const sections = document.querySelectorAll( "section" );

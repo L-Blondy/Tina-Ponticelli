@@ -24,7 +24,7 @@
 
      div:nth-child(1) {
           width: 100%;
-          padding: 0 40vw 0 30vw;
+          padding: 0 38vw 0 28vw;
           margin-bottom: 5vh;
 
           @media (max-width: 1400px) {
@@ -35,6 +35,18 @@
                padding: 0;
                width: 50%;
                margin-bottom: 0;
+          }
+
+          @media (max-width: 768px) {
+               padding: 0;
+               width: 70%;
+               margin-bottom: 0;
+          }
+
+          @media (max-width: 600px) {
+               // padding: 0;
+               width: 80%;
+               // margin-bottom: 0;
           }
 
           @for $i from 1 through 14 {
@@ -51,7 +63,7 @@
      div:nth-child(2) {
           width: 100%;
           margin-top: 5vh;
-          padding: 0 32vw 5vh 50vw;
+          padding: 0 28vw 5vh 50vw;
 
           @media (max-width: 1400px) {
                padding: 0 28vw 5vh 47vw;
@@ -63,10 +75,9 @@
                margin-top: 3rem;
           }
 
-          @media (max-width: 600px) {
-               padding: 0 0 2vh 0 !important;
-               width: 30%;
-               margin-top: 1rem !important;
+          @media (max-width: 768px) {
+               position: absolute;
+               opacity: 0;
           }
 
 
@@ -89,7 +100,7 @@
 
           100% {
                stroke-dashoffset: 0;
-               stroke: #b7b7b7;
+               stroke: #ddd;
           }
      }
 

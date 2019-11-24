@@ -1,0 +1,67 @@
+@import "./variables.scss";
+
+.navbar {
+     position: relative;
+     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+     padding: 0 calc(20px + 5vw);
+     color: $clr-text-primary;
+
+     .nav-line {
+          position: absolute;
+          width: 100%;
+          top: $navbar-height;
+          left: 0;
+          border-top: 1px solid #ddd;
+     }
+
+     .resize {
+          top: 50px;
+          min-height: $navbar-height;
+     }
+
+     .navbar-toggler {
+          height: 44px;
+          width: 56px;
+          padding: 10px;
+          color: #666;
+
+          .nav-icon {
+               height: 100%;
+               pointer-events: none;
+          }
+     }
+
+     .navbar-nav {
+          margin-left: auto;
+     }
+}
+
+.nav-link {
+     color: #777 !important;
+     letter-spacing: 0.5px;
+     margin-left: 0.6rem;
+     font-weight: bold;
+     border-radius: 12px;
+     padding: 0.4rem 1.1rem !important;
+     font-size: 0.9rem;
+     font-family: $font-primary;
+
+     &.active {
+          color: #ffa500 !important;
+     }
+
+     &:focus:not([href="#contact"]),
+     &:hover:not([href="#contact"]) {
+          box-shadow: inset 0 0 10px #cec7b4;
+     }
+}
+
+[href="#contact"] {
+     color: white !important;
+     padding: 0.4rem 1.2rem !important;
+     border-radius: 12px !important;
+
+     &.active {
+          color: white !important;
+     }
+}
