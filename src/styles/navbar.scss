@@ -41,7 +41,7 @@
      color: #777 !important;
      letter-spacing: 0.5px;
      margin-left: 0.6rem;
-     font-weight: bold;
+     font-weight: 700;
      border-radius: 12px;
      padding: 0.4rem 1.1rem !important;
      font-size: 0.9rem;
@@ -51,18 +51,26 @@
           color: #ffa500 !important;
      }
 
-     &:focus:not([href="#contact"]),
-     &:hover:not([href="#contact"]) {
-          box-shadow: inset 0 0 10px #cec7b4;
+     &:hover {
+          box-shadow: inset 0 0 5px #ddd;
+     }
+
+     &:focus {
+          box-shadow: 0 0 0 3px #ffbb3b;
+          outline: none;
      }
 }
 
-[href="#contact"] {
-     color: white !important;
-     padding: 0.4rem 1.2rem !important;
-     border-radius: 12px !important;
-
-     &.active {
+@media (min-width: 992px) {
+     .nav-link[href="#contact"] {
           color: white !important;
+          padding: 0.4rem 1.2rem !important;
+          border-radius: 12px !important;
+          background: #ffc107;
+
+          &:hover,
+          &.active {
+               box-shadow: 0 0 0 3px #ffd452;
+          }
      }
 }

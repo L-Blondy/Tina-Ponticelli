@@ -1,8 +1,9 @@
 // import $ from "jquery";
 import "./setSVG.js";
+import "./loadSlider.js"
 import setScrollNav from "lb-scroll-nav";
 import loadImg from "lb-lazy-images";
-import randOpacity from "lb-burger";
+import randOpacity from "lb-effect-rand-opacity";
 import "lb-icons";
 import "./main.scss";
 
@@ -33,7 +34,10 @@ const lines = document.querySelectorAll( ".line" );
 	} )
 } )
 if ( "Promise" in window )
-	loadImg( lines ).then( lines => { lines[ 0 ].parentElement.parentElement.className += " display" } )
+	loadImg( lines ).then( lines => {
+		lines[ 0 ].parentElement.parentElement.className += " display ";
+		document.querySelector( ".discover" ).classList.add( "display" );
+	} )
 else {
 	loadImg( lines )
 	setTimeout( () => lines[ 0 ].parentElement.parentElement.className += " display", 1000 )

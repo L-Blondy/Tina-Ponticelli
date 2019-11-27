@@ -13,14 +13,15 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.7.1",
-    "lb-burger": "^1.1.0",
+    "lb-effect-rand-opacity": "^1.1.0",
     "lb-icons": "^1.0.32",
-    "lb-lazy-images": "^1.2.4",
+    "lb-lazy-images": "^1.2.7",
     "lb-scroll-nav": "^1.1.4",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.23.6"
   },
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "jquery": "^3.4.1"
   }
 }
