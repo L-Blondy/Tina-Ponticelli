@@ -15,14 +15,13 @@ html {
 
      section:not(.home) {
           min-height: 600px;
-          background: #F7F5F0;
      }
 
      .section-title {
           color: $clr-text-primary;
           text-align: center;
           font-variant: small-caps;
-          font-weight: 500;
-          letter-spacing: 0.4rem;
+          font-weight: 600;
+          letter-spacing: 0.3rem;
      }
 }

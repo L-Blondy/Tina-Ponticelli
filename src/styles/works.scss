@@ -1,49 +1,68 @@
 @import "./variables.scss";
 
-h1 {
-     color: $clr-text-primary;
-     text-align: center;
-     font-variant: small-caps;
-     font-weight: 500;
-     letter-spacing: 0.3rem;
-}
+.works {
+     background: $beige;
 
-.custom-slider {
-     position: relative;
-     display: flex;
-     height: 40vh;
-     width: 70vw;
-     background: #00000030;
-     margin: auto;
+     .custom-slider {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          height: 40vh;
+          width: 70vw;
+          background: rgba(0, 0, 0, 0.1);
+          margin: auto;
+          overflow: hidden;
 
-     .slider-left-side,
-     .slider-right-side {
-          height: 100%;
-          width: 50%;
-          // background: blue;
-          z-index: 101;
-     }
+          .slider-left-side,
+          .slider-right-side {
+               height: 100%;
+               width: 15%;
+               z-index: 101;
+               display: flex;
+               align-items: center;
+               color: $clr-text-primary;
+               background: $beige;
 
-     .slide {
-          position: absolute;
-          max-height: 90%;
-          max-width: 70%;
-          top: 50%;
-          left: 50%;
-          transition: transform 500ms, left 500ms;
-     }
+               &:hover {
+                    color: $orange;
+               }
 
-     .slide.center {
-          transform: translate(-50%, -50%);
-     }
+               &.disabled {
+                    color: $disabled;
+               }
 
-     .slide.right {
-          transform: translate(0, -50%) translateZ(-200px);
-          left: 100%;
-     }
+               &>div {
+                    height: 8vmin;
+                    width: 100%;
+                    pointer-events: none;
+               }
+          }
 
-     .slide.left {
-          transform: translate(-100%, -50%) translateZ(-200px);
-          left: 0;
+          .slide {
+               position: absolute;
+               max-height: 80%;
+               max-width: 70%;
+               top: 50%;
+               left: 50%;
+               transition: transform 500ms, left 500ms;
+          }
+
+          [alt="slide0"] {
+               max-height: 100%;
+          }
+
+          .slide.center {
+               transform: translate(-50%, -50%);
+          }
+
+          .slide.right {
+               transform: translate(0, -50%) translateZ(-200px);
+               left: 110%;
+          }
+
+          .slide.left {
+               transform: translate(-100%, -50%) translateZ(-200px);
+               left: -10%;
+          }
      }
 }

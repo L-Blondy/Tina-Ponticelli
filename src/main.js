@@ -1,10 +1,10 @@
 // import $ from "jquery";
 import "./setSVG.js";
-import "./loadSlider.js"
 import setScrollNav from "lb-scroll-nav";
 import loadImg from "lb-lazy-images";
 import randOpacity from "lb-effect-rand-opacity";
 import "lb-icons";
+import loadSlides from "./loadSlider.js"
 import "./main.scss";
 
 //Scroll Nav
@@ -37,10 +37,12 @@ if ( "Promise" in window )
 	loadImg( lines ).then( lines => {
 		lines[ 0 ].parentElement.parentElement.className += " display ";
 		document.querySelector( ".discover" ).classList.add( "display" );
+		loadSlides( 2 )
 	} )
 else {
 	loadImg( lines )
 	setTimeout( () => lines[ 0 ].parentElement.parentElement.className += " display", 1000 )
+	loadSlides( 2 )
 }
 
 //Set white squares on top
@@ -62,15 +64,18 @@ const opacityOptions = {
 }
 
 const moltiAnimation = new randOpacity( moltitudine, squares, opacityOptions );
-const moltiObs = new IntersectionObserver( handleAnimation, {} )
-function handleAnimation ( entries ) {
-	entries.forEach( entry => {
-		if ( entry.intersectionRatio > 0 ) {
-			moltiAnimation.start()
-		}
-		else {
-			moltiAnimation.pause()
-		}
-	} )
+
+if ( "IntersectionObserver" in window ) {
+	const moltiObs = new IntersectionObserver( handleAnimation, {} )
+	function handleAnimation ( entries ) {
+		entries.forEach( entry => {
+			if ( entry.intersectionRatio > 0 ) {
+				moltiAnimation.start()
+			}
+			else {
+				moltiAnimation.pause()
+			}
+		} )
+	}
+	moltiObs.observe( moltitudine )
 }
-moltiObs.observe( moltitudine )
