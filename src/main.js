@@ -21,7 +21,7 @@ $( ".navbar-toggler" ).click( ( e ) => {
 	$( ".burger-burger" ).toggleClass( "burger-cross" )
 } )
 
-//lazy load Moltitudine
+//lazy load Moltitudine + load Slider after Moltitudine
 const moltitudine = document.querySelector( ".moltitudine" );
 const sizes = [ 480, 768, 1100, 1920 ];
 const lines = document.querySelectorAll( ".line" );
@@ -77,3 +77,18 @@ if ( "IntersectionObserver" in window ) {
 	}
 	moltiObs.observe( moltitudine )
 }
+
+//magnific popup
+$( '.custom-slider' ).magnificPopup( {
+	delegate: '.slide-link',
+	type: 'image',
+	gallery: {
+		enabled: true,
+		preload: [ 1, 2 ]
+	},
+	callbacks: {
+		open: function () {
+			console.log( $( ".slide" ) )
+		}
+	}
+} );

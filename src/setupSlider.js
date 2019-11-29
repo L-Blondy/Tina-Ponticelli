@@ -36,10 +36,20 @@ export default function setupSlider ( preload ) {
 		const img_name = Object.keys( sliderImages )[ indexToLoad ]
 		const img_path = sliderImages[ img_name ][ Object.keys( sliderImages[ img_name ] )[ 0 ] ]
 		const img = document.createElement( "IMG" );
+		const a = document.createElement( "A" );
+		const wrapper = document.createElement( "DIV" );
+		const wrapper_sub = document.createElement( "DIV" );
 		img.src = img_path;
-		img.className = ( indexToLoad === 0 ? "slide center" : "slide right" );
+		a.href = img_path;
+		a.className = "slide-link";
+		img.className = "slide"
+		wrapper.className = ( indexToLoad === 0 ? "slide-wrapper center" : "slide-wrapper right" );
+		wrapper_sub.className = "slide-wrapper__sub";
 		img.setAttribute( "alt", "slide" + indexToLoad )
-		imgContainer.appendChild( img )
+		wrapper_sub.appendChild( img )
+		wrapper_sub.appendChild( a )
+		wrapper.appendChild( wrapper_sub )
+		imgContainer.appendChild( wrapper )
 		img.onload = () => {
 			loadedIndex++
 			if ( indexToLoad < curIndex + preload ) {
@@ -48,9 +58,9 @@ export default function setupSlider ( preload ) {
 		}
 	}
 	function goRight () {
-		const curCenter = document.querySelector( ".slide.center" );
+		const curCenter = document.querySelector( ".slide-wrapper.center" );
 		const nextCenter = curCenter.nextElementSibling;
-		if ( nextCenter && nextCenter.classList.contains( "slide" ) ) {
+		if ( nextCenter && nextCenter.classList.contains( "slide-wrapper" ) ) {
 			curCenter.classList.remove( "center" )
 			curCenter.classList.add( "left" )
 			nextCenter.classList.remove( "right" )
@@ -66,9 +76,9 @@ export default function setupSlider ( preload ) {
 		}
 	}
 	function goLeft () {
-		const curCenter = document.querySelector( ".slide.center" );
+		const curCenter = document.querySelector( ".slide-wrapper.center" );
 		const nextCenter = curCenter.previousElementSibling;
-		if ( nextCenter && nextCenter.classList.contains( "slide" ) ) {
+		if ( nextCenter && nextCenter.classList.contains( "slide-wrapper" ) ) {
 			curCenter.classList.remove( "center" )
 			curCenter.classList.add( "right" )
 			nextCenter.classList.remove( "left" )
