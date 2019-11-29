@@ -97,20 +97,24 @@ export default function setupSlider ( preload ) {
 		clearInterval( autoSlide )
 	}
 
-	const slider_observer = new IntersectionObserver( cb, { threshold: 0.9 } )
-	function cb ( entries ) {
-		entries.forEach( entry => {
-			if ( entry.intersectionRatio > 0.9 ) {
-				shouldAutoSlide = true
-				startAutoSlide()
-			} else {
-				shouldAutoSlide = false;
-				stopAutoSlide()
-			}
-		} )
-		console.log( shouldAutoSlide )
+	if ( "IntersectionObserver" in window ) {
+		const slider_observer = new IntersectionObserver( cb, { threshold: 0.9 } )
+		function cb ( entries ) {
+			entries.forEach( entry => {
+				if ( entry.intersectionRatio > 0.9 ) {
+					shouldAutoSlide = true
+					startAutoSlide()
+				} else {
+					shouldAutoSlide = false;
+					stopAutoSlide()
+				}
+			} )
+			console.log( shouldAutoSlide )
+		}
+		slider_observer.observe( slider )
+	} else {
+		startAutoSlide()
 	}
-	slider_observer.observe( slider )
 
 	slider.addEventListener( "click", e => {
 		stopAutoSlide()
