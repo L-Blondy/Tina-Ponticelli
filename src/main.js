@@ -1,10 +1,9 @@
-// import $ from "jquery";
 import "./setSVG.js";
 import setScrollNav from "lb-scroll-nav";
 import loadImg from "lb-lazy-images";
 import randOpacity from "lb-effect-rand-opacity";
 import "lb-icons";
-import loadSlides from "./loadSlider.js"
+import setupSlider from "./setupSlider.js"
 import "./main.scss";
 
 //Scroll Nav
@@ -37,12 +36,12 @@ if ( "Promise" in window )
 	loadImg( lines ).then( lines => {
 		lines[ 0 ].parentElement.parentElement.className += " display ";
 		document.querySelector( ".discover" ).classList.add( "display" );
-		loadSlides( 2 )
+		window.matchMedia( "(min-width: 768px)" ).matches && setupSlider( 2 )
 	} )
 else {
 	loadImg( lines )
 	setTimeout( () => lines[ 0 ].parentElement.parentElement.className += " display", 1000 )
-	loadSlides( 2 )
+	window.matchMedia( "(min-width: 768px)" ).matches && setupSlider( 2 )
 }
 
 //Set white squares on top
@@ -62,14 +61,13 @@ const opacityOptions = {
 	duration: 8000,
 	fadeTo: 0,
 }
-
 const moltiAnimation = new randOpacity( moltitudine, squares, opacityOptions );
-
+//start / pause animation
 if ( "IntersectionObserver" in window ) {
-	const moltiObs = new IntersectionObserver( handleAnimation, {} )
+	const moltiObs = new IntersectionObserver( handleAnimation, { threshold: 0.5 } )
 	function handleAnimation ( entries ) {
 		entries.forEach( entry => {
-			if ( entry.intersectionRatio > 0 ) {
+			if ( entry.intersectionRatio > 0.5 && window.matchMedia( "(min-width: 767px)" ).matches ) {
 				moltiAnimation.start()
 			}
 			else {

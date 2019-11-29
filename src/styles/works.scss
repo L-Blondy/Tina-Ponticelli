@@ -7,11 +7,24 @@
           position: relative;
           display: flex;
           justify-content: space-between;
-          height: 40vh;
-          width: 70vw;
-          background: rgba(0, 0, 0, 0.1);
-          margin: auto;
+          height: 45vmin;
+          width: 80vw;
           overflow: hidden;
+          margin: 8vmax auto;
+
+          @media (max-width: 768px) {
+               display: none;
+          }
+
+          @media (min-width: 1600px) {
+               width: 65vw;
+          }
+
+          .custom-slider__images {
+               position: relative;
+               flex-grow: 1;
+               overflow: hidden;
+          }
 
           .slider-left-side,
           .slider-right-side {
@@ -21,7 +34,6 @@
                display: flex;
                align-items: center;
                color: $clr-text-primary;
-               background: $beige;
 
                &:hover {
                     color: $orange;
@@ -41,10 +53,10 @@
           .slide {
                position: absolute;
                max-height: 80%;
-               max-width: 70%;
+               max-width: 100%;
                top: 50%;
                left: 50%;
-               transition: transform 500ms, left 500ms;
+               transition: transform 700ms, left 700ms;
           }
 
           [alt="slide0"] {
