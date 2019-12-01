@@ -35,21 +35,18 @@ export default function setupSlider ( preload ) {
 	function loadSlide ( indexToLoad ) {
 		const img_name = Object.keys( sliderImages )[ indexToLoad ]
 		const img_path = sliderImages[ img_name ][ Object.keys( sliderImages[ img_name ] )[ 0 ] ]
+
 		const img = document.createElement( "IMG" );
-		const a = document.createElement( "A" );
-		const wrapper = document.createElement( "DIV" );
-		const wrapper_sub = document.createElement( "DIV" );
 		img.src = img_path;
-		a.href = img_path;
-		a.className = "slide-link";
-		img.className = "slide"
-		wrapper.className = ( indexToLoad === 0 ? "slide-wrapper center" : "slide-wrapper right" );
-		wrapper_sub.className = "slide-wrapper__sub";
+		img.className = "slide-img"
 		img.setAttribute( "alt", "slide" + indexToLoad )
-		wrapper_sub.appendChild( img )
-		wrapper_sub.appendChild( a )
-		wrapper.appendChild( wrapper_sub )
-		imgContainer.appendChild( wrapper )
+
+		const a = document.createElement( "A" );
+		a.href = img_path;
+		a.className = ( indexToLoad === 0 ? "slide-link center" : "slide-link right" );
+		a.setAttribute("tabindex", -1);
+		a.appendChild( img )
+		imgContainer.appendChild( a )
 		img.onload = () => {
 			loadedIndex++
 			if ( indexToLoad < curIndex + preload ) {
@@ -58,17 +55,17 @@ export default function setupSlider ( preload ) {
 		}
 	}
 	function goRight () {
-		const curCenter = document.querySelector( ".slide-wrapper.center" );
+		const curCenter = document.querySelector( ".slide-link.center" );
 		const nextCenter = curCenter.nextElementSibling;
-		if ( nextCenter && nextCenter.classList.contains( "slide-wrapper" ) ) {
+		if ( nextCenter && nextCenter.classList.contains( "slide-link" ) ) {
 			curCenter.classList.remove( "center" )
 			curCenter.classList.add( "left" )
 			nextCenter.classList.remove( "right" )
 			nextCenter.classList.add( "center" );
 			curIndex++;
-			document.querySelector( ".slider-left-side" ).classList.remove( "disabled" )
+			document.querySelector( ".custom-slider__arrow-left" ).classList.remove( "disabled" )
 			if ( curIndex === sliderImagesLength - 1 ) {
-				document.querySelector( ".slider-right-side" ).classList.add( "disabled" )
+				document.querySelector( ".custom-slider__arrow-right" ).classList.add( "disabled" )
 			}
 			if ( curIndex > loadedIndex - preload - 1 && loadedIndex < sliderImagesLength ) {
 				loadSlide( curIndex + preload )
@@ -76,18 +73,18 @@ export default function setupSlider ( preload ) {
 		}
 	}
 	function goLeft () {
-		const curCenter = document.querySelector( ".slide-wrapper.center" );
+		const curCenter = document.querySelector( ".slide-link.center" );
 		const nextCenter = curCenter.previousElementSibling;
-		if ( nextCenter && nextCenter.classList.contains( "slide-wrapper" ) ) {
+		if ( nextCenter && nextCenter.classList.contains( "slide-link" ) ) {
 			curCenter.classList.remove( "center" )
 			curCenter.classList.add( "right" )
 			nextCenter.classList.remove( "left" )
 			nextCenter.classList.add( "center" );
 			curIndex--;
 		}
-		document.querySelector( ".slider-right-side" ).classList.remove( "disabled" )
+		document.querySelector( ".custom-slider__arrow-right" ).classList.remove( "disabled" )
 		if ( curIndex === 0 ) {
-			document.querySelector( ".slider-left-side" ).classList.add( "disabled" )
+			document.querySelector( ".custom-slider__arrow-left" ).classList.add( "disabled" )
 		}
 	}
 	function startAutoSlide () {
@@ -118,8 +115,8 @@ export default function setupSlider ( preload ) {
 
 	slider.addEventListener( "click", e => {
 		stopAutoSlide()
-		const clicked_left = e.target.classList.contains( "slider-left-side" );
-		const clicked_right = e.target.classList.contains( "slider-right-side" );;
+		const clicked_left = e.target.classList.contains( "custom-slider__arrow-left" );
+		const clicked_right = e.target.classList.contains( "custom-slider__arrow-right" );;
 		if ( clicked_left ) {
 			goLeft()
 		}
