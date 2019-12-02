@@ -30,7 +30,7 @@
                user-select: none;
           }
 
-          &__arrow-right > svg {
+          &__arrow-right>svg {
                margin-left: auto;
           }
 
@@ -45,7 +45,7 @@
                border: none;
                background: none;
 
-               &> svg {
+               &>svg {
                     pointer-events: none;
                     max-height: 100%;
                }
@@ -53,7 +53,7 @@
                &:hover,
                &:focus {
                     color: $orange;
-                    outline:none;
+                    outline: none;
                }
 
                &.disabled {
@@ -101,7 +101,10 @@
                     left: -10%;
                }
           }
+     }
 
-
+     &>.cards {
+          min-height: 200px;
+          background: #00000010;
      }
 }

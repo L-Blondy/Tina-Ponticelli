@@ -44,7 +44,7 @@ export default function setupSlider ( preload ) {
 		const a = document.createElement( "A" );
 		a.href = img_path;
 		a.className = ( indexToLoad === 0 ? "slide-link center" : "slide-link right" );
-		a.setAttribute("tabindex", -1);
+		a.setAttribute( "tabindex", -1 );
 		a.appendChild( img )
 		imgContainer.appendChild( a )
 		img.onload = () => {
@@ -106,7 +106,6 @@ export default function setupSlider ( preload ) {
 					stopAutoSlide()
 				}
 			} )
-			console.log( shouldAutoSlide )
 		}
 		slider_observer.observe( slider )
 	} else {

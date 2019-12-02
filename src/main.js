@@ -1,9 +1,10 @@
 import "./setSVG.js";
 import setScrollNav from "lb-scroll-nav";
-import loadImg from "lb-lazy-images";
 import randOpacity from "lb-effect-rand-opacity";
 import "lb-icons";
 import setupSlider from "./setupSlider.js"
+import setupCards from "./setupCards.js"
+import loadImg from "lb-lazy-images";
 import "./main.scss";
 
 //Scroll Nav
@@ -85,10 +86,5 @@ $( '.custom-slider' ).magnificPopup( {
 	gallery: {
 		enabled: true,
 		preload: [ 1, 2 ]
-	},
-	callbacks: {
-		open: function () {
-			console.log( $( ".slide" ) )
-		}
 	}
 } );
