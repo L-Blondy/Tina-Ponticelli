@@ -38,10 +38,10 @@ module.exports="https://l-blondy.github.io/Tina-Ponticelli/card2.570e66b9.jpg";
 module.exports="https://l-blondy.github.io/Tina-Ponticelli/card3.ed6bf864.jpg";
 },{}],"OqOy":[function(require,module,exports) {
 module.exports="https://l-blondy.github.io/Tina-Ponticelli/card4.9067513e.jpg";
-},{}],"xUG3":[function(require,module,exports) {
-module.exports="https://l-blondy.github.io/Tina-Ponticelli/card6.89d6e121.jpg";
 },{}],"VC8u":[function(require,module,exports) {
 module.exports="https://l-blondy.github.io/Tina-Ponticelli/card5.4151652f.jpg";
+},{}],"xUG3":[function(require,module,exports) {
+module.exports="https://l-blondy.github.io/Tina-Ponticelli/card6.89d6e121.jpg";
 },{}],"KNrj":[function(require,module,exports) {
 module.exports="https://l-blondy.github.io/Tina-Ponticelli/card7.74fe6e9c.jpg";
 },{}],"RbqQ":[function(require,module,exports) {
@@ -49,8 +49,8 @@ module.exports="https://l-blondy.github.io/Tina-Ponticelli/card8.ee900f16.jpg";
 },{}],"of77":[function(require,module,exports) {
 module.exports="https://l-blondy.github.io/Tina-Ponticelli/molti-xl.ad9178a1.jpg";
 },{}],"ANNx":[function(require,module,exports) {
-module.exports={"card1-lg":{jpg:require("./card1-lg.jpg")},card2:{jpg:require("./card2.jpg")},card3:{jpg:require("./card3.jpg")},card4:{jpg:require("./card4.jpg")},card6:{jpg:require("./card6.jpg")},card5:{jpg:require("./card5.jpg")},card7:{jpg:require("./card7.jpg")},card8:{jpg:require("./card8.jpg")},"molti-xl":{jpg:require("./molti-xl.jpg")}};
-},{"./card1-lg.jpg":"vuKx","./card2.jpg":"oAjN","./card3.jpg":"hrfp","./card4.jpg":"OqOy","./card6.jpg":"xUG3","./card5.jpg":"VC8u","./card7.jpg":"KNrj","./card8.jpg":"RbqQ","./molti-xl.jpg":"of77"}],"ZgLv":[function(require,module,exports) {
+module.exports={"card1-lg":{jpg:require("./card1-lg.jpg")},card2:{jpg:require("./card2.jpg")},card3:{jpg:require("./card3.jpg")},card4:{jpg:require("./card4.jpg")},card5:{jpg:require("./card5.jpg")},card6:{jpg:require("./card6.jpg")},card7:{jpg:require("./card7.jpg")},card8:{jpg:require("./card8.jpg")},"molti-xl":{jpg:require("./molti-xl.jpg")}};
+},{"./card1-lg.jpg":"vuKx","./card2.jpg":"oAjN","./card3.jpg":"hrfp","./card4.jpg":"OqOy","./card5.jpg":"VC8u","./card6.jpg":"xUG3","./card7.jpg":"KNrj","./card8.jpg":"RbqQ","./molti-xl.jpg":"of77"}],"ZgLv":[function(require,module,exports) {
 "use strict";function e(){var e=document.querySelector(".card-container"),a=require("./assets/cards/*.*");for(var t in a){var r=document.createElement("A"),c=document.createElement("IMG");r.className="card-link",c.className="card-image ".concat(t.includes("-lg")?"card-image__lg":t.includes("-xl")?"card-image__xl":""),c.dataset.src="cards/"+t,c.setAttribute("alt",t),c.setAttribute("loadOnScroll",""),r.appendChild(c),e.appendChild(r)}}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=e,e();
 },{"./assets/cards/*.*":"ANNx"}],"piBD":[function(require,module,exports) {
 module.exports="https://l-blondy.github.io/Tina-Ponticelli/line1.ebe0eabb.jpg";
@@ -123,4 +123,4 @@ module.exports={cards:{"card1-lg":{jpg:require("./..\\cards\\card1-lg.jpg")},car
 },{"./../../src/assets/**/*.*":"v3A4"}],"HJDO":[function(require,module,exports) {
 "use strict";require("./setSVG.js");var e=i(require("lb-scroll-nav")),r=i(require("lb-effect-rand-opacity"));require("lb-icons");var t=i(require("./setupSlider.js")),a=i(require("./setupCards.js")),n=i(require("lb-lazy-images"));function i(e){return e&&e.__esModule?e:{default:e}}require("./main.scss");var c=document.querySelectorAll("section"),l=document.querySelector(".section-container");(0,e.default)(c,l),$(".navbar a").click(function(e){$("#navlinks").collapse("hide"),e.target.parentElement.parentElement.classList.add("collapse"),$(".burger-burger").removeClass("burger-cross")}),$(".navbar-toggler").click(function(e){$(".burger-burger").toggleClass("burger-cross")});var s=document.querySelector(".moltitudine"),o=[480,768,1100,1920],u=document.querySelectorAll(".line");[].forEach.call(u,function(e,r){e.dataset.srcset="",o.forEach(function(t){e.dataset.srcset+="moltitudine".concat(t,"/line").concat(r+1," ").concat(t,"w, ")})}),"Promise"in window?(0,n.default)(u).then(function(e){e[0].parentElement.parentElement.className+=" display ",document.querySelector(".discover").classList.add("display"),window.matchMedia("(min-width: 768px)").matches&&(0,t.default)(2)}):((0,n.default)(u),setTimeout(function(){return u[0].parentElement.parentElement.className+=" display"},1e3),window.matchMedia("(min-width: 768px)").matches&&(0,t.default)(2));var d=document.querySelectorAll(".line-container");[].forEach.call(d,function(e){for(var r=0;r<23;r++){var t=document.createElement("div");t.className="square",e.querySelector(".squares").appendChild(t)}});var m=document.querySelectorAll(".square"),f={frequency:3,duration:8e3,fadeTo:0},p=new r.default(s,m,f);if("IntersectionObserver"in window){var q=function(e){e.forEach(function(e){e.intersectionRatio>.5&&window.matchMedia("(min-width: 767px)").matches?p.start():p.pause()})},v=new IntersectionObserver(q,{threshold:.5});v.observe(s)}$(".custom-slider").magnificPopup({delegate:".slide-link",type:"image",gallery:{enabled:!0,preload:[1,2]}});
 },{"./setSVG.js":"D8if","lb-scroll-nav":"zY1D","lb-effect-rand-opacity":"obEB","lb-icons":"l9Y2","./setupSlider.js":"Zrs9","./setupCards.js":"ZgLv","lb-lazy-images":"bK24","./main.scss":"H85O"}]},{},["HJDO"], null)
-//# sourceMappingURL=https://l-blondy.github.io/Tina-Ponticelli/main.3e9d3c33.js.map
+//# sourceMappingURL=https://l-blondy.github.io/Tina-Ponticelli/main.59ee5e2c.js.map
