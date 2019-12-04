@@ -6,12 +6,14 @@ export default function setupCards () {
 
 		const a = document.createElement( "A" );
 		const img = document.createElement( "IMG" );
+		const div = document.createElement( "DIV" );
 		a.className = "card-link";
-		img.className = `card-image ${ cardName.includes( "-lg" ) ? "card-image__lg" : cardName.includes( "-xl" ) ? "card-image__xl" : "" }`;
+		img.className = `card-image ${ cardName.indexOf( "-lg" ) !== -1 ? "card-image__lg" : cardName.indexOf( "-xl" ) !== -1 ? "card-image__xl" : cardName.indexOf( "-ht" ) !== -1 ? "card-image__ht" : cardName.indexOf( "-xh" ) !== -1 ? "card-image__xh" : "" }`;
 		img.dataset.src = "cards/" + cardName;
 		img.setAttribute( "alt", cardName );
 		img.setAttribute( "loadOnScroll", "" );
-		a.appendChild( img )
+		div.appendChild( img )
+		a.appendChild( div )
 		cardsContainer.appendChild( a )
 	}
 }

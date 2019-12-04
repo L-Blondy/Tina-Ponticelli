@@ -3,6 +3,12 @@
 @import "./styles/home.scss";
 @import "./styles/works.scss";
 
+* {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
+
 body,
 html {
      height: 100%;

@@ -105,7 +105,6 @@
 
    .card {
       &-container {
-         min-height: 200px;
          display: flex;
          flex-wrap: wrap;
          justify-content: center;
@@ -123,18 +122,24 @@
       }
 
       &-link {
-         height: 20vmin;
-         min-height: 200px;
-         width: 20vmin;
-         min-width: 200px;
+         position: relative;
+         width: 250px;
+         max-width: 350px;
          box-shadow: inset 2px 4px 6px 0 rgba(0, 0, 0, 0.25);
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         margin: 2.5vmin;
+         flex-grow: 1;
+
+         margin: calc(20px + 1vmin);
+
+         &>div {
+            padding-top: 100%;
+         }
       }
 
       &-image {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
          max-height: 60%;
          max-width: 60%;
 
@@ -144,6 +149,14 @@
 
          &__xl {
             max-width: 80%
+         }
+
+         &__ht {
+            max-height: 70%
+         }
+
+         &__xh {
+            max-height: 80%
          }
       }
    }
