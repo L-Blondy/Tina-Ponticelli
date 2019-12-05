@@ -2,13 +2,18 @@ import "./setSVG.js";
 import "lb-icons";
 import { Slider } from "./components/Slider.js"
 import { Cards } from "./components/Cards.js"
-import { setupNav } from "./components/Navbar.js"
+import { setupNavbar } from "./components/Navbar.js"
 import { Moltitudine } from "./components/Moltitudine.js"
 import { loadOnScroll } from "lb-lazy-images";
+import setScrollNav from "lb-scroll-nav";
 import "./main.scss";
 
-setupNav();
+//Scroll Nav
+const sections = document.querySelectorAll( "section" );
+const sectionContainer = document.querySelector( ".section-container" );
+setScrollNav( sections, sectionContainer );
 
+setupNavbar();
 
 const lines = document.querySelectorAll( ".line" );
 

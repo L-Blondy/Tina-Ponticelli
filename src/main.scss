@@ -7,6 +7,7 @@
      padding: 0;
      margin: 0;
      box-sizing: border-box;
+     -webkit-tap-highlight-color: transparent;
 }
 
 body,
@@ -14,9 +15,13 @@ html {
      height: 100%;
      font-family: $font-primary;
      overflow: auto;
+     position: relative;
+     z-index: -3;
 }
 
 .section-container {
+     position: relative;
+     z-index: -2;
      height: calc(100vh - #{$navbar-height});
 
      section:not(.home) {

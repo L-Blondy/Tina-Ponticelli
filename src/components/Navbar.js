@@ -1,15 +1,9 @@
-import setScrollNav from "lb-scroll-nav";
-
-export function setupNav () {
-	//Scroll Nav
-	const sections = document.querySelectorAll( "section" );
-	const sectionContainer = document.querySelector( ".section-container" );
-	setScrollNav( sections, sectionContainer );
-
-	//navlinks toggle
+export function setupNavbar () {
+	//TOGGLE NAVLINKS
 	const toggler = document.querySelector( ".navbar-toggler" );
 	const navlinks = document.querySelector( ".navbar-navlinks" );
-	document.documentElement.style.setProperty( "--links-count", navlinks.children.length )
+	const home = document.querySelector( "#home" );
+	const logo = document.querySelector( ".navbar-logo" );
 
 	window.addEventListener( "click", e => {
 		if ( e.target === toggler ) {
@@ -20,4 +14,17 @@ export function setupNav () {
 			toggler.classList.remove( "burger-cross" );
 		}
 	} );
+	//TOGGLE LOGO
+	const homeObs = new IntersectionObserver( cb, { threshold: 0.05 } )
+	function cb ( entries ) {
+		entries.forEach( entry => {
+			if ( entry.intersectionRatio > 0.05 && !logo.classList.contains( "hidden" ) ) {
+				logo.classList.add( "hidden" )
+			}
+			else if ( entry.intersectionRatio < 0.05 && logo.classList.contains( "hidden" ) ) {
+				logo.classList.remove( "hidden" )
+			}
+		} )
+	}
+	homeObs.observe( home )
 }
