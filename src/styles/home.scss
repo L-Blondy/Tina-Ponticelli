@@ -127,6 +127,10 @@
                width: 80%;
           }
 
+          @media (max-width: 420px) {
+               width: 88%;
+          }
+
           @for $i from 1 through 14 {
                path:nth-child(#{$i}) {
                     stroke-dasharray: 400;

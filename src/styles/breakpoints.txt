@@ -1,0 +1,6 @@
+DESKTOP
+small-desktop: 1400px
+big-tablet: 1100px
+small-tablets: 768px    ---- slider
+big-phone: 600px
+small-phone: 420px

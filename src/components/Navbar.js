@@ -9,7 +9,10 @@ export function setupNavbar () {
 		if ( e.target === toggler ) {
 			e.target.classList.toggle( "burger-cross" );
 			navlinks.classList.toggle( "collapse" );
-		} else if ( !navlinks.classList.contains( "collapse" ) ) {
+			if ( logo.classList.contains( "hidden" ) )
+				logo.classList.remove( "hidden" )
+		}
+		else if ( !navlinks.classList.contains( "collapse" ) ) {
 			navlinks.classList.add( "collapse" );
 			toggler.classList.remove( "burger-cross" );
 		}

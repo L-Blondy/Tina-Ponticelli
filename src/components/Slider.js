@@ -68,7 +68,7 @@ Slider.prototype.goRight = function () {
 	}
 }
 Slider.prototype.startAutoSlide = function () {
-	this.autoSlide = setInterval( this.goRight, this.slide_delay )
+	this.autoSlide = setInterval( () => this.goRight(), this.slide_delay )
 }
 Slider.prototype.stopAutoSlide = function () {
 	clearInterval( this.autoSlide )

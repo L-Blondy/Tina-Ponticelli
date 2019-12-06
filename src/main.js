@@ -43,3 +43,12 @@ $( '.custom-slider' ).magnificPopup( {
 		preload: [ 1, 2 ]
 	}
 } );
+
+$( '.card-container' ).magnificPopup( {
+	delegate: '.card-link',
+	type: 'image',
+	gallery: {
+		enabled: true,
+		preload: [ 1, 2 ]
+	}
+} );

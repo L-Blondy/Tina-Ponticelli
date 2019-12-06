@@ -4,7 +4,8 @@
    user-select: none;
    position: relative;
    z-index: auto;
-   height: 50px;
+   height: 60px;
+   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -12,9 +13,13 @@
    color: $clr-text-primary;
    background: $nav-bg;
 
-   @media (min-width:992px) {
-      height: 60px;
-      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+   @media (max-width:1024px) {
+      height: 50px;
+      box-shadow: none;
+   }
+
+   @media (max-width:360px) {
+      padding: 0 24px;
    }
 
    &-toggler {
@@ -27,6 +32,7 @@
       background: none;
       border: none;
       color: inherit;
+      transform: scale(0);
 
       >[class*="burger"] {
          pointer-events: none;
@@ -35,8 +41,8 @@
 
       }
 
-      @media (min-width:992px) {
-         transform: scale(0);
+      @media (max-width:1024px) {
+         transform: none;
       }
    }
 
@@ -45,6 +51,7 @@
       font-weight: 600;
       opacity: 1;
       transform: translateX(0);
+      font-size: 1.3rem;
 
       &.hidden {
          opacity: 0;
@@ -53,7 +60,11 @@
    }
 
    &-navlinks {
-      @media (max-width:992px) {
+      display: flex;
+      list-style: none;
+
+
+      @media (max-width:1024px) {
          top: 100%;
          display: flex;
          flex-direction: column;
@@ -82,11 +93,13 @@
          font-family: $font-primary;
          padding: 0.5rem 1.1rem;
          text-decoration: none;
+         display: block;
 
-         @media (max-width: 992px) {
+         @media (max-width: 1024px) {
             padding: 0.8rem 2rem;
             border-radius: 0;
             margin: 0;
+            font-size: 1.1rem;
          }
 
          &.active {
@@ -101,18 +114,18 @@
             box-shadow: 0 0 0 2px #ffbb3b;
             outline: none;
 
-            @media (max-width:992px) {
+            @media (max-width:1024px) {
                box-shadow: none;
                background: rgba(0, 0, 0, 0.05)
             }
          }
 
-         @media (min-width: 992px) {
+         @media (min-width: 1024px) {
             &[href="#contact"] {
                color: white;
                padding: 0.5rem 1.2rem;
                border-radius: 12px;
-               background: #ffc107;
+               background: #fbbc00;
 
                &:hover,
                &.active {
