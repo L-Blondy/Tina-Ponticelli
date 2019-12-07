@@ -1,6 +1,8 @@
-window.addEventListener( "popstate", () => {
+window.addEventListener( "popstate", ( e ) => {
 	$.magnificPopup.close()
 } )
+
+const baseLocation = document.location.pathname;
 
 export function setMagnificPopup ( target, delegate ) {
 	$( target ).magnificPopup( {
@@ -12,10 +14,10 @@ export function setMagnificPopup ( target, delegate ) {
 		},
 		callbacks: {
 			open: () => {
-				history.pushState( {}, "", "/slide" )
+				history.pushState( {}, "", baseLocation + "slide" )
 			},
 			close: () => {
-				history.back()
+				document.location.pathname === baseLocation + "slide" && history.back();
 			}
 		}
 	} );
