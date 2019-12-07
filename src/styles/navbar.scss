@@ -89,9 +89,9 @@
          margin-left: 0.6rem;
          font-weight: 700;
          border-radius: 12px;
-         font-size: 0.9rem;
+         font-size: 1rem;
          font-family: $font-primary;
-         padding: 0.5rem 1.1rem;
+         padding: 0.55rem 1.1rem 0.5rem 1.1rem;
          text-decoration: none;
          display: block;
 
@@ -104,15 +104,18 @@
 
          &.active {
             color: $orange;
+            background: none !important;
          }
 
          &:hover {
-            box-shadow: inset 0 0 5px #ddd;
+            box-shadow: 0 0 0 1px #ddd !important;
          }
 
          &:focus {
-            box-shadow: 0 0 0 2px #ffbb3b;
+            box-shadow: 0 0 0 1px #ffbb3b !important;
             outline: none;
+            background: none !important;
+            color: $orange;
 
             @media (max-width:1024px) {
                box-shadow: none;
@@ -122,15 +125,7 @@
 
          @media (min-width: 1024px) {
             &[href="#contact"] {
-               color: white;
-               padding: 0.5rem 1.2rem;
-               border-radius: 12px;
-               background: #fbbc00;
-
-               &:hover,
-               &.active {
-                  box-shadow: 0 0 0 3px #ffd452;
-               }
+               box-shadow: 0 0 0 1px #A7A7A6;
             }
          }
       }

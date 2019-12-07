@@ -13,7 +13,7 @@
       overflow: hidden;
       margin: 0 auto;
 
-      @media (max-width: 768px) {
+      @media (max-width: 992px) {
          display: none;
       }
 
@@ -110,7 +110,7 @@
          display: flex;
          flex-wrap: wrap;
          justify-content: center;
-         width: 92%;
+         width: 80%;
          margin: 0 auto;
          padding: 0 calc(10px + 2vw);
 
@@ -122,15 +122,11 @@
       &-link {
          position: relative;
          width: 250px;
-         max-width: 270px;
-         box-shadow: inset 2px 5px 7px 0 rgba(0, 0, 0, 0.25);
+         max-width: 300px;
+         box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.4);
          flex-grow: 1;
-         background: #f1eee7;
+         background: $card-bg;
          margin: 20px;
-
-         @media (max-width:1100px) {
-            margin: 16px;
-         }
 
          &>div {
             padding-top: 100%;
@@ -142,23 +138,24 @@
          top: 50%;
          left: 50%;
          transform: translate(-50%, -50%);
-         max-height: 66%;
-         max-width: 66%;
+         max-height: 63%;
+         max-width: 63%;
+         opacity: 0.9;
 
          &__lg {
-            max-width: 75%
-         }
-
-         &__xl {
-            max-width: 82%
+            max-width: 72%
          }
 
          &__ht {
-            max-height: 75%
+            max-height: 72%
+         }
+
+         &__xl {
+            max-width: 80%
          }
 
          &__xh {
-            max-height: 82%
+            max-height: 80%
          }
       }
    }
