@@ -93,7 +93,6 @@ Slider.prototype.setup = function () {
 	} else {
 		this.startAutoSlide()
 	}
-
 	slider.addEventListener( "click", e => {
 		this.stopAutoSlide()
 		const clicked_left = e.target.classList.contains( "custom-slider__arrow-left" );

@@ -1,11 +1,12 @@
 import "./setSVG.js";
 import "lb-icons";
+import setScrollNav from "lb-scroll-nav";
 import { Slider } from "./components/Slider.js"
 import { Cards } from "./components/Cards.js"
 import { setupNavbar } from "./components/Navbar.js"
 import { Moltitudine } from "./components/Moltitudine.js"
+import { setMagnificPopup } from "./components/MagnificPopup.js";
 import { loadOnScroll } from "lb-lazy-images";
-import setScrollNav from "lb-scroll-nav";
 import "./main.scss";
 
 //Scroll Nav
@@ -31,24 +32,10 @@ if ( "Promise" in window ) {
 }
 //setup cards 
 new Cards().setup();
-//setup loadOnScroll
-loadOnScroll( document.querySelector( ".section-container" ) )
 
 //magnific popup
-$( '.custom-slider' ).magnificPopup( {
-	delegate: '.slide-link',
-	type: 'image',
-	gallery: {
-		enabled: true,
-		preload: [ 1, 2 ]
-	}
-} );
+setMagnificPopup( '.custom-slider', '.slide-link' )
+setMagnificPopup( '.card-container', '.card-link' )
 
-$( '.card-container' ).magnificPopup( {
-	delegate: '.card-link',
-	type: 'image',
-	gallery: {
-		enabled: true,
-		preload: [ 1, 2 ]
-	}
-} );
+//setup loadOnScroll => AT BOTTOM
+loadOnScroll( document.querySelector( ".section-container" ) )

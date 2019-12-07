@@ -16,6 +16,10 @@ html {
    z-index: -3;
 }
 
+a:focus {
+   outline: none
+}
+
 .section-container {
    position: relative;
    z-index: -2;
