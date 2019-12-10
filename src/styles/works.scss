@@ -79,13 +79,16 @@
 
    .slide {
       &-link {
+         @include flex-center;
          position: absolute;
-         font-size: 0;
+         font-size: 1.5rem;
+         letter-spacing: 0.2rem;
+         text-decoration: none;
+         color: #777;
          width: 100%;
          height: 70%;
          top: 50%;
          left: 50%;
-         display: flex;
          transition: transform 300ms, left 300ms;
          cursor: zoom-in;
 
@@ -94,13 +97,11 @@
          }
 
          &.right {
-            transform: translate(0, -50%) translateZ(-200px);
-            left: 110%;
+            transform: translate(55%, -50%);
          }
 
          &.left {
-            transform: translate(-100%, -50%) translateZ(-200px);
-            left: -10%;
+            transform: translate(-155%, -50%);
          }
       }
 
@@ -134,11 +135,11 @@
    &-link {
       position: relative;
       width: 250px;
-      max-width: 300px;
+      max-width: 270px;
       box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.4);
       flex-grow: 1;
       background: $card-bg;
-      margin: 20px;
+      margin: 24px;
       transition: box-shadow 500ms;
       color: white;
 

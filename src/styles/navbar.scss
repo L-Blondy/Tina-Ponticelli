@@ -27,6 +27,7 @@
    @media (max-width:360px) {
       padding: 0 24px;
    }
+
    /*************
       TOGGLER
    *************/
@@ -44,8 +45,8 @@
 
       >[class*="burger"] {
          pointer-events: none;
-         height: 24px;
-         width: 36px;
+         height: 21px;
+         width: 30px;
 
       }
 
@@ -58,15 +59,30 @@
       LOGO
    *************/
    &-logo {
-      transition: opacity 700ms, transform 700ms;
+      transition-property: opacity, transform;
+      transition-duration: 700ms;
       font-weight: 600;
       opacity: 1;
       transform: translateX(0);
       font-size: 1.3rem;
+      letter-spacing: 1px;
 
       &.hidden {
          opacity: 0;
          transform: scale(0.9) translateX(-10px);
+      }
+
+      @media (max-width: 600px) {
+         white-space: nowrap;
+         transition-property: font-size, transform, letter-spacing;
+         transition-duration: 150ms;
+         font-size: 1rem;
+
+         &.hidden {
+            font-size: 0.4rem;
+            letter-spacing: 10px;
+            opacity: 1;
+         }
       }
    }
 
@@ -103,7 +119,7 @@
          margin-left: 0.6rem;
          font-weight: 700;
          border-radius: 12px;
-         font-size: 1rem;
+         font-size: 0.9rem;
          font-family: $font-primary;
          padding: 0.55rem 1.1rem 0.5rem 1.1rem;
          text-decoration: none;
