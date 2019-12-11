@@ -20,13 +20,14 @@ setScrollNav( sections, sectionContainer );
 
 setupNavbar();
 
-const lines = document.querySelectorAll( ".line" );
-
-const moltitudine = new Moltitudine( {
-	frequency: 3,
-	duration: 8000,
-	fadeTo: 0,
-} ).setup()
+const moltitudine = new Moltitudine().setSrcset().setWhiteSquares()
+if ( window.matchMedia( "(orientation:landscape)" ).matches ) {
+	moltitudine.setupRandOpacity( {
+		frequency: 3,
+		duration: 8000,
+		fadeTo: 0,
+	} )
+}
 
 if ( "Promise" in window ) {
 	moltitudine.load().then( () => new Slider( pathList, 2, 10000, 300 ).setup() )

@@ -2,7 +2,6 @@ import randOpacity from "lb-effect-rand-opacity";
 import { loadImg } from "lb-lazy-images";
 
 export function Moltitudine ( animationOptions ) {
-	this.animationOptions = animationOptions;
 	this.container = document.querySelector( ".moltitudine" );
 	this.sizes = [ 480, 768, 1100, 1920 ];
 	this.lines = document.querySelectorAll( ".line" );
@@ -17,6 +16,7 @@ Moltitudine.prototype.setSrcset = function () {
 			line.dataset.srcset += `moltitudine${ size }/line${ index + 1 } ${ size }w, `;
 		} )
 	} )
+	return this;
 }
 
 Moltitudine.prototype.setWhiteSquares = function () {
@@ -27,19 +27,24 @@ Moltitudine.prototype.setWhiteSquares = function () {
 			line.querySelector( ".squares" ).appendChild( square )
 		}
 	} )
+	return this;
 }
 
-Moltitudine.prototype.setupRandOpacity = function () {
+Moltitudine.prototype.setupRandOpacity = function ( animationOptions ) {
 	//Moltitudine Animation
 	const squares = document.querySelectorAll( ".square" );
 
-	const moltiAnimation = new randOpacity( this.container, squares, this.animationOptions );
+	this.canRestart = true;
+
+	const moltiAnimation = new randOpacity( this.container, squares, animationOptions );
 	//start / pause animation
 	if ( "IntersectionObserver" in window ) {
+		const that = this;
 		const moltiObs = new IntersectionObserver( handleAnimation, { threshold: 0.5 } )
 		function handleAnimation ( entries ) {
 			entries.forEach( entry => {
-				if ( entry.intersectionRatio > 0.5 && window.matchMedia( "(min-width: 767px)" ).matches ) {
+				if ( entry.intersectionRatio > 0.5 && that.canRestart && window.matchMedia( "(min-width: 767px)" ).matches ) {
+					console.log( "starting" )
 					moltiAnimation.start()
 				}
 				else {
@@ -49,14 +54,18 @@ Moltitudine.prototype.setupRandOpacity = function () {
 		}
 		moltiObs.observe( this.container )
 	}
-}
-Moltitudine.prototype.setup = function () {
-	this.setSrcset()
-	this.setWhiteSquares()
-	this.setupRandOpacity()
+
+	window.addEventListener( "resize", () => {
+		if ( window.matchMedia( "(orientation: portrait)" ).matches ) {
+			this.canRestart = false;
+			moltiAnimation.pause()
+			document.querySelectorAll( ".toggle-fadein" ).forEach( square => square.classList.remove( "toggle-fadein" ) )
+		}
+	} )
 	return this;
 }
-Moltitudine.prototype.load = function ( options ) {
+
+Moltitudine.prototype.load = function () {
 
 	if ( "Promise" in window ) {
 		return loadImg( this.lines ).then( lines => {

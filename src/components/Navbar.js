@@ -18,16 +18,20 @@ export function setupNavbar () {
 		}
 	} );
 	//TOGGLE LOGO
-	const homeObs = new IntersectionObserver( cb, { threshold: 0.05 } )
-	function cb ( entries ) {
-		entries.forEach( entry => {
-			if ( entry.intersectionRatio > 0.05 && !logo.classList.contains( "hidden" ) ) {
-				logo.classList.add( "hidden" )
-			}
-			else if ( entry.intersectionRatio < 0.05 && logo.classList.contains( "hidden" ) ) {
-				logo.classList.remove( "hidden" )
-			}
-		} )
+	if ( "IntersectionObserver" in window ) {
+		const homeObs = new IntersectionObserver( cb, { threshold: 0.4 } )
+		function cb ( entries ) {
+			entries.forEach( entry => {
+				if ( entry.intersectionRatio > 0.4 && !logo.classList.contains( "hidden" ) ) {
+					logo.classList.add( "hidden" )
+				}
+				else if ( entry.intersectionRatio < 0.4 && logo.classList.contains( "hidden" ) ) {
+					logo.classList.remove( "hidden" )
+				}
+			} )
+		}
+		homeObs.observe( home )
+	} else {
+		logo.classList.remove( "hidden" )
 	}
-	homeObs.observe( home )
 }

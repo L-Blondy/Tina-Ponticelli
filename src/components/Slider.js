@@ -40,15 +40,23 @@ Slider.prototype.setup = function () {
 };
 
 Slider.prototype.loadImg = function ( loadIndex, stopIndex ) {
-	loadImg( this.slides[ loadIndex ] ).then( () => {
-		if ( loadIndex === 0 ) {
-			this.startAutoSlide();
+	if ( "Promise" in window ) {
+		loadImg( this.slides[ loadIndex ] ).then( () => {
+			if ( loadIndex === 0 ) {
+				this.startAutoSlide();
+			}
+			this.loadedIndex = loadIndex;
+			if ( loadIndex < stopIndex ) {
+				this.loadImg( loadIndex + 1, stopIndex );
+			}
+		} );
+	} else {
+		/********************************************************************************************************/
+		for ( let i = 0; i < this.slides.length; i++ ) {
+			loadImg( this.slides[ i ] )
 		}
-		this.loadedIndex = loadIndex;
-		if ( loadIndex < stopIndex ) {
-			this.loadImg( loadIndex + 1, stopIndex );
-		}
-	} );
+		/********************************************************************************************************/
+	}
 };
 
 Slider.prototype.goLeft = function () {
@@ -79,22 +87,24 @@ Slider.prototype.goRight = function () {
 		this.center.nextElementSibling.classList.add( "center" );
 		this.center = this.center.nextElementSibling;
 	}
-	const nextImgNotLoaded =
-		this.index + this.preload > this.loadedIndex &&
-		this.index + this.preload < this.slides.length;
-	if ( nextImgNotLoaded ) {
-		this.canClick = false;
-		setTimeout(
-			() => {
-				this.canClick = true
-				this.loadImg( this.index + this.preload, this.index + this.preload )
-			}, this.loadDelay
-		);
+	if ( "Promise" in window ) {
+		const nextImgNotLoaded =
+			this.index + this.preload > this.loadedIndex &&
+			this.index + this.preload < this.slides.length;
+		if ( nextImgNotLoaded ) {
+			this.canClick = false;
+			setTimeout(
+				() => {
+					this.canClick = true
+					this.loadImg( this.index + this.preload, this.index + this.preload )
+				}, this.loadDelay
+			);
+		}
+		if ( this.leftArrow.classList.contains( "disabled" ) )
+			this.leftArrow.classList.remove( "disabled" )
+		if ( this.index === this.slides.length - 1 )
+			this.rightArrow.classList.add( "disabled" )
 	}
-	if ( this.leftArrow.classList.contains( "disabled" ) )
-		this.leftArrow.classList.remove( "disabled" )
-	if ( this.index === this.slides.length - 1 )
-		this.rightArrow.classList.add( "disabled" )
 };
 
 Slider.prototype.startAutoSlide = function () {
@@ -106,13 +116,22 @@ Slider.prototype.stopAutoSlide = function () {
 };
 
 function loadImg ( elem ) {
-	return new Promise( function ( resolve ) {
+	if ( "Promise" in window ) {
+		return new Promise( function ( resolve ) {
+			const IMG = document.createElement( "IMG" );
+			IMG.src = elem.dataset.src;
+			IMG.className = elem.classList
+			IMG.onload = () => {
+				elem.parentElement.replaceChild( IMG, elem );
+				resolve( IMG );
+			};
+		} );
+	} else {
 		const IMG = document.createElement( "IMG" );
 		IMG.src = elem.dataset.src;
-		IMG.classList = elem.classList
+		IMG.className = elem.classList
 		IMG.onload = () => {
 			elem.parentElement.replaceChild( IMG, elem );
-			resolve( IMG );
 		};
-	} );
+	}
 }

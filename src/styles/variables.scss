@@ -1,12 +1,11 @@
 $navbar-height: 60px;
-$title-clr: #4E4E4E;
+$title-clr: #555;
 $clr-text-primary: #666; //#52514F;
 $orange: #ffa500;
-$beige: #F7F5F0;
+$beige: #fbfaf7; //#F7F5F0;
 $disabled: #ddd;
 $nav-bg: #fdfdfc;
 $card-bg: #F2EFE7;
-
 $font-primary: 'Raleway',
 sans-serif;
 
@@ -22,6 +21,6 @@ sans-serif;
 
 @mixin flex-center {
      display: flex;
-     justify-content:center;
+     justify-content: center;
      align-items: center;
 }
