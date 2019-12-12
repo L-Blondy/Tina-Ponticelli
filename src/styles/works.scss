@@ -174,15 +174,17 @@
          max-height: 80%
       }
    }
+
    //card slider
    @media (max-width: 660px) {
       &-container {
          justify-content: flex-start;
-         background: rgba(0, 0,0,0.1);
+         background: rgba(0, 0, 0, 0.1);
          flex-wrap: nowrap;
          overflow-x: scroll;
          overflow-y: hidden;
       }
+
       &-link {
          flex-shrink: 0;
          width: 230px;
@@ -191,8 +193,6 @@
       }
    }
 }
-
-
 
 /****************
    HOVER EFFECTS

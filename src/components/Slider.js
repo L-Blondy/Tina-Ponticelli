@@ -70,8 +70,9 @@ Slider.prototype.goLeft = function () {
 		this.center.previousElementSibling.classList.add( "center" );
 		this.center = this.center.previousElementSibling;
 	}
-	if ( this.rightArrow.classList.contains( "disabled" ) )
+	if ( this.rightArrow.classList.contains( "disabled" ) ) {
 		this.rightArrow.classList.remove( "disabled" )
+	}
 	if ( this.index === 0 && !this.leftArrow.classList.contains( "disabled" ) )
 		this.leftArrow.classList.add( "disabled" )
 };
@@ -100,11 +101,13 @@ Slider.prototype.goRight = function () {
 				}, this.loadDelay
 			);
 		}
-		if ( this.leftArrow.classList.contains( "disabled" ) )
-			this.leftArrow.classList.remove( "disabled" )
-		if ( this.index === this.slides.length - 1 )
-			this.rightArrow.classList.add( "disabled" )
 	}
+	if ( this.leftArrow.classList.contains( "disabled" ) ) {
+		this.leftArrow.classList.remove( "disabled" )
+	}
+	if ( this.index === this.slides.length - 1 )
+		this.rightArrow.classList.add( "disabled" )
+
 };
 
 Slider.prototype.startAutoSlide = function () {

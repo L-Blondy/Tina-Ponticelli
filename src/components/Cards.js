@@ -1,4 +1,4 @@
-import {loadImg} from "lb-lazy-images";
+import { loadImg } from "lb-lazy-images";
 
 export function Cards () {
 	this.cardsContainer = document.querySelector( ".card-container" );
@@ -20,19 +20,33 @@ export function Cards () {
 			a.appendChild( div )
 			this.cardsContainer.appendChild( a )
 
-			if("IntersectionObserver" in window){
-				const O2 = new IntersectionObserver(cb2, {root:this.cardsContainer, rootMargin: "0px 500px 500px 0px", threshold: 0.05})
-				function cb2 (entries) {
-					entries.forEach(entry => {
-						if(entry.intersectionRatio > 0.05 ){
-							loadImg(entry.target)
-							O2.unobserve(img)
+			if ( "IntersectionObserver" in window ) {
+				const O1 = new IntersectionObserver( cb1, { root: document.querySelector( ".section-container" ), threshold: 0.05 } )
+				function cb1 ( entries ) {
+					entries.forEach( entry => {
+						if ( entry.intersectionRatio > 0.05 && !( window.matchMedia( "(max-width:660px)" ).matches ) ) {
+							console.log( "01 " + entry.intersectionRatio + entry.target.dataset.src )
+							loadImg( entry.target )
+							O1.unobserve( img )
+							O2.unobserve( img )
 						}
-					})
+					} )
 				}
-				O2.observe(img)
+				const O2 = new IntersectionObserver( cb2, { root: this.cardsContainer, rootMargin: "0px 500px 0px 0px", threshold: 0.05 } )
+				function cb2 ( entries ) {
+					entries.forEach( entry => {
+						if ( entry.intersectionRatio > 0.05 && ( window.matchMedia( "(max-width:660px)" ).matches ) ) {
+							console.log( "02 " + entry.intersectionRatio + entry.target.dataset.src )
+							loadImg( entry.target )
+							O1.unobserve( img )
+							O2.unobserve( img )
+						}
+					} )
+				}
+				O1.observe( img )
+				O2.observe( img )
 			} else {
-				loadImg(img)
+				loadImg( img )
 			}
 		}
 	}
