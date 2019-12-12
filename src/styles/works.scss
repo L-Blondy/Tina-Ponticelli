@@ -126,7 +126,7 @@
       flex-wrap: wrap;
       width: 80%;
       margin: 0 auto;
-      padding: 0 calc(10px + 2vw);
+      padding: 0 calc(30px + 2vw);
 
       @media (max-width: 1200px) {
          width: 100%;
@@ -135,7 +135,7 @@
 
    &-link {
       position: relative;
-      width: 250px;
+      width: 230px;
       max-width: 270px;
       box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.4);
       flex-grow: 1;
@@ -174,7 +174,25 @@
          max-height: 80%
       }
    }
+   //card slider
+   @media (max-width: 660px) {
+      &-container {
+         justify-content: flex-start;
+         background: rgba(0, 0,0,0.1);
+         flex-wrap: nowrap;
+         overflow-x: scroll;
+         overflow-y: hidden;
+      }
+      &-link {
+         flex-shrink: 0;
+         width: 230px;
+         max-width: 55vw;
+         margin: 5vw;
+      }
+   }
 }
+
+
 
 /****************
    HOVER EFFECTS

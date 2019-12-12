@@ -41,7 +41,7 @@ Slider.prototype.setup = function () {
 
 Slider.prototype.loadImg = function ( loadIndex, stopIndex ) {
 	if ( "Promise" in window ) {
-		loadImg( this.slides[ loadIndex ] ).then( () => {
+		loadImgS( this.slides[ loadIndex ] ).then( () => {
 			if ( loadIndex === 0 ) {
 				this.startAutoSlide();
 			}
@@ -53,7 +53,7 @@ Slider.prototype.loadImg = function ( loadIndex, stopIndex ) {
 	} else {
 		/********************************************************************************************************/
 		for ( let i = 0; i < this.slides.length; i++ ) {
-			loadImg( this.slides[ i ] )
+			loadImgS( this.slides[ i ] )
 		}
 		/********************************************************************************************************/
 	}
@@ -115,7 +115,7 @@ Slider.prototype.stopAutoSlide = function () {
 	clearInterval( this.autoSlide );
 };
 
-function loadImg ( elem ) {
+function loadImgS ( elem ) {
 	if ( "Promise" in window ) {
 		return new Promise( function ( resolve ) {
 			const IMG = document.createElement( "IMG" );
