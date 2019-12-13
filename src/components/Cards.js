@@ -1,32 +1,31 @@
-import { loadImg } from "lb-lazy-images";
+import { loadImg_computed } from "../utils/loadImg_computed.js"
 
-export function Cards () {
+export function Cards ( pathList_cards, pathList_popup ) {
 	this.cardsContainer = document.querySelector( ".card-container" );
-	this.cards = require( "../assets/cards/*.*" );
+	this.cards = pathList_cards;
+	this.popups = pathList_popup;
 	this.placeholder = require( "../assets/placeholder/*.*" );
 	this.setup = function () {
-		for ( let cardName in this.cards ) {
-			const cardPath = this.cards[ cardName ][ Object.keys( this.cards[ cardName ] )[ 0 ] ]
+		this.cards.forEach( ( cardPath, index ) => {
 			const a = document.createElement( "A" );
 			const img = document.createElement( "IMG" );
 			const div = document.createElement( "DIV" );
 			a.className = "card-link";
-			a.href = cardPath;
-			img.className = `card-image ${ cardName.indexOf( "-lg" ) !== -1 ? "card-image__lg" : cardName.indexOf( "-xl" ) !== -1 ? "card-image__xl" : cardName.indexOf( "-ht" ) !== -1 ? "card-image__ht" : cardName.indexOf( "-xh" ) !== -1 ? "card-image__xh" : "" }`;
-			img.dataset.src = "cards/" + cardName;
+			a.href = this.popups[ index ];
+			img.className = `card-image ${ cardPath.indexOf( "-lg" ) !== -1 ? "card-image__lg" : cardPath.indexOf( "-xl" ) !== -1 ? "card-image__xl" : cardPath.indexOf( "-ht" ) !== -1 ? "card-image__ht" : cardPath.indexOf( "-xh" ) !== -1 ? "card-image__xh" : "" }`;
+			img.dataset.src = cardPath;
 			img.src = this.placeholder[ "1x1_placeholder" ][ "png" ];
-			img.setAttribute( "alt", cardName );
+			img.setAttribute( "alt", cardPath );
 			div.appendChild( img )
 			a.appendChild( div )
 			this.cardsContainer.appendChild( a )
 
 			if ( "IntersectionObserver" in window ) {
-				const O1 = new IntersectionObserver( cb1, { root: document.querySelector( ".section-container" ), threshold: 0.05 } )
+				const O1 = new IntersectionObserver( cb1, { root: document.querySelector( ".section-container" ), rootMargin: "0px 0px 500px 0px", threshold: 0.05 } )
 				function cb1 ( entries ) {
 					entries.forEach( entry => {
 						if ( entry.intersectionRatio > 0.05 && !( window.matchMedia( "(max-width:660px)" ).matches ) ) {
-							console.log( "01 " + entry.intersectionRatio + entry.target.dataset.src )
-							loadImg( entry.target )
+							loadImg_computed( entry.target )
 							O1.unobserve( img )
 							O2.unobserve( img )
 						}
@@ -36,8 +35,7 @@ export function Cards () {
 				function cb2 ( entries ) {
 					entries.forEach( entry => {
 						if ( entry.intersectionRatio > 0.05 && ( window.matchMedia( "(max-width:660px)" ).matches ) ) {
-							console.log( "02 " + entry.intersectionRatio + entry.target.dataset.src )
-							loadImg( entry.target )
+							loadImg_computed( entry.target )
 							O1.unobserve( img )
 							O2.unobserve( img )
 						}
@@ -46,8 +44,10 @@ export function Cards () {
 				O1.observe( img )
 				O2.observe( img )
 			} else {
-				loadImg( img )
+				loadImg_computed( img )
 			}
-		}
+		} )
 	}
 }
+
+

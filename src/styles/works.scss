@@ -174,24 +174,6 @@
          max-height: 80%
       }
    }
-
-   //card slider
-   @media (max-width: 660px) {
-      &-container {
-         justify-content: flex-start;
-         background: rgba(0, 0, 0, 0.1);
-         flex-wrap: nowrap;
-         overflow-x: scroll;
-         overflow-y: hidden;
-      }
-
-      &-link {
-         flex-shrink: 0;
-         width: 230px;
-         max-width: 55vw;
-         margin: 5vw;
-      }
-   }
 }
 
 /****************
@@ -254,6 +236,35 @@
       &::after {
          opacity: 1;
          transform: scale(1) translate(-50%, -50%);
+      }
+   }
+}
+
+//card slider
+.works .card {
+   @media (max-width: 660px) {
+
+      &-container {
+         justify-content: flex-start;
+         flex-wrap: nowrap;
+         overflow-x: scroll;
+         overflow-y: hidden;
+      }
+
+      &-link {
+         flex-shrink: 0;
+         width: 230px;
+         max-width: 55vw;
+         margin: 5vw;
+
+         &:last-child::before {
+            position: absolute;
+            content: "";
+            width: calc(30px + 15vw + 100%);
+            left: 0;
+            top: 0;
+            height: 100%;
+         }
       }
    }
 }

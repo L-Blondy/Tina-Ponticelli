@@ -10,9 +10,9 @@ import { setMagnificPopup } from "./components/MagnificPopup.js";
 import { loadOnScroll } from "lb-lazy-images";
 import "./main.scss";
 
-const sliderImages = require( "./assets/slider/*.*" );
-const pathList = getPathList( sliderImages )
-
+const pathList_slides = getPathList( require( "./assets/_slides/*.*" ) )
+const pathList_cards = getPathList( require( "./assets/_cards/*.*" ) )
+const pathList_popup = getPathList( require( "./assets/_popup/*.*" ) )
 //Scroll Nav
 const sections = document.querySelectorAll( "section" );
 const sectionContainer = document.querySelector( ".section-container" );
@@ -30,13 +30,13 @@ if ( window.matchMedia( "(orientation:landscape)" ).matches ) {
 }
 
 if ( "Promise" in window ) {
-	moltitudine.load().then( () => new Slider( pathList, 2, 10000, 300 ).setup() )
+	moltitudine.load().then( () => new Slider( pathList_slides, pathList_popup, 2, 10000, 300 ).setup() )
 } else {
 	moltitudine.load()
-	new Slider( pathList, 2, 10000, 300 ).setup()
+	new Slider( pathList_slides, pathList_popup, 2, 10000, 300 ).setup()
 }
 //setup cards 
-new Cards().setup();
+new Cards( pathList_cards, pathList_popup ).setup();
 
 //magnific popup
 setMagnificPopup( '.custom-slider', '.slide-link' )

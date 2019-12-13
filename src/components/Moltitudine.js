@@ -44,7 +44,6 @@ Moltitudine.prototype.setupRandOpacity = function ( animationOptions ) {
 		function handleAnimation ( entries ) {
 			entries.forEach( entry => {
 				if ( entry.intersectionRatio > 0.5 && that.canRestart && window.matchMedia( "(min-width: 767px)" ).matches ) {
-					console.log( "starting" )
 					moltiAnimation.start()
 				}
 				else {

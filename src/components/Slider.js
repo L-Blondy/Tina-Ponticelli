@@ -1,9 +1,12 @@
-export function Slider ( pathList, preload, autoSlideDelay = 10000, loadDelay = 300 ) {
+import { loadImg_computed } from "../utils/loadImg_computed.js"
+
+export function Slider ( pathList_slides, pathList_popup, preload, autoSlideDelay = 10000, loadDelay = 300 ) {
 	this.customSlider = document.querySelector( ".custom-slider" );
 	this.imgContainer = document.querySelector( ".custom-slider__images" );
 	this.leftArrow = document.querySelector( ".custom-slider__arrow-left" );
 	this.rightArrow = document.querySelector( ".custom-slider__arrow-right" );
-	this.pathList = pathList;
+	this.pathList_slides = pathList_slides;
+	this.pathList_popup = pathList_popup;
 	this.preload = preload;
 	this.autoSlideDelay = autoSlideDelay;
 	this.loadDelay = loadDelay;
@@ -13,12 +16,12 @@ export function Slider ( pathList, preload, autoSlideDelay = 10000, loadDelay = 
 }
 
 Slider.prototype.setup = function () {
-	this.slides = this.pathList.map( ( path, index ) => {
+	this.slides = this.pathList_slides.map( ( path, index ) => {
 		const A = document.createElement( "A" );
 		const IMG = document.createElement( "IMG" );
 		A.textContent = "loading...";
 		A.className = index === 0 ? "slide-link center" : "slide-link right";
-		A.href = path;
+		A.href = this.pathList_popup[ index ];
 		IMG.dataset.src = path;
 		IMG.className = "slide-img";
 		this.imgContainer.appendChild( A );
@@ -41,7 +44,7 @@ Slider.prototype.setup = function () {
 
 Slider.prototype.loadImg = function ( loadIndex, stopIndex ) {
 	if ( "Promise" in window ) {
-		loadImgS( this.slides[ loadIndex ] ).then( () => {
+		loadImg_computed( this.slides[ loadIndex ] ).then( () => {
 			if ( loadIndex === 0 ) {
 				this.startAutoSlide();
 			}
@@ -53,7 +56,7 @@ Slider.prototype.loadImg = function ( loadIndex, stopIndex ) {
 	} else {
 		/********************************************************************************************************/
 		for ( let i = 0; i < this.slides.length; i++ ) {
-			loadImgS( this.slides[ i ] )
+			loadImg_computed( this.slides[ i ] )
 		}
 		/********************************************************************************************************/
 	}
@@ -117,24 +120,3 @@ Slider.prototype.startAutoSlide = function () {
 Slider.prototype.stopAutoSlide = function () {
 	clearInterval( this.autoSlide );
 };
-
-function loadImgS ( elem ) {
-	if ( "Promise" in window ) {
-		return new Promise( function ( resolve ) {
-			const IMG = document.createElement( "IMG" );
-			IMG.src = elem.dataset.src;
-			IMG.className = elem.classList
-			IMG.onload = () => {
-				elem.parentElement.replaceChild( IMG, elem );
-				resolve( IMG );
-			};
-		} );
-	} else {
-		const IMG = document.createElement( "IMG" );
-		IMG.src = elem.dataset.src;
-		IMG.className = elem.classList
-		IMG.onload = () => {
-			elem.parentElement.replaceChild( IMG, elem );
-		};
-	}
-}
