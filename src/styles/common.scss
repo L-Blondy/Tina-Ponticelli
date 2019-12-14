@@ -27,15 +27,15 @@ a:focus {
    height: calc(100vh - #{$navbar-height});
 
    section:not(.home) {
-      min-height: 600px;
+      min-height: 300px;
    }
 
    .section-title {
       color: $clr-text-primary;
       text-align: center;
       font-variant: small-caps;
-      font-weight: 600;
-      letter-spacing: 0.4rem;
+      font-weight: 500;
+      letter-spacing: 0.2rem;
       font-size: 3rem;
       padding-top: 10rem;
       padding-bottom: 2rem;
@@ -46,14 +46,14 @@ a:focus {
          padding-bottom: 5rem;
       }
 
-      @media(max-width: 600px) {
-         font-size: 2.5rem;
-         padding-top: 6rem;
-         padding-bottom: 3rem;
-      }
-
-      @media(max-width: 420px) {
-         font-size: 2rem;
+      @media (orientation: portrait) {
+         width: 100%;
+         transform: translateX(20%);
+         text-align: left;
+         letter-spacing: 0.1rem;
+         padding-top: 3rem;
+         padding-bottom: 2rem;
+         font-size: calc(4vw + 1rem);
       }
    }
 }

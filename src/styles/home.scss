@@ -238,7 +238,7 @@
 
 @media (orientation: portrait) {
    .home {
-      height: 57vh;
+      height: 62vh;
       clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 
       .display {
@@ -274,11 +274,11 @@
          opacity: 1 !important;
          font-size: calc(1.0rem + 6.5vw);
          letter-spacing: 0.5vw;
-         font-weight: 300;
+         font-weight: 400;
          z-index: 10000;
          color: #595959;
          top: calc(50% - 5vw);
-         left: 15%;
+         left: 16%;
          transform: translateY(-50%);
          line-height: calc(1.5rem + 8vw);
       }
