@@ -7,7 +7,7 @@ import { Cards } from "./components/Cards.js"
 import { setupNavbar } from "./components/Navbar.js"
 import { Moltitudine } from "./components/Moltitudine.js"
 import { setMagnificPopup } from "./components/MagnificPopup.js";
-import { loadOnScroll } from "lb-lazy-images";
+// import { loadOnScroll } from "lb-lazy-images";
 import "./main.scss";
 
 const pathList_slides = getPathList( require( "./assets/_slides/*.*" ) )
@@ -43,6 +43,6 @@ setMagnificPopup( '.custom-slider', '.slide-link' )
 setMagnificPopup( '.card-container', '.card-link' )
 
 //setup loadOnScroll => AT BOTTOM
-loadOnScroll( document.querySelector( ".section-container" ) )
+// loadOnScroll( document.querySelector( ".section-container" ) )
 
 
