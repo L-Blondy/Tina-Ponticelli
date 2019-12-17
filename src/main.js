@@ -10,9 +10,9 @@ import { setMagnificPopup } from "./components/MagnificPopup.js";
 // import { loadOnScroll } from "lb-lazy-images";
 import "./main.scss";
 
-const pathList_slides = getPathList( require( "./assets/_slides/*.*" ) )
 const pathList_cards = getPathList( require( "./assets/_cards/*.*" ) )
-const pathList_popup = getPathList( require( "./assets/_popup/*.*" ) )
+const pathList_popup = getPathList( require( "./assets/_popup/**/*.*" ) )
+const pathList_slides = getPathList( require( "./assets/_slides/*.*" ) )
 //Scroll Nav
 const sections = document.querySelectorAll( "section" );
 const sectionContainer = document.querySelector( ".section-container" );

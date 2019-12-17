@@ -156,8 +156,8 @@
 
          @for $i from 1 through 14 {
             path:nth-child(#{$i}) {
-               stroke-dasharray: 400;
-               stroke-dashoffset: 400;
+               stroke-dasharray: 500;
+               stroke-dashoffset: 500;
                animation: strokein 3000ms #{$i * 150ms} forwards,
                fillin 3000ms #{$i * 150ms + 1500ms} forwards,
                shine 10000ms #{$i * 45ms + 6000ms} infinite;
@@ -194,6 +194,13 @@
                fillin 3000ms #{$i * 90ms + 2200ms} forwards,
                shine 10000ms #{$i * 45ms + 6400ms} infinite;
             }
+         }
+      }
+
+      @media (max-width:768px) {
+         div path {
+            animation-duration: 0ms !important;
+            animation-delay: 0ms !important;
          }
       }
 
@@ -257,7 +264,7 @@
 
          .line {
             width: 140vh;
-            opacity: 0.25;
+            opacity: 0.35;
          }
 
          .squares {

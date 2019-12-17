@@ -5,6 +5,8 @@ export function Cards ( pathList_cards, pathList_popup ) {
 	this.cards = pathList_cards;
 	this.popups = pathList_popup;
 	this.placeholder = require( "../assets/placeholder/*.*" );
+	this.sizes = [ 360, 768, 1000, 1920 ];
+
 	this.setup = function () {
 		this.cards.forEach( ( cardPath, index ) => {
 			const a = document.createElement( "A" );

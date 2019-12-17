@@ -24,6 +24,7 @@ Slider.prototype.setup = function () {
 		A.href = this.pathList_popup[ index ];
 		IMG.dataset.src = path;
 		IMG.className = "slide-img";
+		IMG.setAttribute( "alt", "slide" + index )
 		this.imgContainer.appendChild( A );
 		A.appendChild( IMG );
 		return IMG;
