@@ -72,7 +72,7 @@
          transform: scale(0.9) translateX(-10px);
       }
 
-      @media (max-width: 600px) {
+      @media (orientation: portrait) {
          white-space: nowrap;
          transition-property: font-size, transform, letter-spacing;
          transition-duration: 150ms;
