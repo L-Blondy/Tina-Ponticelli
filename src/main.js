@@ -1,6 +1,5 @@
 import "./setSVG.js";
 import "lb-icons";
-require( "lb-slidein" )
 import setScrollNav from "lb-scroll-nav";
 import { getPathList } from "./utils/getPathList.js"
 import { Slider } from "./components/Slider.js"

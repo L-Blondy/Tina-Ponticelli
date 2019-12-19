@@ -25,9 +25,9 @@ export function getClassToAdd ( index, length ) {
 			return "fadeFromBottom"
 		switch ( index % 4 ) {
 			case 0: return "fadeFromLeft";
-			case 1: return "fadeFromRight";
-			case 2: return "fadeFromBottom";
-			case 3: return "fadeFromBottom";
+			case 1: return "fadeFromLeft";
+			case 2: return "fadeFromRight";
+			case 3: return "fadeFromRight";
 			default: return "";
 		}
 	}

@@ -1,4 +1,5 @@
 import { loadImg_computed } from "../utils/loadImg_computed.js"
+import { onVisible } from "lb-onvisible"
 
 export function Slider ( pathList_slides, pathList_popup, preload, autoSlideDelay = 10000, loadDelay = 300 ) {
 	this.customSlider = document.querySelector( ".custom-slider" );
@@ -40,6 +41,15 @@ Slider.prototype.setup = function () {
 			this.goRight();
 		}
 	} );
+	onVisible( this.leftArrow, {
+		class: "fadeFromRight",
+	} )
+	onVisible( this.rightArrow, {
+		class: "fadeFromLeft",
+	} )
+	onVisible( this.imgContainer, {
+		class: "fadeFromBottom",
+	} )
 	return this;
 };
 
