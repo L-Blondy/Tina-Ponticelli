@@ -52,6 +52,15 @@
    }
 }
 
+.mfp-counter {
+   display: none;
+}
+
+.mfp-title {
+   text-align: right;
+   padding: 0;
+}
+
 @media(max-width: 900px) {
    .mfp-arrow {
       transform: scale(0.85);

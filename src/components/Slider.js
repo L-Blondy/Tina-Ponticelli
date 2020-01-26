@@ -1,4 +1,5 @@
 import { loadImg_computed } from "../utils/loadImg_computed.js"
+import { getPopupTitle } from "../utils/popup-title.js"
 import { onVisible } from "lb-onvisible"
 
 export function Slider ( pathList_slides, pathList_popup, preload, autoSlideDelay = 10000, loadDelay = 300 ) {
@@ -23,6 +24,7 @@ Slider.prototype.setup = function () {
 		A.textContent = "loading...";
 		A.className = index === 0 ? "slide-link center" : "slide-link right";
 		A.href = this.pathList_popup[ index ];
+		A.dataset.title = getPopupTitle( path );
 		IMG.dataset.src = path;
 		IMG.className = "slide-img";
 		IMG.setAttribute( "alt", "slide" + index )
