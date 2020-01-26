@@ -1,14 +1,13 @@
 import { loadImg_computed } from "../utils/loadImg_computed.js"
-import { getPopupTitle } from "../utils/popup-title.js"
 import { onVisible } from "lb-onvisible"
 
-export function Slider ( pathList_slides, pathList_popup, preload, autoSlideDelay = 10000, loadDelay = 300 ) {
+export function Slider ( pathList_slides, preload, autoSlideDelay = 10000, loadDelay = 300 ) {
 	this.customSlider = document.querySelector( ".custom-slider" );
 	this.imgContainer = document.querySelector( ".custom-slider__images" );
 	this.leftArrow = document.querySelector( ".custom-slider__arrow-left" );
 	this.rightArrow = document.querySelector( ".custom-slider__arrow-right" );
 	this.pathList_slides = pathList_slides;
-	this.pathList_popup = pathList_popup;
+	this.pathList_popup = pathList_slides;
 	this.preload = preload;
 	this.autoSlideDelay = autoSlideDelay;
 	this.loadDelay = loadDelay;
@@ -24,7 +23,6 @@ Slider.prototype.setup = function () {
 		A.textContent = "loading...";
 		A.className = index === 0 ? "slide-link center" : "slide-link right";
 		A.href = this.pathList_popup[ index ];
-		A.dataset.title = getPopupTitle( path );
 		IMG.dataset.src = path;
 		IMG.className = "slide-img";
 		IMG.setAttribute( "alt", "slide" + index )

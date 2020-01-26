@@ -1,5 +1,4 @@
 import { loadImg_computed } from "../utils/loadImg_computed.js"
-import { getPopupTitle } from "../utils/popup-title.js"
 
 export function Cards ( pathList_cards, pathList_popup ) {
 	this.cardsContainer = document.querySelector( ".card-container" );
@@ -15,7 +14,6 @@ export function Cards ( pathList_cards, pathList_popup ) {
 			const div = document.createElement( "DIV" );
 			a.className = "card-link";
 			a.href = this.popups[ index ];
-			a.dataset.title = getPopupTitle( cardPath );
 			img.className = `card-image ${ cardPath.indexOf( "-lg" ) !== -1 ? "card-image__lg" : cardPath.indexOf( "-xl" ) !== -1 ? "card-image__xl" : cardPath.indexOf( "-ht" ) !== -1 ? "card-image__ht" : cardPath.indexOf( "-xh" ) !== -1 ? "card-image__xh" : "" }`;
 			img.dataset.src = cardPath;
 			img.src = this.placeholder[ "1x1_placeholder" ][ "png" ];
