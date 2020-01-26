@@ -44,7 +44,7 @@ function loadPopup ( item ) {
 			<img class="mfp-img" alt=${title } src=${ item.src }>
 			<figcaption>
 				<div class="mfp-bottom-bar">
-					<div class="mfp-title">${ title }</div>
+					<div class="mfp-title">${ title }, need to implement srcset </div>
 					<div class="mfp-counter"> </div>
 				</div>
 			</figcaption>
