@@ -158,8 +158,8 @@
             path:nth-child(#{$i}) {
                stroke-dasharray: 500;
                stroke-dashoffset: 500;
-               animation: strokein 3000ms #{$i * 150ms} forwards,
-               fillin 3000ms #{$i * 150ms + 1500ms} forwards,
+               animation: strokein 3000ms #{$i * 100ms + 2500ms} forwards,
+               fillin 3000ms #{$i * 100ms + 1000ms} forwards,
                shine 10000ms #{$i * 45ms + 6000ms} infinite;
             }
          }
@@ -190,8 +190,8 @@
             path:nth-child(#{$i}) {
                stroke-dasharray: 300;
                stroke-dashoffset: 300;
-               animation: strokein 3000ms #{$i * 150ms + 1000ms} forwards,
-               fillin 3000ms #{$i * 90ms + 2200ms} forwards,
+               animation: strokein 3000ms #{$i * 90ms + 3000ms} forwards,
+               fillin 3000ms #{$i * 90ms + 1500ms} forwards,
                shine 10000ms #{$i * 45ms + 6400ms} infinite;
             }
          }

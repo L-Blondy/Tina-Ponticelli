@@ -8,6 +8,13 @@ export function setMagnificPopup ( target, delegate ) {
 	$( target ).magnificPopup( {
 		delegate: delegate,
 		type: 'image',
+		image: {
+			verticalFit: true,
+			titleSrc: function ( item ) {
+				console.log( item.el )
+				return "my tiltle"
+			}
+		},
 		gallery: {
 			enabled: true,
 			preload: [ 1, 2 ]
