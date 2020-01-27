@@ -119,6 +119,11 @@
          max-width: 100%;
          fill: transparent;
 
+         path {
+            stroke-width: 0.5px;
+            stroke: transparent;
+         }
+
          @media all and (-ms-high-contrast: none),
          (-ms-high-contrast: active) {
             fill: currentColor;
@@ -156,10 +161,8 @@
 
          @for $i from 1 through 14 {
             path:nth-child(#{$i}) {
-               stroke-dasharray: 500;
-               stroke-dashoffset: 500;
-               animation: strokein 3000ms #{$i * 100ms + 2500ms} forwards,
-               fillin 3000ms #{$i * 100ms + 1000ms} forwards,
+               animation: fillin 3000ms #{$i * 100ms + 1000ms} forwards,
+               strokein 3000ms 3500ms forwards,
                shine 10000ms #{$i * 45ms + 6000ms} infinite;
             }
          }
@@ -188,10 +191,8 @@
 
          @for $i from 1 through 12 {
             path:nth-child(#{$i}) {
-               stroke-dasharray: 300;
-               stroke-dashoffset: 300;
-               animation: strokein 3000ms #{$i * 90ms + 3000ms} forwards,
-               fillin 3000ms #{$i * 90ms + 1500ms} forwards,
+               animation: fillin 3000ms #{$i * 90ms + 1500ms} forwards,
+               strokein 3000ms 4000ms forwards,
                shine 10000ms #{$i * 45ms + 6400ms} infinite;
             }
          }
@@ -205,14 +206,7 @@
       }
 
       @keyframes strokein {
-         70% {
-            stroke-dashoffset: 0;
-            stroke: $clr-title;
-         }
-
-         100% {
-            stroke-dashoffset: 0;
-            stroke-width: 0.5px;
+         to {
             stroke: #ddd;
          }
       }
