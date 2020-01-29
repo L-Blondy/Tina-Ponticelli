@@ -15,6 +15,7 @@
    height: 47.5vw;
    max-height: calc(100vh - 60px);
    overflow: hidden;
+   background-image: linear-gradient(#f7f6f2, white);
 
    @media (max-width:1024px) {
       max-height: calc(100vh - 50px);

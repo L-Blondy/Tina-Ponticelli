@@ -17,13 +17,13 @@
     "lb-effect-rand-opacity": "^1.1.0",
     "lb-icons": "^1.1.0",
     "lb-lazy-images": "^1.3.6",
-    "lb-onvisible": "^1.0.2",
+    "lb-onvisible": "^1.0.8",
     "lb-scroll-nav": "^1.1.4",
     "parcel-bundler": "^1.12.4",
-    "sass": "^1.23.6"
+    "sass": "^1.23.6",
+    "lb-slidein": "^1.0.5"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
-    "lb-slidein": "^1.0.5"
+    "jquery": "^3.4.1"
   }
 }

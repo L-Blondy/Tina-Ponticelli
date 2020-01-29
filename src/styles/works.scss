@@ -8,7 +8,11 @@
 
 .works {
    background: $beige;
-   border-top: 1px solid #f9f8f6;
+   border-top: 1px solid #f7f6f2;
+
+   .section-title {
+      font-size: 3.7rem !important;
+   }
 }
 
 /****************
@@ -37,12 +41,12 @@
       position: relative;
       flex-grow: 1;
       height: 100%;
-      overflow: hidden;
       user-select: none;
    }
 
-   &__arrow-right>svg {
-      margin-left: auto;
+   &__arrow-right>svg,
+   &__arrow-left>svg {
+      margin: auto;
    }
 
    &__arrow-right,
@@ -95,14 +99,22 @@
 
          &.center {
             transform: translate(-50%, -50%);
+
+
+            img {
+               box-shadow: 70px 0 70px -30px rgba(0, 0, 0, 0.1),
+                  -70px 0 70px -30px rgba(0, 0, 0, 0.1);
+            }
          }
 
          &.right {
             transform: translate(55%, -50%);
+            opacity: 0;
          }
 
          &.left {
             transform: translate(-155%, -50%);
+            opacity: 0;
          }
       }
 

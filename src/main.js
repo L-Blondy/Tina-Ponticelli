@@ -37,9 +37,9 @@ if ( "Promise" in window ) {
 }
 //setup cards 
 new Cards( pathList_cards, pathList_slides ).setup();
-const cards = document.querySelectorAll( ".card-container > .card-link" )
+const cards = document.querySelectorAll( ".card-container > .card-link" );
 
-cards.forEach( ( card, index ) => {
+[].forEach.call( cards, ( card, index ) => {
 	const classToAdd = getClassToAdd( index, cards.length );
 
 	onVisible( card, {

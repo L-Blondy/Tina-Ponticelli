@@ -138,17 +138,15 @@
 
          &.active {
             color: $orange;
-            background: none !important;
          }
 
          &:hover {
-            box-shadow: 0 0 0 1px #ddd !important;
+            opacity: 0.7;
          }
 
          &:focus {
-            box-shadow: 0 0 0 1px #ffbb3b !important;
+            box-shadow: 0 0 5px 0 #ffc34b;
             outline: none;
-            background: none !important;
             color: $orange;
 
             @media (max-width:1024px) {
@@ -159,7 +157,12 @@
 
          @media (min-width: 1024px) {
             &[href="#contact"] {
-               box-shadow: 0 0 0 1px rgb(148, 148, 148);
+               background: #f5ba2a;
+               color: white;
+
+               &:hover {
+                  opacity: 0.8;
+               }
             }
          }
       }

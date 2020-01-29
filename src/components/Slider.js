@@ -26,6 +26,7 @@ Slider.prototype.setup = function () {
 		IMG.dataset.src = path;
 		IMG.className = "slide-img";
 		IMG.setAttribute( "alt", "slide" + index )
+		IMG.style.opacity = "0"
 		this.imgContainer.appendChild( A );
 		A.appendChild( IMG );
 		return IMG;
@@ -54,10 +55,20 @@ Slider.prototype.setup = function () {
 };
 
 Slider.prototype.loadImg = function ( loadIndex, stopIndex ) {
-	if ( "Promise" in window ) {
+	if ( "Promise" in window && "IntersectionObserver" in window ) {
+		const that = this
+		const obs = new IntersectionObserver( cb, {} )
+		function cb ( entries ) {
+			entries.forEach( function ( entry ) {
+				if ( entry.intersectionRatio > 0.01 ) {
+					that.startAutoSlide()
+					obs.unobserve( that.customSlider )
+				}
+			} )
+		}
 		loadImg_computed( this.slides[ loadIndex ] ).then( () => {
 			if ( loadIndex === 0 ) {
-				this.startAutoSlide();
+				obs.observe( this.customSlider )
 			}
 			this.loadedIndex = loadIndex;
 			if ( loadIndex < stopIndex ) {
@@ -65,11 +76,9 @@ Slider.prototype.loadImg = function ( loadIndex, stopIndex ) {
 			}
 		} );
 	} else {
-		/********************************************************************************************************/
 		for ( let i = 0; i < this.slides.length; i++ ) {
 			loadImg_computed( this.slides[ i ] )
 		}
-		/********************************************************************************************************/
 	}
 };
 
