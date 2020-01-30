@@ -57,10 +57,10 @@ Slider.prototype.setup = function () {
 Slider.prototype.loadImg = function ( loadIndex, stopIndex ) {
 	if ( "Promise" in window && "IntersectionObserver" in window ) {
 		const that = this
-		const obs = new IntersectionObserver( cb, {} )
+		const obs = new IntersectionObserver( cb, { threshold: 0.001 } )
 		function cb ( entries ) {
 			entries.forEach( function ( entry ) {
-				if ( entry.intersectionRatio > 0.01 ) {
+				if ( entry.intersectionRatio > 0 ) {
 					that.startAutoSlide()
 					obs.unobserve( that.customSlider )
 				}

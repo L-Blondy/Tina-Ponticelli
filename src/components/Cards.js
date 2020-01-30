@@ -23,20 +23,20 @@ export function Cards ( pathList_cards, pathList_popup ) {
 			this.cardsContainer.appendChild( a )
 
 			if ( "IntersectionObserver" in window ) {
-				const O1 = new IntersectionObserver( cb1, { root: document.querySelector( ".section-container" ), rootMargin: "0px 0px 500px 0px", threshold: 0.05 } )
+				const O1 = new IntersectionObserver( cb1, { root: document.querySelector( ".section-container" ), rootMargin: "0px 0px 500px 0px", threshold: 0.001 } )
 				function cb1 ( entries ) {
 					entries.forEach( entry => {
-						if ( entry.intersectionRatio > 0.05 && !( window.matchMedia( "(max-width:660px)" ).matches ) ) {
+						if ( entry.intersectionRatio > 0 && !( window.matchMedia( "(max-width:660px)" ).matches ) ) {
 							loadImg_computed( entry.target )
 							O1.unobserve( img )
 							O2.unobserve( img )
 						}
 					} )
 				}
-				const O2 = new IntersectionObserver( cb2, { root: this.cardsContainer, rootMargin: "0px 500px 0px 0px", threshold: 0.05 } )
+				const O2 = new IntersectionObserver( cb2, { root: this.cardsContainer, rootMargin: "0px 500px 0px 0px", threshold: 0.001 } )
 				function cb2 ( entries ) {
 					entries.forEach( entry => {
-						if ( entry.intersectionRatio > 0.05 && ( window.matchMedia( "(max-width:660px)" ).matches ) ) {
+						if ( entry.intersectionRatio > 0 && ( window.matchMedia( "(max-width:660px)" ).matches ) ) {
 							loadImg_computed( entry.target )
 							O1.unobserve( img )
 							O2.unobserve( img )

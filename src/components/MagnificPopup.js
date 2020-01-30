@@ -13,6 +13,7 @@ export function setMagnificPopup ( target, delegate ) {
 			titleSrc: ( item ) => item.el[ 0 ].dataset.title
 		},
 		closeOnBgClick: false,
+		closeBtnInside: false,
 		gallery: {
 			enabled: true,
 			preload: [ 1, 2 ],
@@ -33,72 +34,134 @@ export function setMagnificPopup ( target, delegate ) {
 }
 
 function loadPopup ( item ) {
-	console.log( "loadPopup, see 'src/components/MagnificPopup.js', loadPopup" )
 	const { title, description, additionalContent } = getPopupInfo( item.src )
 
 	item.type = "inline"
 	item.src = `
-	<!--<button title="Close (Esc)" type="button" class="mfp-close" style="color:white;">×</button>
-	-->
+	<button title="Close (Esc)" type="button" class="mfp-close" style="color:white;"></button>
 	<div class="mfp-figure">
+		<img class="mfp-img" alt=${title } src=${ item.src }>
+	
 		<div class="mfp-custom">
-			<img class="mfp-img" alt=${title } src=${ item.src }>
 			<div class="mfp-bottom-bar">
-				<div class="mfp-title">${ title }</div>
+				<div class="mfp-title">${ title } + SRCSET SRCSET SRCSET</div>
 				<div class="mfp-description">${ description }</div>
-				<div class="mfp-counter"> </div>
-				<!--<div class="mfp-additional-content">${ additionalContent }<br/>${ additionalContent }<br/>${ additionalContent }<br/>${ additionalContent }<br/>${ additionalContent }<br/>${ additionalContent }<br/>${ additionalContent }<br/>${ additionalContent }<br/>${ additionalContent }<br/>${ additionalContent }<br/>${ additionalContent }<br/>${ additionalContent }<br/>${ additionalContent }</div>
-				-->
+				<div class="mfp-relative">
+					<div class="mfp-additional-content">${ additionalContent || "" }</div>
+				</div>
 			</div>
+			
 		</div>
 	</div>
 `
 }
 
 function getPopupInfo ( path ) {
-	console.log( 'loading title, see "MagnificPopup.js"' )
-	console.log( path )
+	const _5mari = `
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+		<p>These are 5 mari</p>
+	`
+	const _molti = `
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+		<p>This is Moltitudine</p>
+	`
+	const _comunione = `
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+		<p>This is Comunione</p>
+	`
+	const _molti_inks = `
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+		<p>This is Inks</p>
+	`
 
 	if ( path.indexOf( "moltitudine-main" ) !== -1 ) {
 		return {
 			title: "Moltitudine",
 			description: "Installation <br/> Mixed media on canvas, 420 x 200 <br/>184 small canvas 18x24",
-			additionalContent: "Moltitudine"
+			additionalContent: _molti
 		}
 	}
 	else if ( path.indexOf( "mare_di_riva" ) !== -1 ) {
 		return {
 			title: "Mare di Riva",
 			description: "Acrylic on canvas, 100x100 <br/> 2007",
-			additionalContent: "5 Mari"
+			additionalContent: _5mari
 		}
 	}
 	else if ( path.indexOf( "normare" ) !== -1 ) {
 		return {
 			title: "Normare",
 			description: "Acrylic on canvas, 100x100 <br/> 2007",
-			additionalContent: "5 Mari"
+			additionalContent: _5mari
 		}
 	}
 	else if ( path.indexOf( "alto_mare" ) !== -1 ) {
 		return {
 			title: "Altomare",
 			description: "Acrylic on canvas, 100x100 <br/> 2007",
-			additionalContent: "5 Mari"
+			additionalContent: _5mari
 		}
 	}
 	else if ( path.indexOf( "sott_acqua" ) !== -1 ) {
 		return {
 			title: "Sott'acqua",
 			description: "Mixed media, 100x100 <br/> 2007",
-			additionalContent: "5 Mari"
+			additionalContent: _5mari
 		}
 	}
 	else if ( path.indexOf( "abissi" ) !== -1 ) {
 		return {
 			title: "Abissi",
 			description: "Mixed media, 100x100 <br/> 2007",
-			additionalContent: "5 Mari"
+			additionalContent: _5mari
 		}
 	}
 	else if ( path.indexOf( "touch_and_create" ) !== -1 ) {
@@ -165,14 +228,14 @@ function getPopupInfo ( path ) {
 		return {
 			title: "Comunione dei Beni",
 			description: "Installation <br/> Mixed media on PVC <br/> 2010",
-			additionalContent: "Comunione dei Beni"
+			additionalContent: _comunione
 		}
 	}
 	else if ( path.indexOf( "moltitudine_inchiostri" ) !== -1 ) {
 		return {
 			title: "Moltitudine Inchiostri",
 			description: "Installation <br/> Mixed media on cardboard, 250x200 <br/> 14.5x20 per cardboard",
-			additionalContent: "Moltitudine Inchiostri"
+			additionalContent: _molti_inks
 		}
 	}
 	else return {
