@@ -44,7 +44,7 @@ function loadPopup ( item ) {
 	
 		<div class="mfp-custom">
 			<div class="mfp-bottom-bar">
-				<div class="mfp-title">${ title } + SRCSET SRCSET SRCSET</div>
+				<div class="mfp-title">${ title } + SRCSET</div>
 				<div class="mfp-description">${ description }</div>
 				<div class="mfp-relative">
 					<div class="mfp-additional-content">${ additionalContent || "" }</div>
