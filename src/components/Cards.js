@@ -12,9 +12,9 @@ export function Cards ( pathList_cards, pathList_popup ) {
 			const a = document.createElement( "A" );
 			const img = document.createElement( "IMG" );
 			const div = document.createElement( "DIV" );
-			a.className = "card-link";
+			a.className = "card__link";
 			a.href = this.popups[ index ];
-			img.className = `card-image ${ cardPath.indexOf( "-lg" ) !== -1 ? "card-image__lg" : cardPath.indexOf( "-xl" ) !== -1 ? "card-image__xl" : cardPath.indexOf( "-ht" ) !== -1 ? "card-image__ht" : cardPath.indexOf( "-xh" ) !== -1 ? "card-image__xh" : "" }`;
+			img.className = `card__image ${ cardPath.indexOf( "-lg" ) !== -1 ? "card__image--lg" : cardPath.indexOf( "-xl" ) !== -1 ? "card__image--xl" : cardPath.indexOf( "-ht" ) !== -1 ? "card__image--ht" : cardPath.indexOf( "-xh" ) !== -1 ? "card__image--xh" : "" }`;
 			img.dataset.src = cardPath;
 			img.src = this.placeholder[ "1x1_placeholder" ][ "png" ];
 			img.setAttribute( "alt", cardPath );

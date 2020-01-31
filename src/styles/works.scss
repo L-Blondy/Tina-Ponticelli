@@ -11,14 +11,14 @@
    border-top: 1px solid #f7f6f2;
 
    .section__title {
-      font-size: 3.7rem !important;
+      font-size: 3.7rem;
    }
 }
 
 /****************
       SLIDER
 ****************/
-.works .custom-slider {
+.slider {
    position: relative;
    display: flex;
    justify-content: space-between;
@@ -71,7 +71,7 @@
          outline: none;
       }
 
-      &.disabled {
+      &--disabled {
          color: $disabled;
       }
 
@@ -83,7 +83,7 @@
    }
 
    .slide {
-      &-link {
+      &__link {
          @include flex-center;
          position: absolute;
          font-size: 1.5rem;
@@ -97,34 +97,30 @@
          transition: transform 300ms, left 300ms;
          cursor: zoom-in;
 
-         &.center {
+         &--center {
             transform: translate(-50%, -50%);
-
-
-            img {
-               box-shadow: 70px 0 70px -30px rgba(0, 0, 0, 0.1),
-                  -70px 0 70px -30px rgba(0, 0, 0, 0.1);
-            }
          }
 
-         &.right {
+         &--right {
             transform: translate(55%, -50%);
             opacity: 0;
          }
 
-         &.left {
+         &--left {
             transform: translate(-155%, -50%);
             opacity: 0;
          }
       }
 
-      &-img {
+      &__img {
          position: absolute;
          top: 50%;
          left: 50%;
          transform: translate(-50%, -50%);
          max-height: 100%;
          max-width: 100%;
+         box-shadow: 70px 0 70px -30px rgba(0, 0, 0, 0.1),
+            -70px 0 70px -30px rgba(0, 0, 0, 0.1);
       }
    }
 }
@@ -132,7 +128,7 @@
 /****************
    CARDS
 ****************/
-.works .card {
+.card {
    &-container {
       @include flex-center;
       flex-wrap: wrap;
@@ -145,7 +141,7 @@
       }
    }
 
-   &-link {
+   &__link {
       position: relative;
       width: 230px;
       max-width: 270px;
@@ -161,7 +157,7 @@
       }
    }
 
-   &-image {
+   &__image {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -170,19 +166,19 @@
       max-width: 63%;
       opacity: 0.9;
 
-      &__lg {
+      &--lg {
          max-width: 72%
       }
 
-      &__ht {
+      &--ht {
          max-height: 72%
       }
 
-      &__xl {
+      &--xl {
          max-width: 80%
       }
 
-      &__xh {
+      &--xh {
          max-height: 80%
       }
    }
@@ -193,17 +189,17 @@
 ****************/
 
 //Dark mask
-.slide-link {
-   &>.slide-img {
+.slide__link {
+   &>.slide__img {
       transition: filter 500ms;
    }
 
-   &:hover>.slide-img {
+   &:hover>.slide__img {
       filter: brightness(40%);
    }
 }
 
-.card-link {
+.card__link {
    &::before {
       @include flex-center;
       position: absolute;
@@ -228,8 +224,8 @@
 }
 
 //lens icon
-.card-link,
-.slide-link {
+.card__link,
+.slide__link {
    &::after {
       @include flex-center;
       position: absolute;
@@ -253,9 +249,8 @@
 }
 
 //card slider
-.works .card {
-   @media (max-width: 660px) {
-
+@media (max-width: 660px) {
+   .card {
       &-container {
          justify-content: flex-start;
          flex-wrap: nowrap;
@@ -263,7 +258,7 @@
          overflow-y: hidden;
       }
 
-      &-link {
+      &__link {
          flex-shrink: 0;
          width: 230px;
          max-width: 55vw;

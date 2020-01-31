@@ -217,6 +217,12 @@
    }
 }
 
+@media (min-width: 1100px) {
+   .home {
+      height: calc(100vh - #{$navbar-height});
+   }
+}
+
 @media (max-width: 1680px) {
    .moltitudine {
       width: 90%;
@@ -229,11 +235,7 @@
    }
 }
 
-@media (min-width: 1100px) {
-   .home {
-      height: calc(100vh - #{$navbar-height});
-   }
-
+@media (max-width: 1100px) {
    .moltitudine {
       width: 100%;
    }
@@ -260,16 +262,13 @@
    .moltitudine {
       height: 100%;
 
-      &__line-container {
+      &__line {
+         width: 140vh;
+         opacity: 0.35;
+      }
 
-         &__line {
-            width: 140vh;
-            opacity: 0.35;
-         }
-
-         &__squares {
-            display: none;
-         }
+      &__squares {
+         display: none;
       }
    }
 

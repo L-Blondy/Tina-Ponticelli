@@ -48,11 +48,9 @@ const cards = document.querySelectorAll( ".card-container > .card-link" );
 	} );
 } )
 
-
-
 //magnific popup
-setMagnificPopup( '.custom-slider', '.slide-link' )
-setMagnificPopup( '.card-container', '.card-link' )
+setMagnificPopup( '.slider', '.slide__link' )
+setMagnificPopup( '.card-container', '.card__link' )
 
 
 
