@@ -55,9 +55,7 @@ Slider.prototype.setup = function () {
 };
 
 Slider.prototype.loadImg = function ( loadIndex, stopIndex ) {
-	if ( window.matchMedia( "(max-width: 992px)" ).matches ) {
-		return
-	}
+
 	if ( "Promise" in window && "IntersectionObserver" in window ) {
 		const that = this
 		const obs = new IntersectionObserver( cb, { threshold: 0.001 } )
