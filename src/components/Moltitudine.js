@@ -4,8 +4,8 @@ import { loadImg } from "lb-lazy-images";
 export function Moltitudine ( animationOptions ) {
 	this.container = document.querySelector( ".moltitudine" );
 	this.sizes = [ 480, 768, 1100, 1920 ];
-	this.lines = document.querySelectorAll( ".line" );
-	this.lineContainers = document.querySelectorAll( ".line-container" );
+	this.lines = document.querySelectorAll( ".moltitudine__line" );
+	this.lineContainers = document.querySelectorAll( ".moltitudine__line-container" );
 
 }
 
@@ -23,8 +23,8 @@ Moltitudine.prototype.setWhiteSquares = function () {
 	[].forEach.call( this.lineContainers, line => {
 		for ( let i = 0; i < 23; i++ ) {
 			const square = document.createElement( "div" );
-			square.className = "square";
-			line.querySelector( ".squares" ).appendChild( square )
+			square.className = "moltitudine__square";
+			line.querySelector( ".moltitudine__squares" ).appendChild( square )
 		}
 	} )
 	return this;
@@ -32,7 +32,7 @@ Moltitudine.prototype.setWhiteSquares = function () {
 
 Moltitudine.prototype.setupRandOpacity = function ( animationOptions ) {
 	//Moltitudine Animation
-	const squares = document.querySelectorAll( ".square" );
+	const squares = document.querySelectorAll( ".moltitudine__square" );
 
 	this.canRestart = true;
 
@@ -69,7 +69,7 @@ Moltitudine.prototype.load = function () {
 	if ( "Promise" in window ) {
 		return loadImg( this.lines ).then( lines => {
 			lines[ 0 ].parentElement.parentElement.className += " display ";
-			document.querySelector( ".discover" ).classList.add( "display" );
+			document.querySelector( ".arrow-down" ).classList.add( "display" );
 		} )
 	}
 	else {

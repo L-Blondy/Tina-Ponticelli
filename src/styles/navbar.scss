@@ -19,19 +19,10 @@
    color: $clr-text-primary;
    background: $nav-bg;
 
-   @media (max-width:1024px) {
-      height: 50px;
-      box-shadow: none;
-   }
-
-   @media (max-width:360px) {
-      padding: 0 24px;
-   }
-
    /*************
       TOGGLER
    *************/
-   &-toggler {
+   &__toggler {
       height: 50px;
       width: 60px;
       display: flex;
@@ -47,18 +38,13 @@
          pointer-events: none;
          height: 21px;
          width: 30px;
-
-      }
-
-      @media (max-width:1024px) {
-         transform: none;
       }
    }
 
    /*************
       LOGO
    *************/
-   &-logo {
+   &__logo {
       transition-property: opacity, transform;
       transition-duration: 700ms;
       font-weight: 600;
@@ -67,34 +53,72 @@
       font-size: 1.3rem;
       letter-spacing: 1px;
 
-      &.hidden {
+      &--hidden {
          opacity: 0;
          transform: scale(0.9) translateX(-10px);
-      }
-
-      @media (orientation: portrait) {
-         white-space: nowrap;
-         transition-property: font-size, transform, letter-spacing;
-         transition-duration: 150ms;
-         font-size: 1.1rem;
-
-         &.hidden {
-            font-size: 0.4rem;
-            letter-spacing: 10px;
-            opacity: 1;
-         }
       }
    }
 
    /*************
       NAVLINKS
    *************/
-   &-navlinks {
+   &__navlinks {
       display: flex;
       list-style: none;
+   }
 
+   /*************
+      LINK
+   *************/
+   &__link {
+      color: $clr-navlinks;
+      letter-spacing: 0.5px;
+      margin-left: 0.6rem;
+      font-weight: 600;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-family: $font-primary;
+      padding: 0.55rem 1.1rem 0.5rem 1.1rem;
+      text-decoration: none;
+      display: block;
 
-      @media (max-width:1024px) {
+      @media (max-width:1400px) {
+         font-size: 1rem;
+      }
+
+      @media (max-width: 1024px) {
+         padding: 0.8rem 2rem;
+         border-radius: 0;
+         margin: 0;
+         font-size: 1.1rem;
+      }
+
+      &.active {
+         color: $orange;
+      }
+
+      &:hover {
+         opacity: 0.7;
+      }
+
+      &:focus {
+         box-shadow: 0 0 5px 0 #ffc34b;
+         outline: none;
+         color: $orange;
+      }
+   }
+}
+
+@media (max-width:1024px) {
+   .navbar {
+      height: 50px;
+      box-shadow: none;
+
+      &__toggler {
+         transform: none;
+      }
+
+      &__navlinks {
          top: 100%;
          display: flex;
          flex-direction: column;
@@ -108,63 +132,46 @@
          box-shadow: 0 15px 15px -15px rgba(0, 0, 0, 0.2);
          transform: translateY(-1px);
 
-         &.collapse {
+         &--collapse {
             transform: translateY(-100%);
          }
       }
 
-      &__link {
-         color: $clr-navlinks;
-         letter-spacing: 0.5px;
-         margin-left: 0.6rem;
-         font-weight: 600;
-         border-radius: 12px;
-         font-size: 0.9rem;
-         font-family: $font-primary;
-         padding: 0.55rem 1.1rem 0.5rem 1.1rem;
-         text-decoration: none;
-         display: block;
+      &__link:focus {
+         box-shadow: none;
+         background: rgba(0, 0, 0, 0.05)
+      }
+   }
+}
 
-         @media (max-width:1400px) {
-            font-size: 1rem;
-         }
+@media (max-width:360px) {
+   .navbar {
+      padding: 0 24px;
+   }
+}
 
-         @media (max-width: 1024px) {
-            padding: 0.8rem 2rem;
-            border-radius: 0;
-            margin: 0;
-            font-size: 1.1rem;
-         }
+@media (orientation: portrait) {
+   .navbar__logo {
+      white-space: nowrap;
+      transition-property: font-size, transform, letter-spacing;
+      transition-duration: 150ms;
+      font-size: 1.1rem;
 
-         &.active {
-            color: $orange;
-         }
+      &--hidden {
+         font-size: 0.4rem;
+         letter-spacing: 10px;
+         opacity: 1;
+      }
+   }
+}
 
-         &:hover {
-            opacity: 0.7;
-         }
+@media (min-width: 1024px) {
+   .navbar__link[href="#contact"] {
+      background: #f5ba2a;
+      color: white;
 
-         &:focus {
-            box-shadow: 0 0 5px 0 #ffc34b;
-            outline: none;
-            color: $orange;
-
-            @media (max-width:1024px) {
-               box-shadow: none;
-               background: rgba(0, 0, 0, 0.05)
-            }
-         }
-
-         @media (min-width: 1024px) {
-            &[href="#contact"] {
-               background: #f5ba2a;
-               color: white;
-
-               &:hover {
-                  opacity: 0.8;
-               }
-            }
-         }
+      &:hover {
+         opacity: 0.8;
       }
    }
 }
