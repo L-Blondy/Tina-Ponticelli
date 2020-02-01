@@ -23,8 +23,8 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   height: 33vw;
-   width: 66vw;
+   height: 28vw;
+   width: 56vw;
    overflow: hidden;
    margin: 0 auto;
 
@@ -32,9 +32,9 @@
       display: none;
    }
 
-   @media (max-width: 1600px) {
-      height: 40vw;
-      width: 80vw;
+   @media (max-width: 1500px) {
+      height: 35vw;
+      width: 70vw;
    }
 
    &__images {

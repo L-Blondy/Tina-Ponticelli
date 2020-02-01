@@ -30,7 +30,20 @@ if ( window.matchMedia( "(orientation:landscape)" ).matches ) {
 }
 
 if ( "Promise" in window ) {
-	moltitudine.load().then( () => new Slider( pathList_slides, 2, 10000, 300 ).setup() )
+	moltitudine.load().then( () => {
+		const setupSlider = () => {
+			if ( window.matchMedia( "(min-width:992px)" ).matches ) {
+				new Slider( pathList_slides, 2, 10000, 300 ).setup()
+				window.removeEventListener( "resize", setupSlider )
+			}
+		}
+		if ( window.matchMedia( "(min-width:992px)" ).matches ) {
+			new Slider( pathList_slides, 2, 10000, 300 ).setup()
+		}
+		else {
+			window.addEventListener( "resize", setupSlider )
+		}
+	} )
 } else {
 	moltitudine.load()
 	new Slider( pathList_slides, 2, 10000, 300 ).setup()
