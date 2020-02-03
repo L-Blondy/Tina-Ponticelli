@@ -6,14 +6,9 @@ const baseLocation = document.location.pathname;
 
 export function setMagnificPopup ( target, delegate, pathList_additional_content ) {
 	pathList_additional_content = Object.keys( pathList_additional_content ).reduce( ( res, key ) => {
-		let name;
+		const temp = Object.values( pathList_additional_content[ key ] )[ 0 ].split( "/" )
+		let name = temp[ temp.length - 1 ].split( "." )[ 0 ]
 		const path = Object.values( pathList_additional_content[ key ] )[ 0 ]
-		if ( path.indexOf( "5mari" ) !== -1 ) {
-			name = "5mari"
-		}
-		else if ( path.indexOf( "something else" ) !== -1 ) {
-			name = "something else"
-		}
 		return Object.assign( res, { [ name ]: path } )
 	}, {} )
 
