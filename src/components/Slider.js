@@ -1,7 +1,7 @@
 import { loadImg_computed } from "../utils/loadImg_computed.js"
 import { onVisible } from "lb-onvisible"
 
-export function Slider ( pathList_slides, preload, autoSlideDelay = 10000, loadDelay = 300 ) {
+export function Slider ( pathList_slides, preload, autoSlideDelay = 20000, loadDelay = 300 ) {
 	this.customSlider = document.querySelector( ".slider" );
 	this.imgContainer = document.querySelector( ".slider__images" );
 	this.leftArrow = document.querySelector( ".slider__arrow-left" );
@@ -62,7 +62,7 @@ Slider.prototype.loadImg = function ( loadIndex, stopIndex ) {
 		function cb ( entries ) {
 			entries.forEach( function ( entry ) {
 				if ( entry.intersectionRatio > 0 ) {
-					that.startAutoSlide()
+					// that.startAutoSlide()
 					obs.unobserve( that.customSlider )
 				}
 			} )

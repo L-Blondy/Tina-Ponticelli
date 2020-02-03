@@ -12,6 +12,7 @@
 
    .section__title {
       font-size: 3.7rem;
+      // padding-bottom: 0;
    }
 }
 
@@ -27,14 +28,21 @@
    width: 56vw;
    overflow: hidden;
    margin: 0 auto;
-
-   @media (max-width: 992px) {
-      display: none;
-   }
+   // max-height: 30rem;
+   // max-width: 60rem;
 
    @media (max-width: 1500px) {
       height: 35vw;
       width: 70vw;
+   }
+
+   @media (max-width: 1200px) {
+      height: 40vw;
+      width: 80vw;
+   }
+
+   @media (max-width: 992px) {
+      display: none;
    }
 
    &__images {
@@ -47,6 +55,14 @@
    &__arrow-right>svg,
    &__arrow-left>svg {
       margin: auto;
+   }
+
+   &__arrow-right {
+      padding-left: 2rem;
+   }
+
+   &__arrow-left {
+      padding-right: 2rem;
    }
 
    &__arrow-right,

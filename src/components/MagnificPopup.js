@@ -4,7 +4,19 @@ window.addEventListener( "popstate", ( e ) => {
 
 const baseLocation = document.location.pathname;
 
-export function setMagnificPopup ( target, delegate ) {
+export function setMagnificPopup ( target, delegate, pathList_additional_content ) {
+	pathList_additional_content = Object.keys( pathList_additional_content ).reduce( ( res, key ) => {
+		let name;
+		const path = Object.values( pathList_additional_content[ key ] )[ 0 ]
+		if ( path.indexOf( "5mari" ) !== -1 ) {
+			name = "5mari"
+		}
+		else if ( path.indexOf( "something else" ) !== -1 ) {
+			name = "something else"
+		}
+		return Object.assign( res, { [ name ]: path } )
+	}, {} )
+
 	$( target ).magnificPopup( {
 		delegate: delegate,
 		type: 'image',
@@ -24,7 +36,7 @@ export function setMagnificPopup ( target, delegate ) {
 				history.pushState( {}, "", baseLocation + "slide" )
 			},
 			elementParse: function ( item ) {
-				loadPopup( item )
+				loadPopup( item, pathList_additional_content )
 			},
 			close: () => {
 				document.location.pathname === baseLocation + "slide" && history.back();
@@ -33,8 +45,8 @@ export function setMagnificPopup ( target, delegate ) {
 	} );
 }
 
-function loadPopup ( item ) {
-	const { title, description, additionalContent } = getPopupInfo( item.src )
+function loadPopup ( item, pathList_additional_content ) {
+	const { title, description, additionalContent } = getPopupInfo( item.src, pathList_additional_content )
 
 	item.type = "inline"
 	item.src = `
@@ -44,7 +56,7 @@ function loadPopup ( item ) {
 	
 		<div class="mfp-custom">
 			<div class="mfp-bottom-bar">
-				<div class="mfp-title">${ title } + SRCSET</div>
+				<div class="mfp-title">${ title }</div>
 				<div class="mfp-description">${ description }</div>
 				<div class="mfp-relative">
 					<div class="mfp-additional-content">${ additionalContent || "" }</div>
@@ -56,70 +68,28 @@ function loadPopup ( item ) {
 `
 }
 
-function getPopupInfo ( path ) {
+function getPopupInfo ( path, pathList_additional_content ) {
 	const _5mari = `
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
-		<p>These are 5 mari</p>
+		<div class="mfp-additional-content__5mari">
+			<img src=${pathList_additional_content[ "5mari" ] } alt=${ pathList_additional_content[ "5mari" ] } class=""/>
+			<span class="mfp-title mfp-title--sub">I Cinque Mari</span>
+			<div class="mfp-description mfp-description--sub">
+				Costa Crociere, Napoli, 2007
+			</div> 
+		</div>
 	`
+
 	const _molti = `
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
-		<p>This is Moltitudine</p>
+	<p> This is Moltitudine</p >
+
 	`
 	const _comunione = `
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
-		<p>This is Comunione</p>
+	< p > This is Comunione</p >
+	
 	`
 	const _molti_inks = `
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
-		<p>This is Inks</p>
+	< p > This is Inks</p >
+		
 	`
 
 	if ( path.indexOf( "moltitudine-main" ) !== -1 ) {
@@ -241,7 +211,4 @@ function getPopupInfo ( path ) {
 	else return {
 		title: "untitled"
 	}
-}
-function getAdditionalContent ( title ) {
-
 }

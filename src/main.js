@@ -13,6 +13,7 @@ import "./main.scss";
 
 const pathList_cards = getPathList( require( "./assets/_cards/*.*" ) )
 const pathList_slides = getPathList( require( "./assets/_slides/*.*" ) )
+const pathList_additional_content = getPathList( require( "./assets/_additional_content/**/*.*" ) )
 //Scroll Nav
 const sections = document.querySelectorAll( "section" );
 const sectionContainer = document.querySelector( ".section-container" );
@@ -33,12 +34,12 @@ if ( "Promise" in window ) {
 	moltitudine.load().then( () => {
 		const setupSlider = () => {
 			if ( window.matchMedia( "(min-width:992px)" ).matches ) {
-				new Slider( pathList_slides, 2, 10000, 300 ).setup()
+				new Slider( pathList_slides, 2 ).setup()
 				window.removeEventListener( "resize", setupSlider )
 			}
 		}
 		if ( window.matchMedia( "(min-width:992px)" ).matches ) {
-			new Slider( pathList_slides, 2, 10000, 300 ).setup()
+			new Slider( pathList_slides, 2 ).setup()
 		}
 		else {
 			window.addEventListener( "resize", setupSlider )
@@ -46,7 +47,7 @@ if ( "Promise" in window ) {
 	} )
 } else {
 	moltitudine.load()
-	new Slider( pathList_slides, 2, 10000, 300 ).setup()
+	new Slider( pathList_slides, 2 ).setup()
 }
 //setup cards 
 new Cards( pathList_cards, pathList_slides ).setup();
@@ -62,8 +63,8 @@ const cards = document.querySelectorAll( ".card-container > .card-link" );
 } )
 
 //magnific popup
-setMagnificPopup( '.slider', '.slide__link' )
-setMagnificPopup( '.card-container', '.card__link' )
+setMagnificPopup( '.slider', '.slide__link', pathList_additional_content )
+setMagnificPopup( '.card-container', '.card__link', pathList_additional_content )
 
 
 
