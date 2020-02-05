@@ -2,7 +2,6 @@ import "./setSVG.js";
 import "lb-icons";
 import setScrollNav from "lb-scroll-nav";
 import { getPathList } from "./utils/getPathList.js"
-import { Slider } from "./components/Slider.js"
 import { Cards } from "./components/Cards.js"
 import { setupNavbar } from "./components/Navbar.js"
 import { Moltitudine } from "./components/Moltitudine.js"
@@ -26,29 +25,12 @@ if ( window.matchMedia( "(orientation:landscape)" ).matches ) {
 	moltitudine.setupRandOpacity( {
 		frequency: 3,
 		duration: 8000,
-		fadeTo: 0,
+		fadeTo: 1,
 	} )
 }
 
-if ( "Promise" in window ) {
-	moltitudine.load().then( () => {
-		const setupSlider = () => {
-			if ( window.matchMedia( "(min-width:992px)" ).matches ) {
-				new Slider( pathList_slides, 2 ).setup()
-				window.removeEventListener( "resize", setupSlider )
-			}
-		}
-		if ( window.matchMedia( "(min-width:992px)" ).matches ) {
-			new Slider( pathList_slides, 2 ).setup()
-		}
-		else {
-			window.addEventListener( "resize", setupSlider )
-		}
-	} )
-} else {
-	moltitudine.load()
-	new Slider( pathList_slides, 2 ).setup()
-}
+moltitudine.load()
+
 //setup cards 
 new Cards( pathList_cards, pathList_slides ).setup();
 const cards = document.querySelectorAll( ".card-container > .card-link" );
@@ -63,7 +45,6 @@ const cards = document.querySelectorAll( ".card-container > .card-link" );
 } )
 
 //magnific popup
-setMagnificPopup( '.slider', '.slide__link', pathList_additional_content )
 setMagnificPopup( '.card-container', '.card__link', pathList_additional_content )
 
 

@@ -51,13 +51,3 @@ document.querySelector( ".home" ).innerHTML += `
 <path opacity="0.85" d="M58 142.848V137.457C58 136.34 58.9052 135.435 60.0217 135.435C61.1383 135.435 62.0435 136.34 62.0435 137.457V142.848C62.0435 143.964 61.1383 144.87 60.0217 144.87C58.9052 144.87 58 143.964 58 142.848Z" fill="#797979"/>
 </svg>
 `
-document.querySelector( ".slider__arrow-right" ).innerHTML += `
-<svg width="50" height="97" viewBox="0 0 50 97" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M3 3L44.9645 44.9645C46.9171 46.9171 46.9171 50.0829 44.9645 52.0355L3 94" stroke="currentColor" stroke-width="6"/>
-</svg>
-`
-document.querySelector( ".slider__arrow-left" ).innerHTML += `
-<svg width="49" height="97" viewBox="0 0 49 97" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M46.5 94L4.53554 52.0355C2.58291 50.0829 2.58291 46.9171 4.53553 44.9645L46.5 3" stroke="currentColor" stroke-width="6"/>
-</svg>
-`
