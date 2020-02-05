@@ -1,4 +1,4 @@
-@import "./variables.scss"; //test
+@import "./variables.scss";
 
 /*****************
 1. Sliders
@@ -13,129 +13,6 @@
    .section__title {
       font-size: 3.7rem;
       // padding-bottom: 0;
-   }
-}
-
-/****************
-      SLIDER
-****************/
-.slider {
-   position: relative;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   height: 28vw;
-   width: 56vw;
-   overflow: hidden;
-   margin: 0 auto;
-
-   @media (max-width: 1500px) {
-      height: 35vw;
-      width: 70vw;
-   }
-
-   @media (max-width: 1200px) {
-      height: 40vw;
-      width: 80vw;
-   }
-
-   @media (max-width: 992px) {
-      display: none;
-   }
-
-   &__images {
-      position: relative;
-      flex-grow: 1;
-      height: 100%;
-      user-select: none;
-   }
-
-   &__arrow-right>svg,
-   &__arrow-left>svg {
-      margin: auto;
-   }
-
-   &__arrow-right {
-      padding-left: 2rem;
-   }
-
-   &__arrow-left {
-      padding-right: 2rem;
-   }
-
-   &__arrow-right,
-   &__arrow-left {
-      height: 20%;
-      width: 15%;
-      z-index: 101;
-      display: flex;
-      align-items: center;
-      color: $clr-text-primary;
-      border: none;
-      background: none;
-
-      &>svg {
-         pointer-events: none;
-         max-height: 100%;
-      }
-
-      &:hover,
-      &:focus {
-         color: $orange;
-         outline: none;
-      }
-
-      &--disabled {
-         color: $disabled;
-      }
-
-      &>div {
-         height: 8vmin;
-         width: 100%;
-         pointer-events: none;
-      }
-   }
-
-   .slide {
-      &__link {
-         @include flex-center;
-         position: absolute;
-         font-size: 1.5rem;
-         letter-spacing: 0.2rem;
-         text-decoration: none;
-         color: #777;
-         width: 100%;
-         height: 70%;
-         top: 50%;
-         left: 50%;
-         transition: transform 300ms, left 300ms;
-         cursor: zoom-in;
-
-         &--center {
-            transform: translate(-50%, -50%);
-         }
-
-         &--right {
-            transform: translate(55%, -50%);
-            opacity: 0;
-         }
-
-         &--left {
-            transform: translate(-155%, -50%);
-            opacity: 0;
-         }
-      }
-
-      &__img {
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         max-height: 100%;
-         max-width: 100%;
-         box-shadow: 70px 0 70px -30px rgba(0, 0, 0, 0.1),
-            -70px 0 70px -30px rgba(0, 0, 0, 0.1);
-      }
    }
 }
 
@@ -202,17 +79,6 @@
    HOVER EFFECTS
 ****************/
 
-//Dark mask
-.slide__link {
-   &>.slide__img {
-      transition: filter 500ms;
-   }
-
-   &:hover>.slide__img {
-      filter: brightness(40%);
-   }
-}
-
 .card__link {
    &::before {
       @include flex-center;
@@ -228,18 +94,6 @@
       transition: opacity 500ms;
    }
 
-   &:hover {
-      box-shadow: 0 0 0 0 transparent;
-
-      &::before {
-         opacity: 1;
-      }
-   }
-}
-
-//lens icon
-.card__link,
-.slide__link {
    &::after {
       @include flex-center;
       position: absolute;
@@ -255,12 +109,17 @@
    &:hover {
       box-shadow: 0 0 0 0 transparent;
 
+      &::before {
+         opacity: 1;
+      }
+
       &::after {
          opacity: 1;
          transform: scale(1) translate(-50%, -50%);
       }
    }
 }
+
 
 //card slider
 @media (max-width: 660px) {
