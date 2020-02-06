@@ -31,6 +31,7 @@ $mfp-img-height: 55vh;
    padding: 0 !important;
    max-height: $mfp-img-height;
    user-select: none;
+   max-width: 95vw !important;
 }
 
 .mfp-arrow {
@@ -140,10 +141,6 @@ $mfp-img-height: 55vh;
       line-height: 1.3em;
       padding-top: 0.2em;
       text-align: inherit;
-
-      &--sub {
-         // font-size: 0.9rem;
-      }
    }
 }
 
@@ -198,8 +195,20 @@ $mfp-img-height: 55vh;
    }
 }
 
-@media(max-width: 370px) {
+@media(max-width: 360px) {
+
    .mfp-custom {
       min-width: 95vw;
    }
 }
+
+@media(max-width: 576px) {
+   .mfp-img {
+      min-width: 95vw !important;
+   }
+}
+// @media(max-width: 768px) {
+//    .mfp-img {
+//       min-width: 60vw !important;
+//    }
+// }

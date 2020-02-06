@@ -42,12 +42,16 @@ export function setMagnificPopup ( target, delegate, pathList_additional_content
 
 function loadPopup ( item, pathList_additional_content ) {
 	const { title, description, additionalContent } = getPopupInfo( item.src, pathList_additional_content )
+	item.srcset = item.el[ 0 ].dataset.srcset
+	const temp = item.srcset.split( " " )
+	const temp2 = temp[temp.length-2]
+	const lastW = temp2.substring(0, temp2.length - 3) + 1
 
 	item.type = "inline"
 	item.src = `
 	<button title="Close (Esc)" type="button" class="mfp-close" style="color:white;"></button>
 	<div class="mfp-figure">
-		<img class="mfp-img" alt=${title } src=${ item.src }>
+		<img class="mfp-img" alt="${ title }" src=${ item.src } srcset="${ item.el[ 0 ].dataset.srcset + item.src + " " + lastW + "w" }"/>
 	
 		<div class="mfp-custom">
 			<div class="mfp-bottom-bar">

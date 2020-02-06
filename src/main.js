@@ -11,8 +11,9 @@ import { getClassToAdd } from "./utils/getClassToAdd.JS"
 import "./main.scss";
 
 const pathList_cards = getPathList( require( "./assets/_cards/*.*" ) )
-const pathList_slides = getPathList( require( "./assets/_slides/*.*" ) )
+const pathList_popup = getPathList( require( "./assets/_popup/*.*" ), true )
 const pathList_additional_content = getPathList( require( "./assets/_additional_content/**/*.*" ) )
+// console.log( pathList_popup )
 //Scroll Nav
 const sections = document.querySelectorAll( "section" );
 const sectionContainer = document.querySelector( ".section-container" );
@@ -25,14 +26,14 @@ if ( window.matchMedia( "(orientation:landscape)" ).matches ) {
 	moltitudine.setupRandOpacity( {
 		frequency: 3,
 		duration: 8000,
-		fadeTo: 1,
+		fadeTo: 0,
 	} )
 }
 
 moltitudine.load()
 
 //setup cards 
-new Cards( pathList_cards, pathList_slides ).setup();
+new Cards( pathList_cards, pathList_popup ).setup();
 const cards = document.querySelectorAll( ".card-container > .card-link" );
 
 [].forEach.call( cards, ( card, index ) => {

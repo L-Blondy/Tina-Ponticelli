@@ -9,11 +9,13 @@ export function Cards ( pathList_cards, pathList_popup ) {
 
 	this.setup = function () {
 		this.cards.forEach( ( cardPath, index ) => {
+			const index_to_char = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ]
 			const a = document.createElement( "A" );
 			const img = document.createElement( "IMG" );
 			const div = document.createElement( "DIV" );
 			a.className = "card__link";
-			a.href = this.popups[ index ];
+			a.href = this.popups[ index_to_char[ index ] ].main;
+			a.dataset.srcset = this.popups[ index_to_char[ index ] ].srcset
 			img.className = `card__image ${ cardPath.indexOf( "-lg" ) !== -1 ? "card__image--lg" : cardPath.indexOf( "-xl" ) !== -1 ? "card__image--xl" : cardPath.indexOf( "-ht" ) !== -1 ? "card__image--ht" : cardPath.indexOf( "-xh" ) !== -1 ? "card__image--xh" : "" }`;
 			img.dataset.src = cardPath;
 			img.src = this.placeholder[ "1x1_placeholder" ][ "png" ];
