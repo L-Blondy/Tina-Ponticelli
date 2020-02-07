@@ -24,9 +24,11 @@ export function setupNavbar () {
 			entries.forEach( entry => {
 				if ( entry.intersectionRatio > 0.4 && !logo.classList.contains( "navbar__logo--hidden" ) ) {
 					logo.classList.add( "navbar__logo--hidden" )
+					logo.classList.remove( "navbar__logo--not-hidden" )
 				}
 				else if ( entry.intersectionRatio < 0.4 && logo.classList.contains( "navbar__logo--hidden" ) ) {
 					logo.classList.remove( "navbar__logo--hidden" )
+					logo.classList.add( "navbar__logo--not-hidden" )
 				}
 			} )
 		}

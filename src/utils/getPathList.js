@@ -1,3 +1,5 @@
+const { sqrt, floor, ceil } = Math
+
 function sortObject ( obj ) {
 	let key,
 		tempArry = [],
@@ -36,8 +38,7 @@ export function getPathList ( Obj, regroup ) {
 				}
 			}
 			else {
-				const size = parseInt(splittedPropName[ splittedPropName.length - 1 ].slice(0, -1)) * window.devicePixelRatio
-				
+				const size = parseInt( splittedPropName[ splittedPropName.length - 1 ].slice( 0, -1 ) ) * window.devicePixelRatio
 				pathList[ currentProp ][ "srcset" ] += orderObj[ prop ][ Object.keys( orderObj[ prop ] )[ 0 ] ] + " " + size + "w, "
 			}
 			prevProp = currentProp

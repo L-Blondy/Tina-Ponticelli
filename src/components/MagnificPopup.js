@@ -23,7 +23,7 @@ export function setMagnificPopup ( target, delegate, pathList_additional_content
 		closeBtnInside: false,
 		gallery: {
 			enabled: true,
-			preload: [ 1, 2 ],
+			preload: [ 1,2 ],
 			tCounter: ''
 		},
 		callbacks: {
@@ -44,8 +44,12 @@ function loadPopup ( item, pathList_additional_content ) {
 	const { title, description, additionalContent } = getPopupInfo( item.src, pathList_additional_content )
 	item.srcset = item.el[ 0 ].dataset.srcset
 	const temp = item.srcset.split( " " )
-	const temp2 = temp[temp.length-2]
-	const lastW = temp2.substring(0, temp2.length - 3) + 1
+	const temp2 = temp[ temp.length - 2 ]
+	const lastW = temp2.substring( 0, temp2.length - 3 ) + 1
+	//caching next images
+	const img = document.createElement("IMG")
+	img.src = item.src 
+	img.srcset = item.el[ 0 ].dataset.srcset + item.src + " " + lastW + "w" 
 
 	item.type = "inline"
 	item.src = `
@@ -61,7 +65,6 @@ function loadPopup ( item, pathList_additional_content ) {
 					<div class="mfp-additional-content">${ additionalContent || "" }</div>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 `

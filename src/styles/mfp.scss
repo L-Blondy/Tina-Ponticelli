@@ -112,8 +112,7 @@ $mfp-img-height: 55vh;
    text-align: $bottom-bar-text-align;
    line-height: normal;
    margin-top: $mfp-spacing;
-   opacity: 0;
-   animation: fadein 300ms forwards;
+   opacity: 1;
 
    .mfp-counter {
       display: none;
@@ -195,20 +194,28 @@ $mfp-img-height: 55vh;
    }
 }
 
+@media(max-width: 1200px)  {
+
+   .mfp-img {
+      object-fit: contain;
+      min-height: 35vh;
+      max-height: 45vh;
+   }
+}
+
+@media(max-width: 500px) {
+
+   .mfp-img {
+      height: auto;
+      width: 95vw !important;
+      max-height: 95vw;
+      min-height: auto;
+   }
+}
+
 @media(max-width: 360px) {
 
    .mfp-custom {
       min-width: 95vw;
    }
 }
-
-@media(max-width: 576px) {
-   .mfp-img {
-      min-width: 95vw !important;
-   }
-}
-// @media(max-width: 768px) {
-//    .mfp-img {
-//       min-width: 60vw !important;
-//    }
-// }

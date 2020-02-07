@@ -153,19 +153,29 @@
 @media (orientation: portrait) {
    .navbar__logo {
       white-space: nowrap;
-      transition-property: font-size, transform, letter-spacing;
-      transition-duration: 150ms;
-      font-size: 1.1rem;
+      transition-property: none;
 
       &--hidden {
          font-size: 0.4rem;
          letter-spacing: 10px;
          opacity: 1;
       }
+      &--not-hidden {
+         font-size: 1.1rem;
+         animation : logo-anim-phone 500ms;
+      }
+
+      @keyframes logo-anim-phone {
+         0% {
+            opacity: 0;
+            letter-spacing: 1px;
+            transform: translatex(-60px);
+         }
+      }
    }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024.2px) {
    .navbar__link[href="#contact"] {
       background: #f5ba2a;
       color: white;
