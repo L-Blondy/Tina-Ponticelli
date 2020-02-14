@@ -1,7 +1,7 @@
 import randOpacity from "lb-effect-rand-opacity";
 import { loadImg } from "lb-lazy-images";
 
-export function Moltitudine ( animationOptions ) {
+export function Moltitudine () {
 	this.container = document.querySelector( ".moltitudine" );
 	this.sizes = [ 480, 768, 1100, 1920 ];
 	this.lines = document.querySelectorAll( ".moltitudine__line" );

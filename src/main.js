@@ -13,7 +13,7 @@ import "./main.scss";
 const pathList_cards = getPathList( require( "./assets/_cards/*.*" ) )
 const pathList_popup = getPathList( require( "./assets/_popup/*.*" ), true )
 const pathList_additional_content = getPathList( require( "./assets/_additional_content/**/*.*" ) )
-// console.log( pathList_popup )
+
 //Scroll Nav
 const sections = document.querySelectorAll( "section" );
 const sectionContainer = document.querySelector( ".section-container" );
