@@ -5,14 +5,13 @@ import { getPathList } from "./utils/getPathList.js"
 import { Cards } from "./components/Cards.js"
 import { setupNavbar } from "./components/Navbar.js"
 import { Moltitudine } from "./components/Moltitudine.js"
-import { setMagnificPopup } from "./components/MFP/MagnificPopup.js";
+import { MFP } from "./components/MagnificPopup.js";
 import { onVisible } from "lb-onvisible"
 import { getClassToAdd } from "./utils/getClassToAdd.JS"
 import "./main.scss";
 
-const pathList_cards = getPathList( require( "./assets/_cards/*.*" ) )
-const pathList_popup = getPathList( require( "./assets/_popup/*.*" ), true )
-const pathList_additional_content = getPathList( require( "./assets/_additional_content/**/*.*" ) )
+const pathList_cards = getPathList( require( "./assets/_cards/*.*" ), "cards" )
+const pathList_popup = getPathList( require( "./assets/_popup/*.*" ), "popup" )
 
 //Scroll Nav
 const sections = document.querySelectorAll( "section" );
@@ -46,7 +45,8 @@ const cards = document.querySelectorAll( ".card-container > .card-link" );
 } )
 
 //magnific popup
-setMagnificPopup( '.card-container', '.card__link', pathList_additional_content )
+new MFP( '.card-container', '.card__link' ).setup()
+// setMagnificPopup( '.card-container', '.card__link',pathList_additional_content )
 
 
 

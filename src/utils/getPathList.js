@@ -20,14 +20,13 @@ function sortObject ( obj ) {
 }
 
 
-export function getPathList ( Obj, regroup ) {
+export function getPathList ( Obj, type ) {
 	const orderObj = sortObject( Obj )
-	const pathList = regroup ? {} : []
+	const pathList = type === "cards" ? [] : {}
 	let currentProp = "", prevProp = ""
 
 	for ( let prop in orderObj ) {
-		if ( regroup ) {
-
+		if ( type === "popup" ) {
 			const splittedPropName = prop.split( "-" )
 			currentProp = splittedPropName[ 0 ]
 
@@ -43,19 +42,17 @@ export function getPathList ( Obj, regroup ) {
 			}
 			prevProp = currentProp
 		}
-		else {
-			if ( typeof orderObj[ prop ][ Object.keys( orderObj[ prop ] )[ 0 ] ] === "string" ) {
-				for ( let subProp in orderObj[ prop ] ) {
-					pathList.push( orderObj[ prop ][ subProp ] )
-				}
+		else if ( type === "cards" ) {
+			for ( let subProp in orderObj[ prop ] ) {
+				pathList.push( orderObj[ prop ][ subProp ] )
 			}
-			else {
-				pathList[ prop ] = []
-				for ( let subprop in orderObj[ prop ] ) {
-					const file_extension = Object.keys( orderObj[ prop ][ subprop ] )[ 0 ]
-					const path = orderObj[ prop ][ subprop ][ file_extension ]
-					pathList[ prop ].push( path )
-				}
+		}
+		else if ( type === "details" ) {
+			pathList[ prop ] = []
+			for ( let subprop in orderObj[ prop ] ) {
+				const file_extension = Object.keys( orderObj[ prop ][ subprop ] )[ 0 ]
+				const path = orderObj[ prop ][ subprop ][ file_extension ]
+				pathList[ prop ].push( path )
 			}
 		}
 	}
