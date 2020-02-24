@@ -35,7 +35,7 @@ export function setMagnificPopup ( target, delegate, pathList_additional_content
 		}
 	} );
 }
-
+//test
 function loadPopup ( item, pathList_additional_content ) {
 	const { title, description, additionalContent } = getPopupInfo( item.src, pathList_additional_content )
 	item.srcset = item.el[ 0 ].dataset.srcset
