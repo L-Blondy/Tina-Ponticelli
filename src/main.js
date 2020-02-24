@@ -5,7 +5,7 @@ import { getPathList } from "./utils/getPathList.js"
 import { Cards } from "./components/Cards.js"
 import { setupNavbar } from "./components/Navbar.js"
 import { Moltitudine } from "./components/Moltitudine.js"
-import { setMagnificPopup } from "./components/MagnificPopup.js";
+import { setMagnificPopup } from "./components/MFP/MagnificPopup.js";
 import { onVisible } from "lb-onvisible"
 import { getClassToAdd } from "./utils/getClassToAdd.JS"
 import "./main.scss";

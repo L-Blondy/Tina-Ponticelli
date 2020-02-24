@@ -1,5 +1,3 @@
-const { sqrt, floor, ceil } = Math
-
 function sortObject ( obj ) {
 	let key,
 		tempArry = [],
@@ -26,8 +24,10 @@ export function getPathList ( Obj, regroup ) {
 	const orderObj = sortObject( Obj )
 	const pathList = regroup ? {} : []
 	let currentProp = "", prevProp = ""
+
 	for ( let prop in orderObj ) {
 		if ( regroup ) {
+
 			const splittedPropName = prop.split( "-" )
 			currentProp = splittedPropName[ 0 ]
 
@@ -44,7 +44,19 @@ export function getPathList ( Obj, regroup ) {
 			prevProp = currentProp
 		}
 		else {
-			pathList.push( orderObj[ prop ][ Object.keys( orderObj[ prop ] )[ 0 ] ] )
+			if ( typeof orderObj[ prop ][ Object.keys( orderObj[ prop ] )[ 0 ] ] === "string" ) {
+				for ( let subProp in orderObj[ prop ] ) {
+					pathList.push( orderObj[ prop ][ subProp ] )
+				}
+			}
+			else {
+				pathList[ prop ] = []
+				for ( let subprop in orderObj[ prop ] ) {
+					const file_extension = Object.keys( orderObj[ prop ][ subprop ] )[ 0 ]
+					const path = orderObj[ prop ][ subprop ][ file_extension ]
+					pathList[ prop ].push( path )
+				}
+			}
 		}
 	}
 	return pathList

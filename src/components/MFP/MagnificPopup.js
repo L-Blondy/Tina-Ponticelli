@@ -1,3 +1,5 @@
+import { getDetails } from "./getDetails.js"
+
 window.addEventListener( "popstate", ( e ) => {
 	$.magnificPopup.close()
 } )
@@ -5,12 +7,6 @@ window.addEventListener( "popstate", ( e ) => {
 const baseLocation = document.location.pathname;
 
 export function setMagnificPopup ( target, delegate, pathList_additional_content ) {
-	pathList_additional_content = Object.keys( pathList_additional_content ).reduce( ( res, key ) => {
-		const temp = Object.values( pathList_additional_content[ key ] )[ 0 ].split( "/" )
-		let name = temp[ temp.length - 1 ].split( "." )[ 0 ]
-		const path = Object.values( pathList_additional_content[ key ] )[ 0 ]
-		return Object.assign( res, { [ name ]: path } )
-	}, {} )
 
 	$( target ).magnificPopup( {
 		delegate: delegate,
@@ -23,7 +19,7 @@ export function setMagnificPopup ( target, delegate, pathList_additional_content
 		closeBtnInside: false,
 		gallery: {
 			enabled: true,
-			preload: [ 1,2 ],
+			preload: [ 1, 2 ],
 			tCounter: ''
 		},
 		callbacks: {
@@ -47,9 +43,9 @@ function loadPopup ( item, pathList_additional_content ) {
 	const temp2 = temp[ temp.length - 2 ]
 	const lastW = temp2.substring( 0, temp2.length - 3 ) + 1
 	//caching next images
-	const img = document.createElement("IMG")
-	img.src = item.src 
-	img.srcset = item.el[ 0 ].dataset.srcset + item.src + " " + lastW + "w" 
+	const img = document.createElement( "IMG" )
+	img.src = item.src
+	img.srcset = item.el[ 0 ].dataset.srcset + item.src + " " + lastW + "w"
 
 	item.type = "inline"
 	item.src = `
@@ -71,28 +67,7 @@ function loadPopup ( item, pathList_additional_content ) {
 }
 
 function getPopupInfo ( path, pathList_additional_content ) {
-	const _5mari = `
-		<div class="mfp-additional-content__5mari">
-			<img src=${pathList_additional_content[ "5mari" ] } alt=${ pathList_additional_content[ "5mari" ] } class=""/>
-			<span class="mfp-title mfp-title--sub">I Cinque Mari</span>
-			<div class="mfp-description mfp-description--sub">
-				Costa Crociere, Napoli, 2007
-			</div> 
-		</div>
-	`
-
-	const _molti = `
-	<p> This is Moltitudine</p >
-
-	`
-	const _comunione = `
-	< p > This is Comunione</p >
-	
-	`
-	const _molti_inks = `
-	< p > This is Inks</p >
-		
-	`
+	const { _5mari, _molti, _comunione, _molti_inks } = getDetails( pathList_additional_content )
 
 	if ( path.indexOf( "moltitudine-main" ) !== -1 ) {
 		return {
