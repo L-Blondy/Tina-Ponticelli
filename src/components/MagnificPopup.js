@@ -89,8 +89,29 @@ MFP.prototype.getDetails = function () {
 	const _molti = ( function () {
 		let HTML = ""
 		path_moltitudine.forEach( path => {
-			HTML += `<img class="moltitudune-detail" src="${ path }" alt="detail" />`
+			if ( "IntersectionObserver" in window ) {
+				HTML += `<img class="moltitudune-detail" data-src="${ path }" alt="detail" />`
+			} else {
+				HTML += `<img class="moltitudune-detail" src="${ path }" alt="detail" />`
+			}
 		} )
+		HTML += `
+		<script>
+			if("IntersectionObserver" in window){
+				const io = new IntersectionObserver( cb, { threshold: 0.01,rootMargin:"0px 0px 150px 0px" } )
+				function cb ( entries ) {
+					entries.forEach( function( e ) {
+						if ( e.intersectionRatio > 0 ) {
+							e.target.src=e.target.dataset.src
+							e.target.srcset=e.target.dataset.srcset || e.target.dataset.src
+							io.unobserve(e.target)
+						}
+					} )
+				}
+				const details = [].slice.call(document.querySelectorAll(".moltitudune-detail"))
+				details.forEach( function( detail ) { io.observe(detail) } )
+			} 
+		</script>`
 		return HTML
 	} )()
 

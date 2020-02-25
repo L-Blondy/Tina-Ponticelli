@@ -14,6 +14,7 @@ $mfp-img-height: 55vh;
    width: 0;
    height: 0;
    opacity: 1;
+   box-shadow: 0 0 0 500vw $mfp-clr-bg;
    box-shadow: 0 0 0 500vmax $mfp-clr-bg;
 }
 
@@ -194,7 +195,7 @@ $mfp-img-height: 55vh;
    }
 }
 
-@media(max-width: 1200px)  {
+@media(max-width: 1200px) {
 
    .mfp-img {
       object-fit: contain;
