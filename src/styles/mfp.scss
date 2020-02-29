@@ -151,19 +151,22 @@ $mfp-img-height: 55vh;
 .mfp-additional-content {
    position: absolute;
    @include flex-center;
-   flex-direction: column;
+   justify-content: space-between;
+   flex-wrap: wrap;
    top: $mfp-spacing;
    left: 50%;
    transform: translateX(-50%);
    line-height: normal;
-   color: #ddd;
+   color: #dadada;
    width: 100vw;
+   padding: 0 25vw;
 
    &__5mari {
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      padding: 1vw 10px 0.5rem 10px;
+      padding: 1vw 0 0.5rem 0;
+      margin: auto;
 
       img {
          padding: 0.5rem 0;
@@ -171,8 +174,39 @@ $mfp-img-height: 55vh;
          max-width: 100%;
       }
    }
+
+   .description {
+      width: 100%;
+      margin: 1rem 5px;
+      text-align: justify;
+   }
+
+   .popup-detail {
+      width: 150px;
+      flex-grow: 1;
+      margin: 5px;
+      min-height: 50px;
+
+      @media(max-width: 1024px) {
+         width: 120px;
+      }
+   }
 }
 
+@media(max-width: 1400px) {
+   .mfp-additional-content {
+      padding: 0 20%;
+   }
+}
+
+@media(max-width: 1200px) {
+
+   .mfp-img {
+      object-fit: contain;
+      min-height: 35vh;
+      max-height: 45vh;
+   }
+}
 
 @media(max-width: 900px) {
 
@@ -193,18 +227,17 @@ $mfp-img-height: 55vh;
       transform-origin: 0px 55px;
       right: 0;
    }
-}
 
-@media(max-width: 1200px) {
-
-   .mfp-img {
-      object-fit: contain;
-      min-height: 35vh;
-      max-height: 45vh;
+   .mfp-additional-content {
+      padding: 0 10%;
    }
 }
 
+
 @media(max-width: 500px) {
+   .mfp-additional-content {
+      padding: 0 10px;
+   }
 
    .mfp-img {
       height: auto;

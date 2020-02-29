@@ -10,6 +10,7 @@ export function MFP ( target, delegate ) {
 	this.pathList_additional_content = getPathList( require( "../assets/_additional_content/**/*.*" ), "details" )
 	this.target = target;
 	this.delegate = delegate
+	this.inlineIO = ""
 	this.details = this.getDetails()
 }
 MFP.prototype.setup = function () {
@@ -76,6 +77,8 @@ MFP.prototype.getDetails = function () {
 	const path_moltitudine = this.pathList_additional_content[ "moltitudine" ]
 	const path_comunione = this.pathList_additional_content[ "comunione" ]
 	const path_molti_inks = this.pathList_additional_content[ "molti_inks" ]
+	console.log( path_molti_inks )
+	this.inlineIO = this.get_inlineIO()
 
 	const _5mari = `
 	<div class="mfp-additional-content__5mari">
@@ -86,16 +89,55 @@ MFP.prototype.getDetails = function () {
 		</div> 
 	</div>
 	`
-	const _molti = ( function () {
-		let HTML = ""
+	const _molti = ( () => {
+		let HTML = `<p class="description">The work "Moltitudine" appears as a panel composed by 184 single frames of small sizes; inlays of a majestic picture but also single works, perfect for shape, style and contents.
+		The peculiarity of Tina Ponticelli's work is her ability in different levels: the first one is chromatic- geometric-kind with progressive colours' distances that follow one another along diagonals with an inclination that tend to increase by degrees on the left-right directrix; the second one is symbolic-kind with a series of signs, again composed through different combinations between shapes and colours, capable to involve in an interactive way the observer who interprets them with some rare exegetic suggestions turned in main point in every single section of the assemblage; the third one has a stylistic quality: if we consider the single frames as freestanding works, we find the whole way of research of the artist, with her abstract and more seldom figurative outcomes that, all together, represent her characteristic dualism.
+		The supports become themselves shapes in their different placements of Tina's monochromatic works risen from a break of a formal picture, rebuilt in accordance with their own logic that replies to an artistic and re-creative impulse of the very same images.
+		Next to the figurative elements that dominate the scene there are signs that carry out ideas'associations. They cherish a second re-creative way, this time completely mental, and that still involve the observer in a decoding.
+		The tonality, outcome of a delicate research of colours, is slender and combines itself to an equally light "mark".
+		Through this last one, the artist succeds now in defining, now just in sketching, signs of depictions that shade off in a whitish creating diaphanous effects. </p>`
+
 		path_moltitudine.forEach( path => {
 			if ( "IntersectionObserver" in window ) {
-				HTML += `<img class="moltitudune-detail" data-src="${ path }" alt="detail" />`
+				HTML += `<img class="popup-detail" data-src="${ path }" alt="detail" />`
 			} else {
-				HTML += `<img class="moltitudune-detail" src="${ path }" alt="detail" />`
+				HTML += `<img class="popup-detail" src="${ path }" alt="detail" />`
 			}
 		} )
-		HTML += `
+		HTML += this.inlineIO
+		return HTML
+	} )()
+
+	const _molti_inks = ( () => {
+		let HTML = ""
+		path_molti_inks.forEach( path => {
+			if ( "IntersectionObserver" in window ) {
+				HTML += `<img class="popup-detail" data-src="${ path }" alt="detail" />`
+			} else {
+				HTML += `<img class="popup-detail" src="${ path }" alt="detail" />`
+			}
+		} )
+		HTML += this.inlineIO
+		return HTML
+	} )()
+
+	const _comunione = `The work "Moltitudine" appears as a panel composed by 184 single frames of small sizes; inlays of a majestic picture but also single works, perfect for shape, style and contents.
+	The peculiarity of Tina Ponticelli's work is her ability in different levels: the first one is chromatic- geometric-kind with progressive colours' distances that follow one another along diagonals with an inclination that tend to increase by degrees on the left-right directrix; the second one is symbolic-kind with a series of signs, again composed through different combinations between shapes and colours, capable to involve in an interactive way the observer who interprets them with some rare exegetic suggestions turned in main point in every single section of the assemblage; the third one has a stylistic quality: if we consider the single frames as freestanding works, we find the whole way of research of the artist, with her abstract and more seldom figurative outcomes that, all together, represent her characteristic dualism.
+	The supports become themselves shapes in their different placements of Tina's monochromatic works risen from a break of a formal picture, rebuilt in accordance with their own logic that replies to an artistic and re-creative impulse of the very same images.
+	Next to the figurative elements that dominate the scene there are signs that carry out ideas'associations. They cherish a second re-creative way, this time completely mental, and that still involve the observer in a decoding.
+	The tonality, outcome of a delicate research of colours, is slender and combines itself to an equally light "mark".
+	Through this last one, the artist succeds now in defining, now just in sketching, signs of depictions that shade off in a whitish creating diaphanous effects. `
+
+	return { _5mari, _molti, _comunione, _molti_inks }
+}
+MFP.prototype.get_inlineIO = function () {
+	return `
+	<div class="popup-detail"></div>
+	<div class="popup-detail"></div>
+	<div class="popup-detail"></div>
+	<div class="popup-detail"></div>
+	<div class="popup-detail"></div>
+	<div class="popup-detail"></div>
 		<script>
 			if("IntersectionObserver" in window){
 				const io = new IntersectionObserver( cb, { threshold: 0.01,rootMargin:"0px 0px 150px 0px" } )
@@ -108,20 +150,10 @@ MFP.prototype.getDetails = function () {
 						}
 					} )
 				}
-				const details = [].slice.call(document.querySelectorAll(".moltitudune-detail"))
+				const details = [].slice.call(document.querySelectorAll(".popup-detail"))
 				details.forEach( function( detail ) { io.observe(detail) } )
 			} 
 		</script>`
-		return HTML
-	} )()
-
-	const _comunione = `
-	< p > This is Comunione</p >
-	`
-	const _molti_inks = `
-	< p > This is Inks</p >
-	`
-	return { _5mari, _molti, _comunione, _molti_inks }
 }
 
 MFP.prototype.getPopupData = function ( src ) {
