@@ -77,7 +77,6 @@ MFP.prototype.getDetails = function () {
 	const path_moltitudine = this.pathList_additional_content[ "moltitudine" ]
 	const path_comunione = this.pathList_additional_content[ "comunione" ]
 	const path_molti_inks = this.pathList_additional_content[ "molti_inks" ]
-	console.log( path_molti_inks )
 	this.inlineIO = this.get_inlineIO()
 
 	const _5mari = `

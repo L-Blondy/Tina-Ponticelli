@@ -17,16 +17,20 @@ Cards.prototype.setup = function () {
 		this.a = document.createElement( "A" );
 		this.img = document.createElement( "IMG" );
 		this.div = document.createElement( "DIV" );
+
 		this.a.className = "card__link";
+		this.img.className = `card__image ${ cardPath.indexOf( "-lg" ) !== -1 ? "card__image--lg" : cardPath.indexOf( "-xl" ) !== -1 ? "card__image--xl" : cardPath.indexOf( "-ht" ) !== -1 ? "card__image--ht" : cardPath.indexOf( "-xh" ) !== -1 ? "card__image--xh" : "" }`;
+
 		this.a.href = this.popups[ index_to_char[ index ] ].main;
 		this.a.dataset.srcset = this.popups[ index_to_char[ index ] ].srcset
-		this.img.className = `card__image ${ cardPath.indexOf( "-lg" ) !== -1 ? "card__image--lg" : cardPath.indexOf( "-xl" ) !== -1 ? "card__image--xl" : cardPath.indexOf( "-ht" ) !== -1 ? "card__image--ht" : cardPath.indexOf( "-xh" ) !== -1 ? "card__image--xh" : "" }`;
 		this.img.dataset.src = cardPath;
 		this.img.src = this.placeholder[ "1x1_placeholder" ][ "png" ];
 		this.img.setAttribute( "alt", cardPath );
+
 		this.div.appendChild( this.img )
 		this.a.appendChild( this.div )
 		this.cardsContainer.appendChild( this.a )
+
 		this.allCards = [ ...this.allCards, this.a ]
 
 		if ( "IntersectionObserver" in window ) {
@@ -41,29 +45,28 @@ Cards.prototype.setup = function () {
 }
 
 Cards.prototype.setupLazyLoad = function () {
-	const that = this
-	const O_vertical = new IntersectionObserver( cb1, { root: that.sectionContainer, rootMargin: "0px 0px 500px 0px", threshold: 0.001 } )
+	const O_vertical = new IntersectionObserver( cb1, { root: this.sectionContainer, rootMargin: "0px 0px 500px 0px", threshold: 0.001 } )
 	function cb1 ( entries ) {
 		entries.forEach( entry => {
 			if ( entry.intersectionRatio > 0 && !( window.matchMedia( "(max-width:660px)" ).matches ) ) {
 				loadImg_computed( entry.target )
-				O_vertical.unobserve( that.img )
-				O_horizontal.unobserve( that.img )
+				O_vertical.unobserve( entry.target )
+				O_horizontal.unobserve( entry.target )
 			}
 		} )
 	}
-	const O_horizontal = new IntersectionObserver( cb2, { root: that.cardsContainer, rootMargin: "0px 500px 0px 0px", threshold: 0.001 } )
+	const O_horizontal = new IntersectionObserver( cb2, { root: this.cardsContainer, rootMargin: "0px 500px 0px 0px", threshold: 0.001 } )
 	function cb2 ( entries ) {
 		entries.forEach( entry => {
 			if ( entry.intersectionRatio > 0 && ( window.matchMedia( "(max-width:660px)" ).matches ) ) {
 				loadImg_computed( entry.target )
-				O_vertical.unobserve( that.img )
-				O_horizontal.unobserve( that.img )
+				O_vertical.unobserve( entry.target )
+				O_horizontal.unobserve( entry.target )
 			}
 		} )
 	}
-	O_vertical.observe( that.img )
-	O_horizontal.observe( that.img )
+	O_vertical.observe( this.img )
+	O_horizontal.observe( this.img )
 }
 
 Cards.prototype.setupAnimation = function () {

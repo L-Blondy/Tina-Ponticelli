@@ -22,7 +22,7 @@ function sortObject ( obj ) {
 
 export function getPathList ( Obj, type ) {
 	const orderObj = sortObject( Obj )
-	const pathList = type === "cards" ? [] : {}
+	const pathList = type === "cards" ? [] : type === "events" ? [] : {}
 	let currentProp = "", prevProp = ""
 
 	for ( let prop in orderObj ) {
@@ -42,7 +42,7 @@ export function getPathList ( Obj, type ) {
 			}
 			prevProp = currentProp
 		}
-		else if ( type === "cards" ) {
+		else if ( type === "cards" || type === "events" ) {
 			for ( let subProp in orderObj[ prop ] ) {
 				pathList.push( orderObj[ prop ][ subProp ] )
 			}

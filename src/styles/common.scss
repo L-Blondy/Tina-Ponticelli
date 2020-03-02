@@ -60,7 +60,10 @@ a:focus {
 }
 
 section:not(.home) {
-   min-height: 50vh;
+   min-height: 30vh;
+   width: 80%;
+   margin: 0 auto;
+   padding: 0 calc(30px + 2vw);
 }
 
 .section__title {
@@ -70,9 +73,15 @@ section:not(.home) {
    font-weight: 500;
    letter-spacing: 0.2rem;
    font-size: 3.2rem;
-   padding-top: 10rem;
-   padding-bottom: 7rem;
+   padding-top: 8rem;
+   padding-bottom: 5rem;
 
+}
+
+@media (max-width: 1200px) {
+   section:not(.home) {
+      width: 100%;
+   }
 }
 
 @media(max-width: 992px) {
@@ -86,7 +95,7 @@ section:not(.home) {
 @media (orientation: portrait) and (max-width: 992px) {
    .section__title {
       width: 100%;
-      transform: translateX(20%);
+      transform: translateX(15%);
       text-align: left;
       letter-spacing: 0.1rem;
       padding-top: 3rem;

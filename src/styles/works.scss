@@ -23,13 +23,6 @@
    &-container {
       @include flex-center;
       flex-wrap: wrap;
-      width: 80%;
-      margin: 0 auto;
-      padding: 0 calc(30px + 2vw);
-
-      @media (max-width: 1200px) {
-         width: 100%;
-      }
    }
 
    &__link {
@@ -121,7 +114,7 @@
 }
 
 
-//card slider
+
 @media (max-width: 660px) {
    .card {
       &-container {
@@ -129,6 +122,10 @@
          flex-wrap: nowrap;
          overflow-x: scroll;
          overflow-y: hidden;
+
+         .card__link:first-child {
+            margin-left: 0;
+         }
       }
 
       &__link {
@@ -136,6 +133,8 @@
          width: 230px;
          max-width: 55vw;
          margin: 5vw;
+
+
 
          &:last-child::before {
             position: absolute;
