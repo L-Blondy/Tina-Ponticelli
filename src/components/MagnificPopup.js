@@ -28,6 +28,8 @@ MFP.prototype.setup = function () {
 			preload: [ 1, 2 ],
 			tCounter: ''
 		},
+		closeMarkup: '<button title="%title%" type="button" class="mfp-close">Back</button>',
+		tClose: "Go Back (Esc)",
 		callbacks: {
 			open: () => {
 				history.pushState( {}, "", baseLocation + "slide" )
@@ -56,7 +58,6 @@ MFP.prototype.loadPopup = function ( item ) {
 
 	item.type = "inline"
 	item.src = `
-	<button title="Close (Esc)" type="button" class="mfp-close" style="color:white;"></button>
 	<div class="mfp-figure">
 	<img class="mfp-img" alt="${ title }" src=${ item.src } srcset="${ item.srcset }"/>
 	
@@ -94,7 +95,9 @@ MFP.prototype.getDetails = function () {
 		The supports become themselves shapes in their different placements of Tina's monochromatic works risen from a break of a formal picture, rebuilt in accordance with their own logic that replies to an artistic and re-creative impulse of the very same images.
 		Next to the figurative elements that dominate the scene there are signs that carry out ideas'associations. They cherish a second re-creative way, this time completely mental, and that still involve the observer in a decoding.
 		The tonality, outcome of a delicate research of colours, is slender and combines itself to an equally light "mark".
-		Through this last one, the artist succeds now in defining, now just in sketching, signs of depictions that shade off in a whitish creating diaphanous effects. </p>`
+		Through this last one, the artist succeds now in defining, now just in sketching, signs of depictions that shade off in a whitish creating diaphanous effects. </p>
+		<div class="details-title">Installation details :</div>
+		<div class="details-container">`
 
 		path_moltitudine.forEach( path => {
 			if ( "IntersectionObserver" in window ) {
@@ -103,12 +106,12 @@ MFP.prototype.getDetails = function () {
 				HTML += `<img class="popup-detail" src="${ path }" alt="detail" />`
 			}
 		} )
-		HTML += this.inlineIO
+		HTML += "</div>" + this.inlineIO
 		return HTML
 	} )()
 
 	const _molti_inks = ( () => {
-		let HTML = ""
+		let HTML = '<div class="details-title">Installation details :</div> <div class="details-container">'
 		path_molti_inks.forEach( path => {
 			if ( "IntersectionObserver" in window ) {
 				HTML += `<img class="popup-detail" data-src="${ path }" alt="detail" />`
@@ -116,16 +119,16 @@ MFP.prototype.getDetails = function () {
 				HTML += `<img class="popup-detail" src="${ path }" alt="detail" />`
 			}
 		} )
-		HTML += this.inlineIO
+		HTML += "</div>" + this.inlineIO
 		return HTML
 	} )()
 
-	const _comunione = `The work "Moltitudine" appears as a panel composed by 184 single frames of small sizes; inlays of a majestic picture but also single works, perfect for shape, style and contents.
+	const _comunione = `<p class="description">The work "Moltitudine" appears as a panel composed by 184 single frames of small sizes; inlays of a majestic picture but also single works, perfect for shape, style and contents.
 	The peculiarity of Tina Ponticelli's work is her ability in different levels: the first one is chromatic- geometric-kind with progressive colours' distances that follow one another along diagonals with an inclination that tend to increase by degrees on the left-right directrix; the second one is symbolic-kind with a series of signs, again composed through different combinations between shapes and colours, capable to involve in an interactive way the observer who interprets them with some rare exegetic suggestions turned in main point in every single section of the assemblage; the third one has a stylistic quality: if we consider the single frames as freestanding works, we find the whole way of research of the artist, with her abstract and more seldom figurative outcomes that, all together, represent her characteristic dualism.
 	The supports become themselves shapes in their different placements of Tina's monochromatic works risen from a break of a formal picture, rebuilt in accordance with their own logic that replies to an artistic and re-creative impulse of the very same images.
 	Next to the figurative elements that dominate the scene there are signs that carry out ideas'associations. They cherish a second re-creative way, this time completely mental, and that still involve the observer in a decoding.
 	The tonality, outcome of a delicate research of colours, is slender and combines itself to an equally light "mark".
-	Through this last one, the artist succeds now in defining, now just in sketching, signs of depictions that shade off in a whitish creating diaphanous effects. `
+	Through this last one, the artist succeds now in defining, now just in sketching, signs of depictions that shade off in a whitish creating diaphanous effects.</p> `
 
 	return { _5mari, _molti, _comunione, _molti_inks }
 }

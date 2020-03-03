@@ -103,3 +103,14 @@ section:not(.home) {
       font-size: calc(4vw + 1rem) !important;
    }
 }
+
+@media(max-width: 598.9px) {
+   section:not(.home) {
+      padding: 1.8rem;
+   }
+
+   .section__title {
+      padding-top: 0;
+      padding-bottom: 1rem;
+   }
+}

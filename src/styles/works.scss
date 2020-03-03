@@ -27,12 +27,12 @@
 
    &__link {
       position: relative;
-      width: 230px;
+      width: 250px;
       max-width: 270px;
       box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.4);
       flex-grow: 1;
       background: $card-bg;
-      margin: 24px;
+      margin: 15px;
       transition: box-shadow 500ms;
       color: white;
 
@@ -113,9 +113,19 @@
    }
 }
 
-
-
 @media (max-width: 660px) {
+   .card__link {
+      flex-shrink: 0;
+      width: 200px;
+   }
+}
+
+@media (max-width: 599px) {
+   .works {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+   }
+
    .card {
       &-container {
          justify-content: flex-start;
@@ -124,7 +134,7 @@
          overflow-y: hidden;
 
          .card__link:first-child {
-            margin-left: 0;
+            margin-left: 2em;
          }
       }
 

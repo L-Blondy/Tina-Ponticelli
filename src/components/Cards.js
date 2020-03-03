@@ -72,12 +72,14 @@ Cards.prototype.setupLazyLoad = function () {
 Cards.prototype.setupAnimation = function () {
 	//1560
 	let mod;
-	if ( window.matchMedia( "(max-width: 661px)" ).matches )
+	if ( window.matchMedia( "(max-width: 598.9px)" ).matches )
 		return
-	else if ( window.matchMedia( "(max-width: 948px)" ).matches )
+	else if ( window.matchMedia( "(max-width: 955.8px)" ).matches )
 		mod = 2
-	else if ( window.matchMedia( "(max-width: 1559.8px)" ).matches )
+	else if ( window.matchMedia( "(max-width: 1562.8px)" ).matches )
 		mod = 3
+	else if ( window.matchMedia( "(min-width: 1921px)" ).matches )
+		mod = 5
 	else if ( window.matchMedia( "(min-width: 1560px)" ).matches )
 		mod = 4
 
