@@ -102,12 +102,17 @@ MFP.prototype.getDetails = function () {
 
 		path_moltitudine.forEach( path => {
 			if ( "IntersectionObserver" in window ) {
-				HTML += `<img class="popup-detail" data-src="${ path }" alt="detail" />`
+				HTML += `
+					<div class="popup-detail-wrapper-1">
+						<div class="popup-detail-wrapper-2-molti ">
+							<img class="popup-detail" data-src="${ path }" alt="detail" />
+						</div>
+					</div>`
 			} else {
 				HTML += `<img class="popup-detail" src="${ path }" alt="detail" />`
 			}
 		} )
-		HTML += "</div>" + this.inlineIO
+		HTML += this.inlineIO
 		return HTML
 	} )()
 
@@ -115,12 +120,17 @@ MFP.prototype.getDetails = function () {
 		let HTML = '<div class="details-title">Installation details :</div> <div class="details-container">'
 		path_molti_inks.forEach( path => {
 			if ( "IntersectionObserver" in window ) {
-				HTML += `<img class="popup-detail" data-src="${ path }" alt="detail" />`
+				HTML += `
+				<div class="popup-detail-wrapper-1">
+					<div class="popup-detail-wrapper-2-molti_inks ">
+						<img class="popup-detail" data-src="${ path }" alt="detail" />
+					</div>
+				</div>`
 			} else {
 				HTML += `<img class="popup-detail" src="${ path }" alt="detail" />`
 			}
 		} )
-		HTML += "</div>" + this.inlineIO
+		HTML += this.inlineIO
 		return HTML
 	} )()
 
@@ -135,12 +145,11 @@ MFP.prototype.getDetails = function () {
 }
 MFP.prototype.get_inlineIO = function () {
 	return `
-	<div class="popup-detail"></div>
-	<div class="popup-detail"></div>
-	<div class="popup-detail"></div>
-	<div class="popup-detail"></div>
-	<div class="popup-detail"></div>
-	<div class="popup-detail"></div>
+	<div class="popup-detail-wrapper-1"></div>
+	<div class="popup-detail-wrapper-1"></div>
+	<div class="popup-detail-wrapper-1"></div>
+	<div class="popup-detail-wrapper-1"></div>
+	</div>
 		<script>
 			if("IntersectionObserver" in window){
 				const io = new IntersectionObserver( cb, { threshold: 0.01,rootMargin:"0px 0px 150px 0px" } )

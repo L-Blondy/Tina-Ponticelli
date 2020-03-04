@@ -15,13 +15,15 @@ const pathList_cards = getPathList( require( "./assets/_cards/*.*" ), "cards" )
 const pathList_popup = getPathList( require( "./assets/_popup/*.*" ), "popup" )
 const pathList_Events = getPathList( require( "./assets/_events/*.*" ), "events" )
 
-//Scroll Nav
+//SCROLL NAVIGATION
 const sections = document.querySelectorAll( "section" );
 const sectionContainer = document.querySelector( ".section-container" );
 setScrollNav( sections, sectionContainer );
 
+//NAVBAR
 setupNavbar();
 
+//HOME
 const moltitudine = new Moltitudine().setSrcset().setWhiteSquares()
 if ( window.matchMedia( "(orientation:landscape)" ).matches ) {
 	moltitudine.setupRandOpacity( {
@@ -33,7 +35,7 @@ if ( window.matchMedia( "(orientation:landscape)" ).matches ) {
 
 moltitudine.load()
 
-//setup cards 
+//CARDS
 new Cards( pathList_cards, pathList_popup );
 const cards = document.querySelectorAll( ".card-container > .card-link" );
 
@@ -46,11 +48,13 @@ const cards = document.querySelectorAll( ".card-container > .card-link" );
 	} );
 } )
 
-//magnific popup
+//EVENTS
+new Events( pathList_Events )
+
+//MFP
 new MFP( '.card-container', '.card__link' )
 
-//Events
-new Events( pathList_Events )
+
 
 
 

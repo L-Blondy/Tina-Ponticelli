@@ -15,7 +15,7 @@ Events.prototype.setup = function () {
 		this.div.className = "events__img-wrapper"
 		this.img.className = "events__img"
 
-		this.a.dataset.src = path
+		this.a.href = path
 		this.img.dataset.src = path
 
 		this.a.appendChild( this.div )
@@ -29,6 +29,25 @@ Events.prototype.setup = function () {
 			this.img.src = this.img.dataset.src
 		}
 	} )
+	this.setup_MFP()
+}
+
+Events.prototype.setup_MFP = function () {
+	$( '.events__container' ).magnificPopup( {
+		delegate: '.events__link',
+		type: 'image',
+		gallery: {
+			enabled: true,
+			preload: [ 1, 2 ]
+		},
+		closeMarkup: '<button title="%title%" type="button" class="mfp-close">Back</button>',
+		tClose: "Go Back (Esc)",
+		callbacks: {
+			open: function () {
+				$( ".mfp-container" ).addClass( "mfp-container-events" )
+			}
+		},
+	} );
 }
 Events.prototype.setupObserver = function () {
 	const obs = new IntersectionObserver( cb, { threshold: 0.01 } )

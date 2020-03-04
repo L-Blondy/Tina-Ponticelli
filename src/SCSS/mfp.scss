@@ -95,8 +95,16 @@ $mfp-img-height: 55vh;
    transform: translateY(-10vh);
 }
 
+.mfp-container-events {
+   transform: translateY(0) !important;
+
+   .mfp-close {
+      transform: translateX(-5px)
+   }
+}
+
 .mfp-content {
-   text-align: left;
+   text-align: center;
    padding: 0 10px;
 }
 
@@ -115,6 +123,7 @@ $mfp-img-height: 55vh;
 .mfp-custom {
    display: inline-block;
    position: absolute;
+   text-align: left;
    width: 100%;
    min-width: 250px;
    top: 100%;
@@ -217,15 +226,41 @@ $mfp-img-height: 55vh;
       flex-wrap: wrap;
    }
 
-   .popup-detail {
-      width: 160px;
-      flex-grow: 1;
+   .popup-detail-wrapper-1 {
       margin: 5px;
-      min-height: 50px;
+      width: 160px;
+      // height: 0;
+      flex-grow: 1;
 
       @media(max-width: 1024px) {
          width: 120px;
       }
+   }
+
+   .popup-detail-wrapper-2-molti,
+   .popup-detail-wrapper-2-molti_inks {
+      position: relative;
+      width: 100%;
+      padding-top: 134.4%;
+      overflow: hidden;
+   }
+
+   .popup-detail-wrapper-2-molti {
+      padding-top: 134.4%;
+   }
+
+   .popup-detail-wrapper-2-molti_inks {
+      padding-top: 143%;
+   }
+
+   .popup-detail {
+      position: absolute;
+      min-width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
    }
 }
 
@@ -253,7 +288,7 @@ $mfp-img-height: 55vh;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       opacity: 0.9;
-      padding-right: 0.5em !important;
+      padding-right: 15px !important;
    }
 
    .mfp-arrow {
@@ -319,7 +354,7 @@ $mfp-img-height: 55vh;
 
 @media(max-width: 360px) {
 
-   img[alt="Touch and Create"]+.mfp-custom {
+   img[alt="Touch and Create"]+.mfp-custom .mfp-bottom-bar {
       text-align: center;
    }
 
