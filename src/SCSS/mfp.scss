@@ -22,9 +22,6 @@ $mfp-img-height: 55vh;
 
 .mfp-close {
    font-size: 2rem;
-   // height: $mfp-close-dimensions;
-   // font-weight: 500 !important;
-   // width: $mfp-close-dimensions;
    color: $mfp-clr-font !important;
    position: fixed;
    opacity: 0.65;
@@ -99,7 +96,7 @@ $mfp-img-height: 55vh;
 }
 
 .mfp-content {
-   text-align: center;
+   text-align: left;
    padding: 0 10px;
 }
 
@@ -132,7 +129,7 @@ $mfp-img-height: 55vh;
    color: $mfp-clr-font;
    font-weight: $mfp-font-weight;
    font-size: 1.1rem;
-   text-align: $bottom-bar-text-align;
+   text-align: inherit;
    line-height: normal;
    margin-top: $mfp-spacing;
    opacity: 1;
@@ -142,7 +139,6 @@ $mfp-img-height: 55vh;
    }
 
    .mfp-title {
-      text-align: center;
       padding: 0;
       color: inherit;
       text-align: inherit;
@@ -211,7 +207,7 @@ $mfp-img-height: 55vh;
       margin-bottom: 1rem;
       font-size: 1.2em;
       width: 100%;
-      text-align: center;
+      text-align: inherit;
    }
 
    .details-container {
@@ -257,12 +253,11 @@ $mfp-img-height: 55vh;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       opacity: 0.9;
-      // background: rgba(239, 239, 239, 0.95) !important;
       padding-right: 0.5em !important;
    }
 
    .mfp-arrow {
-      transform: scale(0.85);
+      transform: scale(0.85) translateY(-13px);
    }
 
    .mfp-arrow-left {
@@ -284,6 +279,34 @@ $mfp-img-height: 55vh;
 @media(max-width: 500px) {
    .mfp-additional-content {
       padding: 0 10px;
+
+      .description {
+         margin-left: 0;
+         margin-right: 0;
+      }
+   }
+
+   .mfp-bottom-bar {
+      margin-top: 0;
+   }
+
+   .mfp-description {
+      padding-top: 0 !important;
+   }
+
+   .mfp-title {
+      padding-top: 0.3em !important;
+      font-size: 1.25em !important;
+      line-height: auto !important;
+   }
+
+   .mfp-title--sub {
+      padding-top: 0 !important;
+      line-height: initial !important;
+   }
+
+   .mfp-additional-content__5mari img {
+      padding: 0.3em 0;
    }
 
    .mfp-img {
@@ -295,6 +318,10 @@ $mfp-img-height: 55vh;
 }
 
 @media(max-width: 360px) {
+
+   img[alt="Touch and Create"]+.mfp-custom {
+      text-align: center;
+   }
 
    .mfp-custom {
       min-width: 95vw;

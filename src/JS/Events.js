@@ -1,6 +1,7 @@
 export function Events ( pathList ) {
 	this.pathList = pathList
 	this.eventsContainer = document.querySelector( ".events__container" )
+	this.setup()
 	console.log( this.pathList )
 }
 

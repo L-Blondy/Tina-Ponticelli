@@ -1,14 +1,14 @@
-import "./setSVG.js";
 import "lb-icons";
+import "./JS/setSVG.js";
 import setScrollNav from "lb-scroll-nav";
-import { getPathList } from "./utils/getPathList.js"
-import { Cards } from "./components/Cards.js"
-import { Events } from "./components/Events.js"
-import { setupNavbar } from "./components/Navbar.js"
-import { Moltitudine } from "./components/Moltitudine.js"
-import { MFP } from "./components/MagnificPopup.js";
+import { getPathList } from "./JS/utils/getPathList.js"
+import { Cards } from "./JS/Cards.js"
+import { Events } from "./JS/Events.js"
+import { setupNavbar } from "./JS/Navbar.js"
+import { Moltitudine } from "./JS/Moltitudine.js"
+import { MFP } from "./JS/MFP.js";
 import { onVisible } from "lb-onvisible"
-import { getClassToAdd } from "./utils/getClassToAdd.JS"
+import { getClassToAdd } from "./JS/utils/getClassToAdd.JS"
 import "./main.scss";
 
 const pathList_cards = getPathList( require( "./assets/_cards/*.*" ), "cards" )
@@ -34,7 +34,7 @@ if ( window.matchMedia( "(orientation:landscape)" ).matches ) {
 moltitudine.load()
 
 //setup cards 
-new Cards( pathList_cards, pathList_popup ).setup();
+new Cards( pathList_cards, pathList_popup );
 const cards = document.querySelectorAll( ".card-container > .card-link" );
 
 [].forEach.call( cards, ( card, index ) => {
@@ -47,10 +47,10 @@ const cards = document.querySelectorAll( ".card-container > .card-link" );
 } )
 
 //magnific popup
-new MFP( '.card-container', '.card__link' ).setup()
+new MFP( '.card-container', '.card__link' )
 
 //Events
-new Events( pathList_Events ).setup()
+new Events( pathList_Events )
 
 
 

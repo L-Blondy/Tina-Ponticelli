@@ -1,4 +1,4 @@
-import { loadImg_computed } from "../utils/loadImg_computed.js"
+import { loadImg_computed } from "./utils/loadImg_computed.js"
 import { onVisible } from "lb-onvisible"
 
 export function Cards ( pathList_cards, pathList_popup ) {
@@ -9,6 +9,7 @@ export function Cards ( pathList_cards, pathList_popup ) {
 	this.sectionContainer = document.querySelector( ".section-container" )
 	this.placeholder = require( "../assets/placeholder/*.*" );
 	this.sizes = [ 360, 768, 1000, 1920 ];
+	this.setup()
 }
 
 Cards.prototype.setup = function () {

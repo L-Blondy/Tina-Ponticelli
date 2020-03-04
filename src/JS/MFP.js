@@ -1,4 +1,4 @@
-import { getPathList } from "../utils/getPathList.js"
+import { getPathList } from "./utils/getPathList.js"
 
 window.addEventListener( "popstate", ( e ) => {
 	$.magnificPopup.close()
@@ -12,6 +12,7 @@ export function MFP ( target, delegate ) {
 	this.delegate = delegate
 	this.inlineIO = ""
 	this.details = this.getDetails()
+	this.setup()
 }
 MFP.prototype.setup = function () {
 	$( this.target ).magnificPopup( {
