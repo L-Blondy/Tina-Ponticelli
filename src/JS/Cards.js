@@ -1,8 +1,9 @@
 import { loadImg_computed } from "./utils/loadImg_computed.js"
 import { onVisible } from "lb-onvisible"
+import { phone_autoScroll } from "./_mixins"
 
 export function Cards ( pathList_cards, pathList_popup ) {
-	this.cardsContainer = document.querySelector( ".card-container" );
+	this.container = document.querySelector( ".card-container" );
 	this.cards = pathList_cards;
 	this.popups = pathList_popup;
 	this.allCards = []
@@ -11,6 +12,8 @@ export function Cards ( pathList_cards, pathList_popup ) {
 	this.sizes = [ 360, 768, 1000, 1920 ];
 	this.setup()
 }
+
+Cards.prototype = { ...phone_autoScroll }
 
 Cards.prototype.setup = function () {
 	this.cards.forEach( ( cardPath, index ) => {
@@ -30,22 +33,23 @@ Cards.prototype.setup = function () {
 
 		this.div.appendChild( this.img )
 		this.a.appendChild( this.div )
-		this.cardsContainer.appendChild( this.a )
+		this.container.appendChild( this.a )
 
 		this.allCards = [ ...this.allCards, this.a ]
 
 		if ( "IntersectionObserver" in window ) {
-			this.setupLazyLoad()
+			this.setup_lazyLoad()
 		} else {
 			loadImg_computed( this.img )
 		}
 	} )
 	if ( "IntersectionObserver" in window ) {
-		this.setupAnimation()
+		this.setup_animation()
+		this.setup_autoScroll()
 	}
 }
 
-Cards.prototype.setupLazyLoad = function () {
+Cards.prototype.setup_lazyLoad = function () {
 	const O_vertical = new IntersectionObserver( cb1, { root: this.sectionContainer, rootMargin: "0px 0px 500px 0px", threshold: 0.001 } )
 	function cb1 ( entries ) {
 		entries.forEach( entry => {
@@ -56,7 +60,7 @@ Cards.prototype.setupLazyLoad = function () {
 			}
 		} )
 	}
-	const O_horizontal = new IntersectionObserver( cb2, { root: this.cardsContainer, rootMargin: "0px 500px 0px 0px", threshold: 0.001 } )
+	const O_horizontal = new IntersectionObserver( cb2, { root: this.container, rootMargin: "0px 500px 0px 0px", threshold: 0.001 } )
 	function cb2 ( entries ) {
 		entries.forEach( entry => {
 			if ( entry.intersectionRatio > 0 && ( window.matchMedia( "(max-width:660px)" ).matches ) ) {
@@ -70,7 +74,7 @@ Cards.prototype.setupLazyLoad = function () {
 	O_horizontal.observe( this.img )
 }
 
-Cards.prototype.setupAnimation = function () {
+Cards.prototype.setup_animation = function () {
 	//1560
 	let mod;
 	if ( window.matchMedia( "(max-width: 598.9px)" ).matches )
@@ -97,3 +101,5 @@ Cards.prototype.setupAnimation = function () {
 		}
 	} )
 }
+
+

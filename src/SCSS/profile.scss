@@ -1,17 +1,13 @@
 .profile__article {
-    padding: 0 12vw;
+    padding: 0 18vw;
     font-size: 1.05em;
 
     @media (max-width:1552px) {
-        padding: 0 6vw;
-    }
-
-    @media (max-width:1200px) {
         padding: 0 12vw;
     }
 
-    @media (max-width:1200px) {
-        padding: 1.5rem 12vw;
+    @media (max-width:960px) {
+        padding: 1rem 10vw;
     }
 
     @media (max-width:661px) {

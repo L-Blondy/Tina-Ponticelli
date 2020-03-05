@@ -1,9 +1,13 @@
+import { phone_autoScroll } from "./_mixins"
+
 export function Events ( pathList ) {
 	this.pathList = pathList
-	this.eventsContainer = document.querySelector( ".events__container" )
+	this.container = document.querySelector( ".events__container" )
 	this.setup()
 	console.log( this.pathList )
 }
+
+Events.prototype = { ...phone_autoScroll }
 
 Events.prototype.setup = function () {
 	this.pathList.forEach( path => {
@@ -18,18 +22,28 @@ Events.prototype.setup = function () {
 		this.a.href = path
 		this.img.dataset.src = path
 
-		this.a.appendChild( this.div )
 		this.div.appendChild( this.img )
-		this.eventsContainer.appendChild( this.a )
+		this.a.appendChild( this.div )
+		this.container.appendChild( this.a )
 
 		if ( "IntersectionObserver" in window ) {
-			this.setupObserver()
+			this.setup_observer()
 		}
 		else {
 			this.img.src = this.img.dataset.src
 		}
 	} )
+	this.spacer = document.createElement( "a" )
+	this.spacer.className = "events__link events__link--additional"
+	this.container.appendChild( this.spacer.cloneNode( true ) )
+	this.container.appendChild( this.spacer.cloneNode( true ) )
+	this.container.appendChild( this.spacer.cloneNode( true ) )
+	this.container.appendChild( this.spacer.cloneNode( true ) )
+
 	this.setup_MFP()
+	if ( "IntersectionObserver" in window ) {
+		this.setup_autoScroll()
+	}
 }
 
 Events.prototype.setup_MFP = function () {
@@ -49,16 +63,17 @@ Events.prototype.setup_MFP = function () {
 		},
 	} );
 }
-Events.prototype.setupObserver = function () {
+Events.prototype.setup_observer = function () {
 	const obs = new IntersectionObserver( cb, { threshold: 0.01 } )
 	function cb ( entries ) {
 		entries.forEach( e => {
 			if ( e.intersectionRatio > 0 ) {
 				e.target.src = e.target.dataset.src
 				obs.unobserve( e.target )
-				console.log( "loading ", e.target )
 			}
 		} )
 	}
 	obs.observe( this.img )
 }
+
+
