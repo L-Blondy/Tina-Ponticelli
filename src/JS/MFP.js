@@ -152,10 +152,16 @@ MFP.prototype.get_inlineIO = function () {
 	</div>
 		<script>
 			if("IntersectionObserver" in window){
-				const io = new IntersectionObserver( cb, { threshold: 0.01,rootMargin:"0px 0px 150px 0px" } )
+				const opts = { 
+					threshold: 0.01,
+					rootMargin: "0px 0px 300px 0px",
+					root: document.querySelector(".mfp-gallery")
+				}
+				const io = new IntersectionObserver( cb, opts )
 				function cb ( entries ) {
 					entries.forEach( function( e ) {
 						if ( e.intersectionRatio > 0 ) {
+							console.log(e.target)
 							e.target.src=e.target.dataset.src
 							e.target.srcset=e.target.dataset.srcset || e.target.dataset.src
 							io.unobserve(e.target)
