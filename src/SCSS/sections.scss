@@ -36,6 +36,12 @@ section:not(.home) {
     }
 }
 
+@media(max-width: 1024px) {
+    .section-container {
+        height: calc(100vh - 50px);
+    }
+}
+
 @media(max-width: 992px) {
     .section__title {
         letter-spacing: 0.2rem;

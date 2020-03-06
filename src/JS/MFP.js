@@ -161,7 +161,6 @@ MFP.prototype.get_inlineIO = function () {
 				function cb ( entries ) {
 					entries.forEach( function( e ) {
 						if ( e.intersectionRatio > 0 ) {
-							console.log(e.target)
 							e.target.src=e.target.dataset.src
 							e.target.srcset=e.target.dataset.srcset || e.target.dataset.src
 							io.unobserve(e.target)

@@ -17,12 +17,20 @@ const phone_autoScroll = {
 	},
 	attach_touchListener () {
 		this.container.addEventListener( "touchstart", () => this.stop_autoScroll() )
+		this.container.addEventListener( "click", () => this.stop_autoScroll() )
 	},
 	start_autoScroll () {
-		this.autoScroll = setInterval( () => this.container.scrollBy( 1, 0 ), 100 );
+		this.frames_count = 0
+		const cb = () => {
+			this.frames_count % 3 == 0 && this.container.scrollBy( 1, 0 )
+			this.frames_count += 1
+			this.autoScroll = window.requestAnimationFrame( cb )
+		}
+		this.autoScroll = window.requestAnimationFrame( cb )
 	},
 	stop_autoScroll () {
-		clearInterval( this.autoScroll );
+		// clearInterval( this.autoScroll );
+		window.cancelAnimationFrame( this.autoScroll )
 	},
 	attach_IO_for_autoScroll () {
 		const self = this

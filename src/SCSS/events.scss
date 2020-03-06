@@ -13,6 +13,13 @@
         width: 160px;
         margin: 0.1rem;
         flex-grow: 1;
+
+        &--buffer {
+            position: relative;
+            width: 160px;
+            margin: 0.1rem;
+            flex-grow: 1;
+        }
     }
 
     &__lens {
@@ -73,7 +80,7 @@
             }
         }
 
-        .events__link--additional {
+        .events__link--buffer {
             width: 0;
         }
     }

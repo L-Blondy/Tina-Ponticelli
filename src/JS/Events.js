@@ -1,16 +1,16 @@
 import { phone_autoScroll } from "./_mixins"
 
-export function Events ( pathList ) {
-	this.pathList = pathList
+export function Events ( pathList_cards, pathList_popup ) {
+	this.pathList_cards = pathList_cards
+	this.pathList_popup = pathList_popup
 	this.container = document.querySelector( ".events__container" )
 	this.setup()
-	console.log( this.pathList )
 }
 
 Events.prototype = { ...phone_autoScroll }
 
 Events.prototype.setup = function () {
-	this.pathList.forEach( path => {
+	this.pathList_cards.forEach( ( path, i ) => {
 		this.a = document.createElement( "a" );
 		this.div = document.createElement( "div" );
 		this.img = document.createElement( "IMG" );
@@ -19,7 +19,7 @@ Events.prototype.setup = function () {
 		this.div.className = "events__img-wrapper"
 		this.img.className = "events__img"
 
-		this.a.href = path
+		this.a.href = this.pathList_popup[ i ]
 		this.img.dataset.src = path
 
 		this.div.appendChild( this.img )
@@ -33,12 +33,12 @@ Events.prototype.setup = function () {
 			this.img.src = this.img.dataset.src
 		}
 	} )
-	this.spacer = document.createElement( "a" )
-	this.spacer.className = "events__link events__link--additional"
-	this.container.appendChild( this.spacer.cloneNode( true ) )
-	this.container.appendChild( this.spacer.cloneNode( true ) )
-	this.container.appendChild( this.spacer.cloneNode( true ) )
-	this.container.appendChild( this.spacer.cloneNode( true ) )
+	this.buffer = document.createElement( "a" )
+	this.buffer.className = "events__link--buffer"
+	this.container.appendChild( this.buffer.cloneNode( true ) )
+	this.container.appendChild( this.buffer.cloneNode( true ) )
+	this.container.appendChild( this.buffer.cloneNode( true ) )
+	this.container.appendChild( this.buffer.cloneNode( true ) )
 
 	this.setup_MFP()
 	if ( "IntersectionObserver" in window ) {
@@ -64,7 +64,12 @@ Events.prototype.setup_MFP = function () {
 	} );
 }
 Events.prototype.setup_observer = function () {
-	const obs = new IntersectionObserver( cb, { threshold: 0.01 } )
+	const opts = {
+		threshold: 0.01,
+		rootMargin: "0px 0px 350px 0px",
+		root: document.querySelector( ".section-container" )
+	}
+	const obs = new IntersectionObserver( cb, opts )
 	function cb ( entries ) {
 		entries.forEach( e => {
 			if ( e.intersectionRatio > 0 ) {

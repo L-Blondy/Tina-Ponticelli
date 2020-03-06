@@ -11,9 +11,10 @@ import { onVisible } from "lb-onvisible"
 import { getClassToAdd } from "./JS/utils/getClassToAdd.JS"
 import "./main.scss";
 
-const pathList_cards = getPathList( require( "./assets/_cards/*.*" ), "cards" )
-const pathList_popup = getPathList( require( "./assets/_popup/*.*" ), "popup" )
-const pathList_Events = getPathList( require( "./assets/_events/*.*" ), "events" )
+const pathList_works_cards = getPathList( require( "./assets/_works/cards/*.*" ), "cards" )
+const pathList_works_popup = getPathList( require( "./assets/_works/popup/*.*" ), "popup" )
+const pathList_events_cards = getPathList( require( "./assets/_events/cards/*.*" ), "events" )
+const pathList_events_popup = getPathList( require( "./assets/_events/popup/*.*" ), "events" )
 
 //SCROLL NAVIGATION
 const sections = document.querySelectorAll( "section" );
@@ -36,7 +37,7 @@ if ( window.matchMedia( "(orientation:landscape)" ).matches ) {
 moltitudine.load()
 
 //CARDS
-new Cards( pathList_cards, pathList_popup );
+new Cards( pathList_works_cards, pathList_works_popup );
 const cards = document.querySelectorAll( ".card-container > .card-link" );
 
 [].forEach.call( cards, ( card, index ) => {
@@ -49,7 +50,7 @@ const cards = document.querySelectorAll( ".card-container > .card-link" );
 } )
 
 //EVENTS
-new Events( pathList_Events )
+new Events( pathList_events_cards, pathList_events_popup )
 
 //MFP
 new MFP( '.card-container', '.card__link' )
