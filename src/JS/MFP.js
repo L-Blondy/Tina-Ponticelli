@@ -103,9 +103,9 @@ MFP.prototype.getDetails = function () {
 		path_moltitudine.forEach( path => {
 			if ( "IntersectionObserver" in window ) {
 				HTML += `
-					<div class="popup-detail-wrapper-1">
+					<div class="popup-detail-wrapper-1 hideBottom">
 						<div class="popup-detail-wrapper-2-molti ">
-							<img class="popup-detail" data-src="${ path }" alt="detail" />
+							<img class="popup-detail" data-src="${ path }" alt="detail" class="hideBottom" />
 						</div>
 					</div>`
 			} else {
@@ -121,7 +121,7 @@ MFP.prototype.getDetails = function () {
 		path_molti_inks.forEach( path => {
 			if ( "IntersectionObserver" in window ) {
 				HTML += `
-				<div class="popup-detail-wrapper-1">
+				<div class="popup-detail-wrapper-1 hideBottom">
 					<div class="popup-detail-wrapper-2-molti_inks ">
 						<img class="popup-detail" data-src="${ path }" alt="detail" />
 					</div>
@@ -154,8 +154,7 @@ MFP.prototype.get_inlineIO = function () {
 			if("IntersectionObserver" in window){
 				const opts = { 
 					threshold: 0.01,
-					rootMargin: "0px 0px 300px 0px",
-					root: document.querySelector(".mfp-gallery")
+					rootMargin: "0px 0px 250px 0px"
 				}
 				const io = new IntersectionObserver( cb, opts )
 				function cb ( entries ) {
@@ -163,7 +162,10 @@ MFP.prototype.get_inlineIO = function () {
 						if ( e.intersectionRatio > 0 ) {
 							e.target.src=e.target.dataset.src
 							e.target.srcset=e.target.dataset.srcset || e.target.dataset.src
-							io.unobserve(e.target)
+							e.target.onload = function (e) {
+								e.target.parentElement.parentElement.classList.remove("hideBottom")
+								io.unobserve(e.target)
+							}
 						}
 					} )
 				}

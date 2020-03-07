@@ -1,13 +1,14 @@
-import { phone_autoScroll } from "./_mixins"
+import { onVisible } from "lb-onvisible"
+import { setup_lazyLoad } from "./_mixins"
 
 export function Events ( pathList_cards, pathList_popup ) {
 	this.pathList_cards = pathList_cards
 	this.pathList_popup = pathList_popup
 	this.container = document.querySelector( ".events__container" )
+	this.sectionContainer = document.querySelector( ".section-container" )
 	this.setup()
 }
-
-Events.prototype = { ...phone_autoScroll }
+Events.prototype.setup_lazyLoad = setup_lazyLoad
 
 Events.prototype.setup = function () {
 	this.pathList_cards.forEach( ( path, i ) => {
@@ -27,7 +28,9 @@ Events.prototype.setup = function () {
 		this.container.appendChild( this.a )
 
 		if ( "IntersectionObserver" in window ) {
-			this.setup_observer()
+			this.setup_lazyLoad()
+			if ( !window.matchMedia( "(max-width:598.8px)" ).matches )
+				onVisible( this.a, { class: "fadeFromBottom" } )
 		}
 		else {
 			this.img.src = this.img.dataset.src
@@ -41,9 +44,6 @@ Events.prototype.setup = function () {
 	this.container.appendChild( this.buffer.cloneNode( true ) )
 
 	this.setup_MFP()
-	if ( "IntersectionObserver" in window ) {
-		this.setup_autoScroll()
-	}
 }
 
 Events.prototype.setup_MFP = function () {
@@ -59,26 +59,11 @@ Events.prototype.setup_MFP = function () {
 		callbacks: {
 			open: function () {
 				$( ".mfp-container" ).addClass( "mfp-container-events" )
-			}
+			},
+			imageLoadComplete: function ( e ) {
+				document.querySelector( ".mfp-img" ).style.maxHeight = "60vh"
+			},
 		},
 	} );
 }
-Events.prototype.setup_observer = function () {
-	const opts = {
-		threshold: 0.01,
-		rootMargin: "0px 0px 350px 0px",
-		root: document.querySelector( ".section-container" )
-	}
-	const obs = new IntersectionObserver( cb, opts )
-	function cb ( entries ) {
-		entries.forEach( e => {
-			if ( e.intersectionRatio > 0 ) {
-				e.target.src = e.target.dataset.src
-				obs.unobserve( e.target )
-			}
-		} )
-	}
-	obs.observe( this.img )
-}
-
 

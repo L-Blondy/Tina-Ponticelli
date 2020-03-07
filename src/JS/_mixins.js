@@ -1,3 +1,5 @@
+import { loadImg_computed } from "./utils/loadImg_computed.js"
+
 const phone_autoScroll = {
 	setup_autoScroll () {
 		this.attach_resizeListener()
@@ -22,7 +24,7 @@ const phone_autoScroll = {
 	start_autoScroll () {
 		this.frames_count = 0
 		const cb = () => {
-			this.frames_count % 3 == 0 && this.container.scrollBy( 1, 0 )
+			this.frames_count % 10 == 0 && this.container.scrollBy( 1, 0 )
 			this.frames_count += 1
 			this.autoScroll = window.requestAnimationFrame( cb )
 		}
@@ -47,4 +49,30 @@ const phone_autoScroll = {
 		IO.observe( this.container )
 	}
 }
-export { phone_autoScroll }
+const setup_lazyLoad = function () {
+	const O_vertical = new IntersectionObserver( cb1, { root: this.sectionContainer, rootMargin: "0px 0px 500px 0px", threshold: 0.001 } )
+	function cb1 ( entries ) {
+		entries.forEach( e => {
+			if ( e.intersectionRatio > 0 && !( window.matchMedia( "(max-width:660px)" ).matches ) ) {
+				loadImg_computed( e.target )
+				O_vertical.unobserve( e.target )
+				O_horizontal.unobserve( e.target )
+			}
+		} )
+	}
+	const O_horizontal = new IntersectionObserver( cb2, { root: this.container, rootMargin: "0px 500px 0px 0px", threshold: 0.001 } )
+	function cb2 ( entries ) {
+		entries.forEach( e => {
+			if ( e.intersectionRatio > 0 && ( window.matchMedia( "(max-width:660px)" ).matches ) ) {
+				loadImg_computed( e.target )
+				O_vertical.unobserve( e.target )
+				O_horizontal.unobserve( e.target )
+			}
+		} )
+	}
+	O_vertical.observe( this.img )
+	O_horizontal.observe( this.img )
+}
+
+
+export { phone_autoScroll, setup_lazyLoad }

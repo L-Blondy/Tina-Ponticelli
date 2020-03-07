@@ -58,6 +58,17 @@
         &__container {
             padding: 1rem 6vw;
         }
+
+        &__link {
+            width: 120px;
+
+            &--buffer {
+                position: relative;
+                width: 120px;
+                margin: 0.1rem;
+                flex-grow: 1;
+            }
+        }
     }
 
     @media (max-width:661px) {

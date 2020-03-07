@@ -208,6 +208,7 @@ $mfp-img-height: 55vh;
       text-align: justify;
       color: $mfp-clr-font;
       font-size: 1.05rem;
+      line-height: 1.5em;
    }
 
    .details-title {
@@ -230,6 +231,7 @@ $mfp-img-height: 55vh;
       margin: 5px;
       width: 160px;
       flex-grow: 1;
+      transition: transform 700ms, opacity 700ms;
 
       @media(max-width: 1024px) {
          width: 120px;

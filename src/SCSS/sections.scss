@@ -13,6 +13,27 @@ section:not(.home) {
     margin: 0 auto;
     padding: 0 calc(30px + 2vw);
     background: $beige;
+    position: relative;
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 500px;
+        top: 1.8rem;
+        box-shadow: 0 0 1.3rem 3px $beige;
+        z-index: 100;
+    }
+
+    &::before {
+        left: 100%;
+    }
+
+    &::after {
+        right: 100%;
+    }
+
 }
 
 .section__title {

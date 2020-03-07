@@ -1,6 +1,6 @@
 import { loadImg_computed } from "./utils/loadImg_computed.js"
 import { onVisible } from "lb-onvisible"
-import { phone_autoScroll } from "./_mixins"
+import { setup_lazyLoad } from "./_mixins"
 
 export function Cards ( pathList_cards, pathList_popup ) {
 	this.container = document.querySelector( ".card-container" );
@@ -12,8 +12,7 @@ export function Cards ( pathList_cards, pathList_popup ) {
 	this.sizes = [ 360, 768, 1000, 1920 ];
 	this.setup()
 }
-
-Cards.prototype = { ...phone_autoScroll }
+Cards.prototype.setup_lazyLoad = setup_lazyLoad
 
 Cards.prototype.setup = function () {
 	this.cards.forEach( ( cardPath, index ) => {
@@ -45,33 +44,8 @@ Cards.prototype.setup = function () {
 	} )
 	if ( "IntersectionObserver" in window ) {
 		this.setup_animation()
-		this.setup_autoScroll()
+		// this.setup_autoScroll()
 	}
-}
-
-Cards.prototype.setup_lazyLoad = function () {
-	const O_vertical = new IntersectionObserver( cb1, { root: this.sectionContainer, rootMargin: "0px 0px 500px 0px", threshold: 0.001 } )
-	function cb1 ( entries ) {
-		entries.forEach( entry => {
-			if ( entry.intersectionRatio > 0 && !( window.matchMedia( "(max-width:660px)" ).matches ) ) {
-				loadImg_computed( entry.target )
-				O_vertical.unobserve( entry.target )
-				O_horizontal.unobserve( entry.target )
-			}
-		} )
-	}
-	const O_horizontal = new IntersectionObserver( cb2, { root: this.container, rootMargin: "0px 500px 0px 0px", threshold: 0.001 } )
-	function cb2 ( entries ) {
-		entries.forEach( entry => {
-			if ( entry.intersectionRatio > 0 && ( window.matchMedia( "(max-width:660px)" ).matches ) ) {
-				loadImg_computed( entry.target )
-				O_vertical.unobserve( entry.target )
-				O_horizontal.unobserve( entry.target )
-			}
-		} )
-	}
-	O_vertical.observe( this.img )
-	O_horizontal.observe( this.img )
 }
 
 Cards.prototype.setup_animation = function () {
