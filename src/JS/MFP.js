@@ -91,12 +91,13 @@ MFP.prototype.getDetails = function () {
 	</div>
 	`
 	const _molti = ( () => {
-		let HTML = `<p class="description">The work "Moltitudine" appears as a panel composed by 184 single frames of small sizes; inlays of a majestic picture but also single works, perfect for shape, style and contents.
-		The peculiarity of Tina Ponticelli's work is her ability in different levels: the first one is chromatic- geometric-kind with progressive colours' distances that follow one another along diagonals with an inclination that tend to increase by degrees on the left-right directrix; the second one is symbolic-kind with a series of signs, again composed through different combinations between shapes and colours, capable to involve in an interactive way the observer who interprets them with some rare exegetic suggestions turned in main point in every single section of the assemblage; the third one has a stylistic quality: if we consider the single frames as freestanding works, we find the whole way of research of the artist, with her abstract and more seldom figurative outcomes that, all together, represent her characteristic dualism.
-		The supports become themselves shapes in their different placements of Tina's monochromatic works risen from a break of a formal picture, rebuilt in accordance with their own logic that replies to an artistic and re-creative impulse of the very same images.
-		Next to the figurative elements that dominate the scene there are signs that carry out ideas'associations. They cherish a second re-creative way, this time completely mental, and that still involve the observer in a decoding.
-		The tonality, outcome of a delicate research of colours, is slender and combines itself to an equally light "mark".
-		Through this last one, the artist succeds now in defining, now just in sketching, signs of depictions that shade off in a whitish creating diaphanous effects. </p>
+		let HTML = `
+		<p class="description">
+			The work "Moltitudine" appears as a panel composed by 184 single frames of small sizes; inlays of a majestic picture but also single works, perfect for shape, style and contents.<br/>
+			The peculiarity of Tina Ponticelli's work is her ability in different levels: the first one is chromatic-geometric kind with progressive colors' distances that follow one another along;
+			the second one is symbolic kind with a series of signs, again composed through different combinations between shapes and colors, with some rare exegetic suggestions turned in main point in every single section of the assemblage;
+			the third one has a stylistic quality: if we consider the single frames as freestanding works, we find the whole way of research of the artist, with her abstract and more seldom figurative outcomes that, all together, represent her characteristic dualism.
+		</p>
 		<div class="details-title">Installation details :</div>
 		<div class="details-container">`
 
@@ -134,12 +135,11 @@ MFP.prototype.getDetails = function () {
 		return HTML
 	} )()
 
-	const _comunione = `<p class="description">The work "Moltitudine" appears as a panel composed by 184 single frames of small sizes; inlays of a majestic picture but also single works, perfect for shape, style and contents.
-	The peculiarity of Tina Ponticelli's work is her ability in different levels: the first one is chromatic- geometric-kind with progressive colours' distances that follow one another along diagonals with an inclination that tend to increase by degrees on the left-right directrix; the second one is symbolic-kind with a series of signs, again composed through different combinations between shapes and colours, capable to involve in an interactive way the observer who interprets them with some rare exegetic suggestions turned in main point in every single section of the assemblage; the third one has a stylistic quality: if we consider the single frames as freestanding works, we find the whole way of research of the artist, with her abstract and more seldom figurative outcomes that, all together, represent her characteristic dualism.
-	The supports become themselves shapes in their different placements of Tina's monochromatic works risen from a break of a formal picture, rebuilt in accordance with their own logic that replies to an artistic and re-creative impulse of the very same images.
-	Next to the figurative elements that dominate the scene there are signs that carry out ideas'associations. They cherish a second re-creative way, this time completely mental, and that still involve the observer in a decoding.
-	The tonality, outcome of a delicate research of colours, is slender and combines itself to an equally light "mark".
-	Through this last one, the artist succeds now in defining, now just in sketching, signs of depictions that shade off in a whitish creating diaphanous effects.</p> `
+	const _comunione = `<p class="description">Con Comunione dei beni, Tina Ponticelli introduce il concetto dell’interattività prospettica, teso ad assegnare allo spettatore un ruolo attivo nella creazione della stessa attraverso una sua diretta partecipazione.
+	La trasparenza dei supporti di plastica accresce la mutevolezza dell’istallazione che nei singoli elementi oscillanti, trova uno sfondo sempre diverso perché ciascun pezzo, rendendosi visibile attraverso l’elemento che lo precede, ne diventa parte integrante e viceversa. 
+	L’artista non presenta un'unica opera, ma tante opere diverse, per quante saranno le diverse prospettive dalle quali sarà osservata l’installazione.
+	Un’opera in itinere, dunque, per la quale il momento espositivo non giunge, come di consueto, a conclusione di un percorso prima (progettuale poi esecutivo) ma la mostra diventa solo l’inizio di un’ulteriore fase creativa: il tempo iniziale si unisce a quello finale.
+	</p> `
 
 	return { _5mari, _molti, _comunione, _molti_inks }
 }

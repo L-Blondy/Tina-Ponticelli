@@ -44,7 +44,6 @@ Cards.prototype.setup = function () {
 	} )
 	if ( "IntersectionObserver" in window ) {
 		this.setup_animation()
-		// this.setup_autoScroll()
 	}
 }
 

@@ -31,7 +31,6 @@ const phone_autoScroll = {
 		this.autoScroll = window.requestAnimationFrame( cb )
 	},
 	stop_autoScroll () {
-		// clearInterval( this.autoScroll );
 		window.cancelAnimationFrame( this.autoScroll )
 	},
 	attach_IO_for_autoScroll () {

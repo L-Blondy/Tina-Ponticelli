@@ -46,7 +46,9 @@ Events.prototype.setup = function () {
 	this.container.appendChild( this.buffer.cloneNode( true ) )
 
 	this.setup_MFP()
-	this.setup_Animation()
+
+	if ( window.matchMedia( "(min-width:599px)" ).matches )
+		this.setup_Animation()
 
 }
 
@@ -90,25 +92,19 @@ Events.prototype.setup_Animation = function () {
 	) {
 		this.sliceBy = 5
 	}
-	this.allEvents = this.allEvents.reduce( ( res, cur, i ) => {
-		if ( i % this.sliceBy == 0 ) {
-			res.push( [] )
-		}
-		res[ res.length - 1 ].push( cur )
-		return res
-	}, [] )
-	this.allEvents.forEach( ( line, i ) => {
-		let newClass = ""
-		let reverse = false
-		if ( i % 2 == 0 ) {
+	// this.allEvents = this.allEvents.reduce( ( res, cur, i ) => {
+	// 	if ( i % this.sliceBy == 0 ) {
+	// 		res.push( [] )
+	// 	}
+	// 	res[ res.length - 1 ].push( cur )
+	// 	return res
+	// }, [] )
+	this.allEvents.forEach( ( img, i ) => {
+		let newClass = "fadeFromRight"
+		if ( Math.floor( i / this.sliceBy ) % 2 == 0 ) {
 			newClass = "fadeFromLeft"
 		}
-		else {
-			newClass = "fadeFromRight"
-			reverse = true
-		}
-
-		onVisible( line, { class: newClass, delay: 150, reverse } )
+		onVisible( img, { class: newClass } )
 	} )
 }
 

@@ -6,11 +6,6 @@
     margin-top: 60px
 }
 
-// section {
-//     overflow: hidden;
-// }
-
-
 section:not(.home) {
     min-height: 30vh;
     width: 80%;
@@ -81,12 +76,6 @@ section:not(.home) {
 @media(max-width: 598.9px) {
 
     section {
-        padding-left: 1.8rem !important;
-        padding-right: 1.5rem !important;
-    }
-
-    .works,
-    .events {
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
