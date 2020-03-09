@@ -6,6 +6,7 @@ export function Events ( pathList_cards, pathList_popup ) {
 	this.pathList_popup = pathList_popup
 	this.container = document.querySelector( ".events__container" )
 	this.sectionContainer = document.querySelector( ".section-container" )
+	this.sliceBy = 0
 	this.allEvents = []
 	this.setup()
 }
@@ -32,8 +33,6 @@ Events.prototype.setup = function () {
 
 		if ( "IntersectionObserver" in window ) {
 			this.setup_lazyLoad()
-			// if ( !window.matchMedia( "(max-width:598.8px)" ).matches )
-			// 	onVisible( this.a, { class: "fadeFromBottom" } )
 		}
 		else {
 			this.img.src = this.img.dataset.src
@@ -47,8 +46,8 @@ Events.prototype.setup = function () {
 	this.container.appendChild( this.buffer.cloneNode( true ) )
 
 	this.setup_MFP()
-	if ( !window.matchMedia( "(max-width:598.8px)" ).matches )
-		onVisible( this.allEvents, { class: "fadeFromBottom", delay: 100 } )
+	this.setup_Animation()
+
 }
 
 Events.prototype.setup_MFP = function () {
@@ -65,10 +64,51 @@ Events.prototype.setup_MFP = function () {
 			open: function () {
 				$( ".mfp-container" ).addClass( "mfp-container-events" )
 			},
-			imageLoadComplete: function ( e ) {
-				document.querySelector( ".mfp-img" ).style.maxHeight = "60vh"
-			},
+			markupParse: function ( template, values, item ) {
+				item.img[ 0 ].classList.add( "mfp-img-custom" )
+			}
 		},
 	} );
+}
+
+Events.prototype.setup_Animation = function () {
+	if ( ( window.matchMedia( "(min-width:599px)" ).matches && window.matchMedia( "(max-width:660.8px)" ).matches )
+		|| ( window.matchMedia( "(min-width:679px)" ).matches && window.matchMedia( "(max-width:824.8px)" ).matches )
+		|| ( window.matchMedia( "(min-width:1014px)" ).matches && window.matchMedia( "(max-width:1200.8px)" ).matches )
+		|| ( window.matchMedia( "(min-width:1397px)" ).matches && window.matchMedia( "(max-width:1710.8px)" ).matches )
+	) {
+		this.sliceBy = 4
+	}
+	if ( ( window.matchMedia( "(min-width:661px)" ).matches && window.matchMedia( "(max-width:678.8px)" ).matches )
+		|| ( window.matchMedia( "(min-width:901px)" ).matches && window.matchMedia( "(max-width:1013.8px)" ).matches )
+	) {
+		this.sliceBy = 3
+	}
+	if ( ( window.matchMedia( "(min-width:825px)" ).matches && window.matchMedia( "(max-width:900.8px)" ).matches )
+		|| ( window.matchMedia( "(min-width:1201px)" ).matches && window.matchMedia( "(max-width:1396.8px)" ).matches )
+		|| ( window.matchMedia( "(min-width:1711px)" ).matches )
+	) {
+		this.sliceBy = 5
+	}
+	this.allEvents = this.allEvents.reduce( ( res, cur, i ) => {
+		if ( i % this.sliceBy == 0 ) {
+			res.push( [] )
+		}
+		res[ res.length - 1 ].push( cur )
+		return res
+	}, [] )
+	this.allEvents.forEach( ( line, i ) => {
+		let newClass = ""
+		let reverse = false
+		if ( i % 2 == 0 ) {
+			newClass = "fadeFromLeft"
+		}
+		else {
+			newClass = "fadeFromRight"
+			reverse = true
+		}
+
+		onVisible( line, { class: newClass, delay: 150, reverse } )
+	} )
 }
 

@@ -19,6 +19,13 @@ $mfp-img-height: 55vh;
    box-shadow: 0 0 0 500vmax $mfp-clr-bg;
 }
 
+.mfp-gallery {
+   position: fixed !important;
+   top: 0 !important;
+   overflow-y: scroll;
+   overflow-x: hidden;
+}
+
 
 .mfp-close {
    font-size: 2rem;
@@ -40,6 +47,10 @@ $mfp-img-height: 55vh;
    max-height: $mfp-img-height;
    user-select: none;
    max-width: 95vw !important;
+
+   &-custom {
+      max-height: 60vh !important;
+   }
 
    @media (orientation:portrait) {
       &[alt*="Moltitudine"] {
