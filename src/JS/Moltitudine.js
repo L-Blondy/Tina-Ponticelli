@@ -49,7 +49,7 @@ Moltitudine.prototype.setupRandOpacity = function ( animationOptions ) {
 				else {
 					moltiAnimation.pause()
 				}
-			} )
+			} )//test
 		}
 		moltiObs.observe( this.container )
 	}
