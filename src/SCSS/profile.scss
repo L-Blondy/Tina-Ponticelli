@@ -1,18 +1,23 @@
 .profile__article {
-    padding: 0 18vw;
+    margin: 0 18vw;
     font-size: 1.05em;
     line-height: 1.5em;
+    text-align: justify;
+
+    @media (max-width:1652px) {
+        margin: 0 15vw;
+    }
 
     @media (max-width:1552px) {
-        padding: 0 12vw;
+        margin: 0 12vw;
     }
 
     @media (max-width:960px) {
-        padding: 1rem 10vw;
+        margin: 1rem 10vw;
     }
 
     @media (max-width:661px) {
-        padding-left: 1.8rem !important;
-        padding-right: 1.5rem !important;
+        margin-left: 1.8rem !important;
+        margin-right: 1.5rem !important;
     }
 }

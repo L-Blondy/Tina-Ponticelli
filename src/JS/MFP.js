@@ -1,18 +1,21 @@
 import { getPathList } from "./utils/getPathList.js"
+import { text, get_lang } from "./utils/switch_lang.js"
 
 window.addEventListener( "popstate", ( e ) => {
 	$.magnificPopup.close()
 } )
 
 const baseLocation = document.location.pathname;
+let language = 'en'
 
 export function MFP ( target, delegate ) {
 	this.pathList_additional_content = getPathList( require( "../assets/_additional_content/**/*.*" ), "details" )
 	this.target = target;
 	this.delegate = delegate
 	this.inlineIO = ""
-	this.details = this.getDetails()
 	this.setup()
+	this.lang = "en"
+	this.currentItem = ""
 }
 MFP.prototype.setup = function () {
 	$( this.target ).magnificPopup( {
@@ -35,7 +38,28 @@ MFP.prototype.setup = function () {
 			open: () => {
 				history.pushState( {}, "", baseLocation + "slide" )
 			},
-			elementParse: ( item ) => this.loadPopup( item ),
+			elementParse: ( item ) => {
+				this.loadPopup( item )
+				this.item = item
+			},
+			change: function () {
+				// this.loadPopup( this.item )
+				console.log( this )
+				const description = this.content[ 0 ].querySelector( ".mfp-additional-content .description" )
+				description && ( this.lang_btn = description.firstChild )
+
+				if ( this.lang_btn ) {
+					this.lang_btn && ( this.lang_btn.onclick = handleClick.bind( this ) )
+				}
+				function handleClick () {
+					language = language === "en" ? "it" : "en"
+					this.lang_btn = document.querySelector( ".switch-lang__btn" )
+					console.log( this )
+					const target = this.lang_btn.parentElement
+					target.innerHTML = '<button class="switch-lang__btn">EN-IT</button>' + text[ target.dataset.text ][ language ]
+					document.querySelector( ".switch-lang__btn" ).onclick = handleClick.bind( this )
+				}
+			},
 			close: () => {
 				document.location.pathname === baseLocation + "slide" && history.back();
 			}
@@ -44,8 +68,9 @@ MFP.prototype.setup = function () {
 }
 
 MFP.prototype.loadPopup = function ( item ) {
-	///Necessary data is stored on the "A" tag of the card (ad. es srcset)
+	this.details = this.getDetails()
 	const { title, description, additionalContent } = this.getPopupData( item.src )
+	///Necessary data is stored on the "A" tag of the card (ad. es srcset)
 	const A = item.el[ 0 ]
 	item.srcset = A.dataset.srcset
 	const temp1 = item.srcset.split( " " )
@@ -92,11 +117,8 @@ MFP.prototype.getDetails = function () {
 	`
 	const _molti = ( () => {
 		let HTML = `
-		<p class="description">
-			The work "Moltitudine" appears as a panel composed by 184 single frames of small sizes; inlays of a majestic picture but also single works, perfect for shape, style and contents.<br/>
-			The peculiarity of Tina Ponticelli's work is her ability in different levels: the first one is chromatic-geometric kind with progressive colors' distances that follow one another along;
-			the second one is symbolic kind with a series of signs, again composed through different combinations between shapes and colors, with some rare exegetic suggestions turned in main point in every single section of the assemblage;
-			the third one has a stylistic quality: if we consider the single frames as freestanding works, we find the whole way of research of the artist, with her abstract and more seldom figurative outcomes that, all together, represent her characteristic dualism.
+		<p class="description switch-lang" data-text="molti"><button class="switch-lang__btn">EN-IT</button>
+			${text.molti[ this.lang ] }
 		</p>
 		<div class="details-title">Installation details :</div>
 		<div class="details-container">`
@@ -135,10 +157,9 @@ MFP.prototype.getDetails = function () {
 		return HTML
 	} )()
 
-	const _comunione = `<p class="description">Con Comunione dei beni, Tina Ponticelli introduce il concetto dell’interattività prospettica, teso ad assegnare allo spettatore un ruolo attivo nella creazione della stessa attraverso una sua diretta partecipazione.
-	La trasparenza dei supporti di plastica accresce la mutevolezza dell’istallazione che nei singoli elementi oscillanti, trova uno sfondo sempre diverso perché ciascun pezzo, rendendosi visibile attraverso l’elemento che lo precede, ne diventa parte integrante e viceversa. 
-	L’artista non presenta un'unica opera, ma tante opere diverse, per quante saranno le diverse prospettive dalle quali sarà osservata l’installazione.
-	Un’opera in itinere, dunque, per la quale il momento espositivo non giunge, come di consueto, a conclusione di un percorso prima (progettuale poi esecutivo) ma la mostra diventa solo l’inizio di un’ulteriore fase creativa: il tempo iniziale si unisce a quello finale.
+	const _comunione = `
+	<p class="description switch-lang" data-text="comunione"><button class="switch-lang__btn">EN-IT</button>
+		${text.comunione[ this.lang ] }
 	</p> `
 
 	return { _5mari, _molti, _comunione, _molti_inks }
