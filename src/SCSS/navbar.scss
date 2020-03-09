@@ -7,17 +7,23 @@
 *****************/
 
 .navbar {
-   user-select: none;
-   position: relative;
-   z-index: auto;
-   height: 60px;
-   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding: 0 calc(20px + 5vw);
-   color: $clr-text-primary;
-   background: $nav-bg;
+   width: 100%;
+
+   &__wrap {
+      position: relative;
+      width: 100%;
+      user-select: none;
+      z-index: auto;
+      height: 60px;
+      box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 calc(20px + 5vw);
+      color: $clr-text-primary;
+      background: $nav-bg;
+
+   }
 
    /*************
       TOGGLER
@@ -111,8 +117,10 @@
 
 @media (max-width:1024px) {
    .navbar {
-      height: 50px;
-      box-shadow: none;
+      &__wrap {
+         height: 50px;
+         box-shadow: none;
+      }
 
       &__toggler {
          transform: none;
@@ -131,6 +139,7 @@
          background: $nav-bg;
          box-shadow: 0 15px 15px -15px rgba(0, 0, 0, 0.2);
          transform: translateY(-1px);
+         z-index: -10;
 
          &--collapse {
             transform: translateY(-100%);
@@ -145,7 +154,7 @@
 }
 
 @media (max-width:360px) {
-   .navbar {
+   .navbar__wrap {
       padding: 0 24px;
    }
 }
@@ -160,9 +169,10 @@
          letter-spacing: 10px;
          opacity: 1;
       }
+
       &--not-hidden {
          font-size: 1.1rem;
-         animation : logo-anim-phone 500ms;
+         animation: logo-anim-phone 500ms;
       }
 
       @keyframes logo-anim-phone {

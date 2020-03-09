@@ -6,6 +6,7 @@ export function Events ( pathList_cards, pathList_popup ) {
 	this.pathList_popup = pathList_popup
 	this.container = document.querySelector( ".events__container" )
 	this.sectionContainer = document.querySelector( ".section-container" )
+	this.allEvents = []
 	this.setup()
 }
 Events.prototype.setup_lazyLoad = setup_lazyLoad
@@ -27,10 +28,12 @@ Events.prototype.setup = function () {
 		this.a.appendChild( this.div )
 		this.container.appendChild( this.a )
 
+		this.allEvents.push( this.a )
+
 		if ( "IntersectionObserver" in window ) {
 			this.setup_lazyLoad()
-			if ( !window.matchMedia( "(max-width:598.8px)" ).matches )
-				onVisible( this.a, { class: "fadeFromBottom" } )
+			// if ( !window.matchMedia( "(max-width:598.8px)" ).matches )
+			// 	onVisible( this.a, { class: "fadeFromBottom" } )
 		}
 		else {
 			this.img.src = this.img.dataset.src
@@ -44,6 +47,8 @@ Events.prototype.setup = function () {
 	this.container.appendChild( this.buffer.cloneNode( true ) )
 
 	this.setup_MFP()
+	if ( !window.matchMedia( "(max-width:598.8px)" ).matches )
+		onVisible( this.allEvents, { class: "fadeFromBottom", delay: 100 } )
 }
 
 Events.prototype.setup_MFP = function () {

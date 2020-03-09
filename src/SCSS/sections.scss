@@ -3,8 +3,12 @@
 .section-container {
     position: relative;
     z-index: -2;
-    height: calc(100vh - #{$navbar-height});
+    margin-top: 60px
 }
+
+// section {
+//     overflow: hidden;
+// }
 
 
 section:not(.home) {
@@ -21,7 +25,7 @@ section:not(.home) {
         content: "";
         height: 100%;
         width: 500px;
-        top: 1.8rem;
+        top: 0;
         box-shadow: 0 0 1.3rem 3px $beige;
         z-index: 100;
     }
@@ -33,7 +37,6 @@ section:not(.home) {
     &::after {
         right: 100%;
     }
-
 }
 
 .section__title {
@@ -57,27 +60,19 @@ section:not(.home) {
     }
 }
 
-@media(max-width: 1024px) {
+@media (max-width: 1024px) {
     .section-container {
-        height: calc(100vh - 50px);
+        margin-top: 50px
     }
 }
 
-@media(max-width: 992px) {
-    .section__title {
-        letter-spacing: 0.2rem;
-        padding-top: 8rem;
-        padding-bottom: 5rem;
-    }
-}
-
-@media (orientation: portrait) and (max-width: 992px) {
+@media (max-width: 992px) {
     .section__title {
         width: 100%;
         transform: translateX(15%);
         text-align: left;
         letter-spacing: 0.1rem;
-        padding-top: 3rem;
+        padding-top: 4rem;
         padding-bottom: 2rem;
         font-size: calc(4vw + 1rem) !important;
     }
@@ -97,7 +92,7 @@ section:not(.home) {
     }
 
     .section__title {
-        padding-top: 1.8rem;
+        padding-top: 3rem;
         padding-bottom: 1rem;
     }
 }

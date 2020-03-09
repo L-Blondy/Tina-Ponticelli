@@ -36,31 +36,31 @@ Moltitudine.prototype.setupRandOpacity = function ( animationOptions ) {
 
 	this.canRestart = true;
 
-	const moltiAnimation = new randOpacity( this.container, squares, animationOptions );
+	// const moltiAnimation = new randOpacity( this.container, squares, animationOptions );
 	//start / pause animation
-	if ( "IntersectionObserver" in window ) {
-		const that = this;
-		const moltiObs = new IntersectionObserver( handleAnimation, { threshold: 0.5 } )
-		function handleAnimation ( entries ) {
-			entries.forEach( entry => {
-				if ( entry.intersectionRatio > 0.5 && that.canRestart && window.matchMedia( "(min-width: 767px)" ).matches ) {
-					moltiAnimation.start()
-				}
-				else {
-					moltiAnimation.pause()
-				}
-			} )//test
-		}
-		moltiObs.observe( this.container )
-	}
+	// if ( "IntersectionObserver" in window ) {
+	// 	const that = this;
+	// 	const moltiObs = new IntersectionObserver( handleAnimation, { threshold: 0.5 } )
+	// 	function handleAnimation ( entries ) {
+	// 		entries.forEach( entry => {
+	// 			// if ( entry.intersectionRatio > 0.5 && that.canRestart && window.matchMedia( "(min-width: 767px)" ).matches ) {
+	// 				moltiAnimation.start()
+	// 			// }
+	// 			// else {
+	// 				moltiAnimation.pause()
+	// 			}
+	// 		} )
+	// 	}
+	// 	moltiObs.observe( this.container )
+	// }
 
-	window.addEventListener( "resize", () => {
-		if ( window.matchMedia( "(orientation: portrait)" ).matches ) {
-			this.canRestart = false;
-			moltiAnimation.pause()
-			document.querySelectorAll( ".toggle-fadein" ).forEach( square => square.classList.remove( "toggle-fadein" ) )
-		}
-	} )
+	// window.addEventListener( "resize", () => {
+	// 	if ( window.matchMedia( "(orientation: portrait)" ).matches ) {
+	// 		this.canRestart = false;
+	// 		moltiAnimation.pause()
+	// 		document.querySelectorAll( ".toggle-fadein" ).forEach( square => square.classList.remove( "toggle-fadein" ) )
+	// 	}
+	// } )
 	return this;
 }
 

@@ -18,8 +18,7 @@ const pathList_events_popup = getPathList( require( "./assets/_events/popup/*.*"
 
 //SCROLL NAVIGATION
 const sections = document.querySelectorAll( "section" );
-const sectionContainer = document.querySelector( ".section-container" );
-setScrollNav( sections, sectionContainer );
+setScrollNav( sections );
 
 //NAVBAR
 setupNavbar();
