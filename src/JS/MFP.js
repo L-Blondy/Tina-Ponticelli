@@ -1,12 +1,12 @@
 import { getPathList } from "./utils/getPathList.js"
-import { text, get_lang } from "./utils/switch_lang.js"
+import { text, language } from "./utils/switch_lang.js"
+import { Profile } from "./Profile.js"
 
 window.addEventListener( "popstate", ( e ) => {
 	$.magnificPopup.close()
 } )
 
 const baseLocation = document.location.pathname;
-let language = 'en'
 
 export function MFP ( target, delegate ) {
 	this.pathList_additional_content = getPathList( require( "../assets/_additional_content/**/*.*" ), "details" )
@@ -43,21 +43,22 @@ MFP.prototype.setup = function () {
 				this.item = item
 			},
 			change: function () {
-				// this.loadPopup( this.item )
-				console.log( this )
-				const description = this.content[ 0 ].querySelector( ".mfp-additional-content .description" )
-				description && ( this.lang_btn = description.firstChild )
 
-				if ( this.lang_btn ) {
-					this.lang_btn && ( this.lang_btn.onclick = handleClick.bind( this ) )
+				let description = this.content[ 0 ].querySelector( ".mfp-additional-content .description" )
+				if ( description ) {
+					this.lang_btn = description.firstChild
+					description.innerHTML = `<button class="switch-lang__btn ${ language.cur }"> <div class="switch-lang__btn__wrap"> <div class="switch-lang__btn__wrap__lang en">EN</div> <div class="switch-lang__btn__wrap__lang it">IT</div> </div> </button>` + text[ description.dataset.text ][ language.cur ]
+					this.lang_btn = description.firstChild
+					this.lang_btn.onclick = handleClick
 				}
+
 				function handleClick () {
-					language = language === "en" ? "it" : "en"
+					language.switch()
+					Profile.reloadHTML()
+					description = document.querySelector( ".mfp-additional-content .description" )
 					this.lang_btn = document.querySelector( ".switch-lang__btn" )
-					console.log( this )
-					const target = this.lang_btn.parentElement
-					target.innerHTML = '<button class="switch-lang__btn">EN-IT</button>' + text[ target.dataset.text ][ language ]
-					document.querySelector( ".switch-lang__btn" ).onclick = handleClick.bind( this )
+					description.innerHTML = `<button class="switch-lang__btn ${ language.cur }"> <div class="switch-lang__btn__wrap"> <div class="switch-lang__btn__wrap__lang en">EN</div> <div class="switch-lang__btn__wrap__lang it">IT</div> </div> </button>` + text[ description.dataset.text ][ language.cur ]
+					description.querySelector( ".switch-lang__btn" ).onclick = handleClick.bind( this )
 				}
 			},
 			close: () => {

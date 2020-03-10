@@ -14,10 +14,20 @@ export const text = {
 		La trasparenza dei supporti di plastica accresce la mutevolezza dell’istallazione che nei singoli elementi oscillanti, trova uno sfondo sempre diverso perché ciascun pezzo, rendendosi visibile attraverso l’elemento che lo precede, ne diventa parte integrante e viceversa. 
 		L’artista non presenta un'unica opera, ma tante opere diverse, per quante saranno le diverse prospettive dalle quali sarà osservata l’installazione.
 		Un’opera in itinere, dunque, per la quale il momento espositivo non giunge, come di consueto, a conclusione di un percorso prima (progettuale poi esecutivo) ma la mostra diventa solo l’inizio di un’ulteriore fase creativa: il tempo iniziale si unisce a quello finale. `
+	},
+	profile: {
+		en: "english text here",
+		it: "italiano qua"
 	}
 }
 
-export function get_lang () {
-	const body = document.querySelector( "body" )
-	return body.dataset.lang
+export const language = {
+	en: true,
+	it: false,
+	switch () {
+		[ this.en, this.it ] = [ this.it, this.en ]
+	},
+	get cur () {
+		return this.en ? "en" : "it"
+	}
 }

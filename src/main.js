@@ -6,6 +6,7 @@ import { Cards } from "./JS/Cards.js"
 import { Events } from "./JS/Events.js"
 import { setupNavbar } from "./JS/Navbar.js"
 import { Moltitudine } from "./JS/Moltitudine.js"
+import { Profile } from "./JS/Profile.js"
 import { MFP } from "./JS/MFP.js";
 import { onVisible } from "lb-onvisible"
 import { getClassToAdd } from "./JS/utils/getClassToAdd.JS"
@@ -51,9 +52,11 @@ const cards = document.querySelectorAll( ".card-container > .card-link" );
 //EVENTS
 new Events( pathList_events_cards, pathList_events_popup )
 
+//PROFILE
+Profile.init()
+
 //MFP
 new MFP( '.card-container', '.card__link' )
-
 
 
 

@@ -103,6 +103,12 @@
          color: $orange;
       }
 
+      &.active[href="#contact"] {
+         box-shadow: 0 0 5px 0 #ffc34b;
+         opacity: 0.85;
+         outline: none;
+      }
+
       &:hover {
          opacity: 0.7;
       }

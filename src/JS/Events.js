@@ -92,19 +92,13 @@ Events.prototype.setup_Animation = function () {
 	) {
 		this.sliceBy = 5
 	}
-	// this.allEvents = this.allEvents.reduce( ( res, cur, i ) => {
-	// 	if ( i % this.sliceBy == 0 ) {
-	// 		res.push( [] )
-	// 	}
-	// 	res[ res.length - 1 ].push( cur )
-	// 	return res
-	// }, [] )
-	this.allEvents.forEach( ( img, i ) => {
+
+	this.allEvents.forEach( ( ev, i ) => {
 		let newClass = "fadeFromRight"
 		if ( Math.floor( i / this.sliceBy ) % 2 == 0 ) {
 			newClass = "fadeFromLeft"
 		}
-		onVisible( img, { class: newClass } )
+		onVisible( ev, { class: newClass } )
 	} )
 }
 
