@@ -83,11 +83,11 @@ Events.prototype.setup_Animation = function () {
 	}
 	if ( ( window.matchMedia( "(min-width:661px)" ).matches && window.matchMedia( "(max-width:678.8px)" ).matches )
 		|| ( window.matchMedia( "(min-width:901px)" ).matches && window.matchMedia( "(max-width:1013.8px)" ).matches )
+		|| ( window.matchMedia( "(min-width:1201px)" ).matches && window.matchMedia( "(max-width:1396.8px)" ).matches )
 	) {
 		this.sliceBy = 3
 	}
 	if ( ( window.matchMedia( "(min-width:825px)" ).matches && window.matchMedia( "(max-width:900.8px)" ).matches )
-		|| ( window.matchMedia( "(min-width:1201px)" ).matches && window.matchMedia( "(max-width:1396.8px)" ).matches )
 		|| ( window.matchMedia( "(min-width:1711px)" ).matches )
 	) {
 		this.sliceBy = 5
