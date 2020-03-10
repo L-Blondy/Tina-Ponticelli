@@ -129,11 +129,16 @@ MFP.prototype.getDetails = function () {
 				HTML += `
 					<div class="popup-detail-wrapper-1 hideBottom">
 						<div class="popup-detail-wrapper-2-molti ">
-							<img class="popup-detail" data-src="${ path }" alt="detail" class="hideBottom" />
+							<img class="popup-detail" data-src="${ path }" alt="detail"/>
 						</div>
 					</div>`
 			} else {
-				HTML += `<img class="popup-detail" src="${ path }" alt="detail" />`
+				HTML += `
+					<div class="popup-detail-wrapper-1">
+						<div class="popup-detail-wrapper-2-molti ">
+							<img class="popup-detail" src="${ path }" alt="detail" />
+						</div>
+					</div>`
 			}
 		} )
 		HTML += this.inlineIO
@@ -151,7 +156,12 @@ MFP.prototype.getDetails = function () {
 					</div>
 				</div>`
 			} else {
-				HTML += `<img class="popup-detail" src="${ path }" alt="detail" />`
+				HTML += `
+				<div class="popup-detail-wrapper-1">
+					<div class="popup-detail-wrapper-2-molti_inks ">
+						<img class="popup-detail" src="${ path }" alt="detail" />
+					</div>
+				</div>`
 			}
 		} )
 		HTML += this.inlineIO
