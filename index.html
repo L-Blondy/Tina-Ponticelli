@@ -35,7 +35,7 @@
 	<div class="section-container">
 
 		<!-- START HOME -->
-		<section class="home" id="home">
+		<div class="home" id="home">
 			<div class="moltitudine">
 				<div class="moltitudine__line-container">
 					<img class="moltitudine__line" data-src="moltitudine1920/line1" alt="line1" />
@@ -72,10 +72,10 @@
 			</div>
 			<div class="home-title"> </div>
 			<div class="home-title__plain-text">TINA <br /> PONTICELLI</div>
-		</section>
+		</div>
 		<!-- STOP HOME -->
 		<!-- START WORKS -->
-		<section class="works" id="works">
+		<section class="works shadow" id="works">
 			<h2 class="section__title">Works</h2>
 			<!-- js implemented -->
 			<div class="card-container"></div>
@@ -105,7 +105,7 @@
 		</section>
 		<!-- STOP PROFILE -->
 		<!-- START EVENTS -->
-		<section class="events" id="events">
+		<section class="events shadow" id="events">
 			<h2 class="section__title">Events</h2>
 			<!-- js implemented -->
 			<div class="events__container"></div>
@@ -113,11 +113,34 @@
 		<!-- STOP EVENTS -->
 		<!-- START CONTACT -->
 		<section class="contact" id="contact">
-			<h2 class="section__title">Contact</h2>
-			<p>Contact<br /></p>
-			<p>Contact<br /></p>
-			<p>Contact<br /></p>
-			<p>Contact<br /></p>
+			<div class="contact__link-wrap">
+				<div class="contact__title">Contacts : </div>
+
+				<div class="flex-row">
+					<a href="mailto:tinaponticelli@libero.it?Subject=Hello%20User" class="contact__link ">
+						<div class="contact__link--icon gmail"></div>
+					</a>
+					<span class="contact__link--label">tinaponticelli@libero.it</span>
+				</div>
+
+				<div class="flex-row">
+					<a href="#" class="contact__link contact__facebook">
+						<div class="contact__link--icon facebook"></div>
+					</a>
+					<span class="contact__link--label">Facebook profile</span>
+				</div>
+
+				<div class="flex-row">
+					<a href="#" class="contact__link contact__youtube">
+						<div class="contact__link--icon youtube"></div>
+					</a>
+					<span class="contact__link--label">YouTube chanel</span>
+				</div>
+			</div>
+			<div class="contact__info-wrap">
+				<div class="contact__info-name">Tina Ponticelli</div>
+				<div class="contact__info-copyright">Copyright 2020. All rights reserved</div>
+			</div>
 		</section>
 		<!-- STOP CONTACT -->
 	</div>

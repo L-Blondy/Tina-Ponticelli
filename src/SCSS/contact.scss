@@ -1,0 +1,120 @@
+@import "./variables.scss";
+
+.contact {
+    position: relative;
+    background: #2B2B2B !important;
+    width: 100% !important;
+    color: #E1E1E1;
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    margin-top: 8rem;
+    padding: 5rem 26vw 5.5rem 26vw;
+    display: flex;
+    justify-content: space-between;
+
+    &::before,
+    &::after {
+        box-shadow: none !important;
+    }
+
+    &__title {
+        font-size: 1.625rem;
+        padding-bottom: 1rem;
+    }
+
+    &__link-wrap,
+    &__info-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__link {
+        position: relative;
+        text-decoration: none;
+        height: 36px;
+        width: 36px;
+        margin-top: 0.35em;
+        margin-bottom: 0.35em;
+
+        &--icon {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            transition-property: height, width;
+            transition-duration: 150ms;
+            transition-timing-function: cubic-bezier(0.52, 0.1, 0.57, 4);
+
+            &:hover {
+                height: 111%;
+                width: 111%;
+            }
+        }
+
+        &--label {
+            margin-left: 1rem;
+            color: #d0d0d0;
+        }
+    }
+
+    .flex-row:hover {
+        filter: brightness(120%);
+    }
+
+    &__info {
+        &-wrap {
+            justify-content: center;
+            text-align: end;
+        }
+
+        &-name,
+        &-copyright {
+            margin: 0.7rem 0;
+        }
+
+        &-name {
+            font-size: 1.875rem;
+        }
+
+        &-copyright {
+            font-size: 1rem;
+            letter-spacing: 0;
+            color: #c0c0c0;
+        }
+    }
+}
+
+.gmail {
+    background-image: url(./assets/social/gmail.svg);
+}
+
+.facebook {
+    background-image: url(./assets/social/facebook.svg);
+}
+
+.youtube {
+    background-image: url(./assets/social/youtube.svg);
+}
+
+@media (max-width: 1500px) {
+    .contact {
+        padding: 5rem 18vw 5.5rem 18vw;
+    }
+}
+
+@media (max-width: 1199.8px) {
+    .contact {
+        padding: 4rem 18vw 4.5rem 18vw;
+    }
+}
+
+@media (max-width: 900px) {
+    .contact {
+        padding: 4rem 12vw 4.5rem 12vw;
+    }
+}

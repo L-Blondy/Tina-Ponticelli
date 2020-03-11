@@ -21,6 +21,7 @@ $mfp-img-height: 55vh;
 
 .mfp-gallery {
    position: fixed !important;
+   height: 100vh !important;
    top: 0 !important;
    overflow-y: scroll;
    overflow-x: hidden;

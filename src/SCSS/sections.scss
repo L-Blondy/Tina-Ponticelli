@@ -6,19 +6,22 @@
     margin-top: 60px
 }
 
-section:not(.home) {
+section {
     min-height: 30vh;
     width: 80%;
     margin: 0 auto;
     padding: 0 calc(30px + 2vw);
     background: $beige;
     position: relative;
+}
+
+section.shadow {
 
     &::before,
     &::after {
         position: absolute;
         content: "";
-        height: 100%;
+        height: calc(100% - 2em);
         width: 500px;
         top: 0;
         box-shadow: 0 0 1.3rem 3px $beige;
@@ -50,7 +53,7 @@ section:not(.home) {
 }
 
 @media (max-width: 1200px) {
-    section:not(.home) {
+    section {
         width: 100%;
     }
 }
@@ -77,8 +80,7 @@ section:not(.home) {
 
     section {
         padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
+        padding-right: 0 !important;}
 
     .section__title {
         padding-top: 3rem;
