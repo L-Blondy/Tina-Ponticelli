@@ -1,26 +1,30 @@
-import "./setSVG.js";
 import "lb-icons";
+import "./JS/setSVG.js";
 import setScrollNav from "lb-scroll-nav";
-import { getPathList } from "./utils/getPathList.js"
-import { Slider } from "./components/Slider.js"
-import { Cards } from "./components/Cards.js"
-import { setupNavbar } from "./components/Navbar.js"
-import { Moltitudine } from "./components/Moltitudine.js"
-import { setMagnificPopup } from "./components/MagnificPopup.js";
+import { getPathList } from "./JS/utils/getPathList.js"
+import { Cards } from "./JS/Cards.js"
+import { Events } from "./JS/Events.js"
+import { setupNavbar } from "./JS/Navbar.js"
+import { Moltitudine } from "./JS/Moltitudine.js"
+import { Profile } from "./JS/Profile.js"
+import { MFP } from "./JS/MFP.js";
 import { onVisible } from "lb-onvisible"
-import { getClassToAdd } from "./utils/getClassToAdd.JS"
+import { getClassToAdd } from "./JS/utils/getClassToAdd.JS"
 import "./main.scss";
 
-const pathList_cards = getPathList( require( "./assets/_cards/*.*" ) )
-const pathList_slides = getPathList( require( "./assets/_slides/*.*" ) )
-const pathList_additional_content = getPathList( require( "./assets/_additional_content/**/*.*" ) )
-//Scroll Nav
-const sections = document.querySelectorAll( "section" );
-const sectionContainer = document.querySelector( ".section-container" );
-setScrollNav( sections, sectionContainer );
+const pathList_works_cards = getPathList( require( "./assets/_works/cards/*.*" ), "cards" )
+const pathList_works_popup = getPathList( require( "./assets/_works/popup/*.*" ), "popup" )
+const pathList_events_cards = getPathList( require( "./assets/_events/cards/*.*" ), "events" )
+const pathList_events_popup = getPathList( require( "./assets/_events/popup/*.*" ), "events" )
 
+//SCROLL NAVIGATION
+const sections = document.querySelectorAll( "section" );
+setScrollNav( sections );
+
+//NAVBAR
 setupNavbar();
 
+//HOME
 const moltitudine = new Moltitudine().setSrcset().setWhiteSquares()
 if ( window.matchMedia( "(orientation:landscape)" ).matches ) {
 	moltitudine.setupRandOpacity( {
@@ -30,27 +34,10 @@ if ( window.matchMedia( "(orientation:landscape)" ).matches ) {
 	} )
 }
 
-if ( "Promise" in window ) {
-	moltitudine.load().then( () => {
-		const setupSlider = () => {
-			if ( window.matchMedia( "(min-width:992px)" ).matches ) {
-				new Slider( pathList_slides, 2 ).setup()
-				window.removeEventListener( "resize", setupSlider )
-			}
-		}
-		if ( window.matchMedia( "(min-width:992px)" ).matches ) {
-			new Slider( pathList_slides, 2 ).setup()
-		}
-		else {
-			window.addEventListener( "resize", setupSlider )
-		}
-	} )
-} else {
-	moltitudine.load()
-	new Slider( pathList_slides, 2 ).setup()
-}
-//setup cards 
-new Cards( pathList_cards, pathList_slides ).setup();
+moltitudine.load()
+
+//CARDS
+new Cards( pathList_works_cards, pathList_works_popup );
 const cards = document.querySelectorAll( ".card-container > .card-link" );
 
 [].forEach.call( cards, ( card, index ) => {
@@ -62,9 +49,14 @@ const cards = document.querySelectorAll( ".card-container > .card-link" );
 	} );
 } )
 
-//magnific popup
-setMagnificPopup( '.slider', '.slide__link', pathList_additional_content )
-setMagnificPopup( '.card-container', '.card__link', pathList_additional_content )
+//EVENTS
+new Events( pathList_events_cards, pathList_events_popup )
+
+//PROFILE
+Profile.init()
+
+//MFP
+new MFP( '.card-container', '.card__link' )
 
 
 

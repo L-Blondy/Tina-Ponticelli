@@ -1,0 +1,23 @@
+.profile__article {
+    margin: 0 18vw;
+    font-size: 1.05em;
+    line-height: 1.5em;
+    text-align: justify;
+
+    @media (max-width:1652px) {
+        margin: 0 15vw;
+    }
+
+    @media (max-width:1552px) {
+        margin: 0 12vw;
+    }
+
+    @media (max-width:960px) {
+        margin: 1rem 10vw;
+    }
+
+    @media (max-width:661px) {
+        margin-left: 1.8rem !important;
+        margin-right: 1.5rem !important;
+    }
+}

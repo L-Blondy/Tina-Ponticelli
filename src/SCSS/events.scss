@@ -1,0 +1,98 @@
+@import "./variables.scss";
+
+.events {
+    &__container {
+        @include flex-center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 1rem 12vw;
+    }
+
+    &__link {
+        position: relative;
+        width: 160px;
+        margin: 0.1rem;
+        flex-grow: 1;
+
+        &--buffer {
+            position: relative;
+            width: 160px;
+            margin: 0.1rem;
+            flex-grow: 1;
+        }
+    }
+
+    &__lens {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__img-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        overflow: hidden;
+    }
+
+    &__img {
+        position: absolute;
+        min-width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+    }
+
+    @media (max-width:1552px) {
+        padding: 1rem 6vw;
+    }
+
+    @media (max-width: 1200px) {
+        &__container {
+            padding: 1rem 12vw;
+        }
+    }
+
+    @media (max-width: 900px) {
+        &__container {
+            padding: 1rem 6vw;
+        }
+
+        &__link {
+            width: 120px;
+
+            &--buffer {
+                position: relative;
+                width: 120px;
+                margin: 0.1rem;
+                flex-grow: 1;
+            }
+        }
+    }
+
+    @media (max-width:661px) {
+        &__container {
+            padding: 1rem 0;
+        }
+    }
+
+    @media (max-width:598.8px) {
+        &__container {
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+        }
+
+        &__link {
+            flex-shrink: 0;
+
+            &:first-child {
+                margin-left: 1.8rem;
+            }
+        }
+
+        .events__link--buffer {
+            width: 0;
+        }
+    }
+}
