@@ -37,6 +37,8 @@ MFP.prototype.setup = function () {
 		callbacks: {
 			open: () => {
 				history.pushState( {}, "", baseLocation + "slide" )
+				document.querySelector( "body" ).style.overflow = "hidden"
+				document.querySelector( "html" ).style.overflow = "hidden"
 			},
 			elementParse: ( item ) => {
 				this.loadPopup( item )
@@ -63,6 +65,8 @@ MFP.prototype.setup = function () {
 			},
 			close: () => {
 				document.location.pathname === baseLocation + "slide" && history.back();
+				document.querySelector( "body" ).style.overflow = "auto"
+				document.querySelector( "html" ).style.overflow = "auto"
 			}
 		}
 	} );

@@ -12,6 +12,10 @@
     display: flex;
     justify-content: space-between;
 
+    a {
+        text-decoration: none;
+    }
+
     &::before,
     &::after {
         box-shadow: none !important;
@@ -19,7 +23,7 @@
 
     &__title {
         font-size: 1.625rem;
-        padding-bottom: 1rem;
+        padding-bottom: 1.5rem;
     }
 
     &__link-wrap,
@@ -30,7 +34,6 @@
 
     &__link {
         position: relative;
-        text-decoration: none;
         height: 36px;
         width: 36px;
         margin-top: 0.35em;
@@ -78,7 +81,8 @@
         }
 
         &-name {
-            font-size: 1.875rem;
+            font-size: 1.625rem;
+            letter-spacing: 1px;
         }
 
         &-copyright {
@@ -116,5 +120,31 @@
 @media (max-width: 900px) {
     .contact {
         padding: 4rem 12vw 4.5rem 12vw;
+    }
+}
+
+@media (max-width: 767.8px) {
+    .contact {
+        flex-direction: column;
+    }
+
+    .contact__info-name {
+        display: none;
+    }
+
+    .contact__info-copyright {
+        text-align: center;
+        padding-top: 3rem;
+    }
+}
+
+@media (max-width: 598.8px) {
+    .contact {
+        padding-left: calc(1.3rem + 5vw) !important;
+        padding-right: calc(1.3rem + 5vw) !important;
+    }
+
+    .contact__title {
+        padding-bottom: 2rem;
     }
 }
