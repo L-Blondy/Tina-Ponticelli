@@ -20,4 +20,16 @@
         margin-left: 1.8rem !important;
         margin-right: 1.5rem !important;
     }
+
+    @media (max-width:599.8px) {
+        .switch-lang__btn {
+            margin-bottom: 1.3rem;
+        }
+    }
+
+    @media (max-width:400px) {
+        .switch-lang__btn {
+            margin-bottom: 1.08rem;
+        }
+    }
 }
