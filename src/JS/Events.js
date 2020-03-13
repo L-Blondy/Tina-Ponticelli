@@ -1,7 +1,7 @@
 import { onVisible } from "lb-onvisible"
 import { setup_lazyLoad } from "./_mixins"
 
-export function Events ( pathList_cards, pathList_popup ) {
+export function Events( pathList_cards, pathList_popup ) {
 	this.pathList_cards = pathList_cards
 	this.pathList_popup = pathList_popup
 	this.container = document.querySelector( ".events__container" )
@@ -24,6 +24,7 @@ Events.prototype.setup = function () {
 
 		this.a.href = this.pathList_popup[ i ]
 		this.img.dataset.src = path
+		this.img.setAttribute( "alt", path );
 
 		this.div.appendChild( this.img )
 		this.a.appendChild( this.div )
