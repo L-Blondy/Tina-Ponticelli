@@ -6,8 +6,8 @@
   "scripts": {
     "start": "parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && parcel build index.html --public-url https://l-blondy.github.io/Tina-Ponticelli/",
-    "deploy": "npm run build && gh-pages -d dist"
+    "build": "rm -rf dist && parcel build index.html 404.html --public-url https://l-blondy.github.io/Tina-Ponticelli/",
+    "deploy": "npm run build && copyfiles robots.txt dist && gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
